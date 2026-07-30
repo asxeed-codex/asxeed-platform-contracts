@@ -1,0 +1,21 @@
+{
+  "taskId": "P0-T01A",
+  "rollbackType": "git-revert",
+  "preconditions": [
+    "Confirm the exact P0-T01A commit to revert.",
+    "Confirm no later approved task depends on the adopted paths or manifest."
+  ],
+  "steps": [
+    "Before merge, close the Draft PR and abandon the task branch if adoption is rejected.",
+    "After merge, create a dedicated rollback branch from main.",
+    "Revert the single P0-T01A adoption commit without rewriting history.",
+    "Run git diff --check and confirm the repository returns to its prior tracked-file state.",
+    "Confirm _phase0_input remains local, ignored, unchanged, and uncommitted.",
+    "Submit the rollback as a reviewed pull request."
+  ],
+  "dataLossRisk": "none",
+  "dataMigrationRequired": false,
+  "packageRollbackRequired": false,
+  "deploymentRollbackRequired": false,
+  "notes": "This task adds governance files only and does not deploy, publish, migrate data, or change GitHub repository settings."
+}

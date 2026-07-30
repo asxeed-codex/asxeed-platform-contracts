@@ -1,0 +1,30 @@
+{
+  "taskId": "P0-T01A",
+  "parentTaskId": "P0-T01",
+  "status": "completed",
+  "approvalStatus": "checkpoint-pending",
+  "repository": "asxeed-codex/asxeed-platform-contracts",
+  "branch": "codex/P0-T01A-platform-contracts-adoption",
+  "summary": "Installed canonical Architecture Freeze, Technology Baseline, planning, task graph, sprint, responsibility, readiness, and Phase 0 execution documents with deterministic adoption governance.",
+  "adrReferences": [
+    "ADR-010",
+    "ADR-013",
+    "ADR-016"
+  ],
+  "outputs": [
+    "docs/architecture/",
+    "docs/plans/",
+    "docs/reports/",
+    "docs/architecture/repository-responsibility.md",
+    "docs/architecture/adoption-manifest.json",
+    "scripts/verify-architecture-adoption.mjs",
+    ".ado/artifacts/P0-T01A/"
+  ],
+  "canonicalDocumentCount": 12,
+  "knownLimitations": [
+    "No pre-existing repository CI or test configuration was available to invoke.",
+    "The local host exposes Node.js 25.9.0 rather than the frozen application baseline 24.18.0; the dependency-free document verifier should be rerun under the pinned runtime when repository bootstrap is implemented.",
+    "Consumer adoption in ADO and Manufacturing OS is intentionally deferred to P0-T01B and P0-T01C."
+  ],
+  "nextRequiredAction": "AI CTO checkpoint review of P0-T01A; do not begin P0-T01B until approved."
+}

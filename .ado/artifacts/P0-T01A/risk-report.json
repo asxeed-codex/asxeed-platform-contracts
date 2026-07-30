@@ -1,0 +1,42 @@
+{
+  "taskId": "P0-T01A",
+  "riskLevel": "medium",
+  "risks": [
+    {
+      "id": "P0-T01A-R1",
+      "severity": "low",
+      "description": "The local host provides Node.js 25.9.0 while the frozen application baseline is Node.js 24.18.0.",
+      "impact": "The current dependency-free filesystem and cryptographic verifier uses only stable Node.js core APIs, but the environment is not the future application runtime baseline.",
+      "mitigation": "Rerun the verifier under Node.js 24.18.0 when the repository toolchain is bootstrapped; no application dependency or runtime substitution was committed."
+    },
+    {
+      "id": "P0-T01A-R2",
+      "severity": "low",
+      "description": "The repository had no tracked CI configuration.",
+      "impact": "The deterministic verifier is locally executable but is not yet an enforced GitHub required check.",
+      "mitigation": "Keep this script as the deterministic source and integrate the approved reusable workflow in its separately scoped Phase 0 CI task."
+    },
+    {
+      "id": "P0-T01A-R3",
+      "severity": "low",
+      "description": "The canonical Development Readiness Report v1.0 refers internally to Phase 0 Codex Pack v1.2, while the approved source supplied for adoption is v1.3.",
+      "impact": "A reader may notice a stale historical version reference.",
+      "mitigation": "The readiness report was preserved byte-for-byte, while the user-required manifest and exact-version checks pin the adopted Codex Pack to v1.3. Any source correction must be a separately approved versioned governance change."
+    },
+    {
+      "id": "P0-T01A-R4",
+      "severity": "low",
+      "description": "GitHub CLI is not installed in the execution environment.",
+      "impact": "CLI-based Draft PR creation is unavailable.",
+      "mitigation": "Use authenticated Git push plus the connected GitHub application for Draft PR creation."
+    }
+  ],
+  "conflicts": [],
+  "needsDesignDecision": false,
+  "blockedExternal": false,
+  "securityImpact": "none",
+  "dataMigration": false,
+  "breakingChange": false,
+  "humanApprovalRequired": true,
+  "checkpoint": "pending"
+}

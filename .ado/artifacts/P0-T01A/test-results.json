@@ -1,0 +1,97 @@
+{
+  "taskId": "P0-T01A",
+  "overall": "pass",
+  "suites": [
+    {
+      "name": "existing-repository-checks",
+      "status": "not-applicable",
+      "command": null,
+      "details": "The initial repository contained no tracked package, test, build, lint, or CI configuration."
+    },
+    {
+      "name": "architecture-adoption-verifier",
+      "status": "pass",
+      "command": "node scripts/verify-architecture-adoption.mjs",
+      "assertions": {
+        "requiredFiles": 14,
+        "jsonParsing": 2,
+        "exactVersionsAndMetadata": 95,
+        "sha256Agreement": 12,
+        "relativeLinks": 22
+      }
+    },
+    {
+      "name": "verifier-syntax",
+      "status": "pass",
+      "command": "node --check scripts/verify-architecture-adoption.mjs"
+    },
+    {
+      "name": "canonical-byte-comparison",
+      "status": "pass",
+      "command": "cmp _phase0_input/<approved-document> <stable-canonical-path>",
+      "comparisons": 12
+    },
+    {
+      "name": "immutable-source-integrity",
+      "status": "pass",
+      "command": "shasum -a 256 _phase0_input/*",
+      "details": "All 13 source files retained their pre-adoption SHA-256 values."
+    },
+    {
+      "name": "task-authored-diff-hygiene",
+      "status": "pass",
+      "command": "git diff --cached --check -- <task-authored-files>",
+      "details": "Canonical copies are intentionally excluded because their adopted bytes include Markdown hard-break spaces and final blank lines."
+    },
+    {
+      "name": "canonical-source-format-preservation",
+      "status": "pass",
+      "command": "git diff --cached --check",
+      "expectedExitCode": 2,
+      "actualExitCode": 2,
+      "details": "Every full-diff warning is within a byte-identical canonical source copy; those bytes were not normalized or rewritten."
+    },
+    {
+      "name": "evidence-json-parsing",
+      "status": "pass",
+      "command": "node <parse every JSON file under docs and .ado>",
+      "parsedFiles": 11
+    },
+    {
+      "name": "changed-file-inventory-consistency",
+      "status": "pass",
+      "command": "node <compare worktree file inventory to changed-files.json>",
+      "declaredFiles": 27,
+      "actualFiles": 27
+    },
+    {
+      "name": "hash-artifact-consistency",
+      "status": "pass",
+      "command": "node <normalize and compare manifest hashes to document-hashes.json>",
+      "matchingDocuments": 12
+    },
+    {
+      "name": "tamper-detection",
+      "status": "pass",
+      "command": "node scripts/verify-architecture-adoption.mjs (temporary tampered canonical copy)",
+      "expectedExitCode": 1,
+      "actualExitCode": 1,
+      "detectedFailures": [
+        "exactVersions",
+        "sha256Agreement"
+      ]
+    }
+  ],
+  "failures": [],
+  "skipped": [
+    {
+      "name": "pre-existing project checks",
+      "reason": "No pre-existing project checks were present."
+    }
+  ],
+  "environment": {
+    "localNode": "25.9.0",
+    "approvedApplicationBaselineNode": "24.18.0",
+    "dependenciesInstalled": false
+  }
+}

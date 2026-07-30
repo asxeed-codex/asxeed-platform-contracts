@@ -1,0 +1,53 @@
+{
+  "taskId": "P0-T01A",
+  "repository": "asxeed-codex/asxeed-platform-contracts",
+  "status": "pass",
+  "adoptionStatus": "adopted-pending-checkpoint",
+  "technologyBaselineVersion": "1.0",
+  "baselineDocuments": [
+    {
+      "filePath": "docs/architecture/TECHNOLOGY_STACK.md",
+      "version": "1.0",
+      "sha256": "705350a735a25d2e35bbbee0e61c54181bb9b44da8da9c708ec215e35b06b3d6"
+    },
+    {
+      "filePath": "docs/architecture/TECHNOLOGY_VERSION_MATRIX.md",
+      "version": "1.0",
+      "sha256": "c1501cb75dd1bf3bb84b5a4862dd3a04cad980e0fed5783fa667ef63c5e550f5"
+    },
+    {
+      "filePath": "docs/architecture/TECHNOLOGY_SELECTION_RATIONALE.md",
+      "version": "1.0",
+      "sha256": "d816d14ad92109d989911f6c5f21492437b2c9a86ae52e16e5fd8ccdebde9fd4"
+    },
+    {
+      "filePath": "docs/architecture/DEFERRED_TECHNOLOGY.md",
+      "version": "1.0",
+      "sha256": "c843bc9b4090e819b754596d4025582ed84ac013e8bcf5795f74755aff166000"
+    }
+  ],
+  "frozenSelectionsVerified": {
+    "node": "24.18.0",
+    "typescript": "6.0.3",
+    "pnpm": "10.34.0",
+    "turborepo": "2.9.15",
+    "nextjs": "16.2.9",
+    "nestjs": "11.1.24",
+    "prisma": "6.19.3"
+  },
+  "implementationScope": "Documentation adoption and deterministic verification only",
+  "dependenciesAdded": [],
+  "frameworksAdded": [],
+  "servicesAdded": [],
+  "databasesAdded": [],
+  "queuesAdded": [],
+  "aiProvidersAdded": [],
+  "majorVersionSubstitutions": [],
+  "unapprovedTechnologyDetected": false,
+  "localEnvironmentObservation": {
+    "node": "25.9.0",
+    "isApplicationBaseline": false,
+    "impact": "Used only to execute the dependency-free document verifier; no runtime or package configuration was adopted from the host."
+  },
+  "nextCompatibilityWork": "Repository bootstrap and technology compatibility spikes remain in their approved later tasks."
+}

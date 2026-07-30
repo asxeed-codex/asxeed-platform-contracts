@@ -1,0 +1,140 @@
+{
+  "taskId": "P0-T01A",
+  "files": [
+    {
+      "path": ".gitignore",
+      "changeType": "added",
+      "reason": "Prevent immutable Phase 0 input material from being committed"
+    },
+    {
+      "path": "README.md",
+      "changeType": "added",
+      "reason": "Make canonical governance and verification discoverable from the repository root"
+    },
+    {
+      "path": "docs/README.md",
+      "changeType": "added",
+      "reason": "Provide an authority-ordered governance index"
+    },
+    {
+      "path": "docs/architecture/ASXEED_Architecture_Freeze_v1.1.md",
+      "changeType": "added",
+      "reason": "Install the canonical Architecture Freeze v1.1"
+    },
+    {
+      "path": "docs/architecture/TECHNOLOGY_STACK.md",
+      "changeType": "added",
+      "reason": "Install the canonical Technology Stack v1.0"
+    },
+    {
+      "path": "docs/architecture/TECHNOLOGY_VERSION_MATRIX.md",
+      "changeType": "added",
+      "reason": "Install the canonical Technology Version Matrix v1.0"
+    },
+    {
+      "path": "docs/architecture/TECHNOLOGY_SELECTION_RATIONALE.md",
+      "changeType": "added",
+      "reason": "Install the canonical Technology Selection Rationale v1.0"
+    },
+    {
+      "path": "docs/architecture/DEFERRED_TECHNOLOGY.md",
+      "changeType": "added",
+      "reason": "Install the canonical Deferred Technology register v1.0"
+    },
+    {
+      "path": "docs/architecture/SYSTEM_RESPONSIBILITY_BOUNDARIES_v1.0.md",
+      "changeType": "added",
+      "reason": "Install the canonical System Responsibility Boundaries v1.0"
+    },
+    {
+      "path": "docs/architecture/repository-responsibility.md",
+      "changeType": "added",
+      "reason": "Define repository ownership, dependency boundaries, synchronization, and escalation"
+    },
+    {
+      "path": "docs/architecture/adoption-manifest.json",
+      "changeType": "added",
+      "reason": "Pin every adopted representation by version, path, source, repository, status, and SHA-256"
+    },
+    {
+      "path": "docs/plans/MASTER_IMPLEMENTATION_PLAN_v1.2.md",
+      "changeType": "added",
+      "reason": "Install the canonical Master Implementation Plan v1.2"
+    },
+    {
+      "path": "docs/plans/ADO_TASK_GRAPH_v1.2.md",
+      "changeType": "added",
+      "reason": "Install the canonical ADO Task Graph v1.2 Markdown representation"
+    },
+    {
+      "path": "docs/plans/ADO_TASK_GRAPH_v1.2.json",
+      "changeType": "added",
+      "reason": "Install the canonical ADO Task Graph v1.2 machine-readable representation"
+    },
+    {
+      "path": "docs/plans/SPRINT_EXECUTION_PLAN_v1.0.md",
+      "changeType": "added",
+      "reason": "Install the canonical Sprint Execution Plan v1.0"
+    },
+    {
+      "path": "docs/plans/PHASE_00_ARCHITECTURE_ADOPTION_CODEX_PACK_v1.3.md",
+      "changeType": "added",
+      "reason": "Install the canonical Phase 0 Architecture Adoption Codex Pack v1.3"
+    },
+    {
+      "path": "docs/reports/ASXEED_DEVELOPMENT_READINESS_REPORT_v1.0.md",
+      "changeType": "added",
+      "reason": "Install the canonical Development Readiness Report v1.0"
+    },
+    {
+      "path": "scripts/verify-architecture-adoption.mjs",
+      "changeType": "added",
+      "reason": "Implement dependency-free deterministic adoption checks"
+    },
+    {
+      "path": ".ado/artifacts/P0-T01A/implementation-summary.json",
+      "changeType": "added",
+      "reason": "Record implementation scope and checkpoint status"
+    },
+    {
+      "path": ".ado/artifacts/P0-T01A/commands-executed.json",
+      "changeType": "added",
+      "reason": "Record implementation and verification commands"
+    },
+    {
+      "path": ".ado/artifacts/P0-T01A/changed-files.json",
+      "changeType": "added",
+      "reason": "Record the complete task file inventory"
+    },
+    {
+      "path": ".ado/artifacts/P0-T01A/test-results.json",
+      "changeType": "added",
+      "reason": "Record deterministic and repository verification outcomes"
+    },
+    {
+      "path": ".ado/artifacts/P0-T01A/risk-report.json",
+      "changeType": "added",
+      "reason": "Record detected risks, mitigations, and conflict assessment"
+    },
+    {
+      "path": ".ado/artifacts/P0-T01A/rollback-plan.json",
+      "changeType": "added",
+      "reason": "Define the reversible Git rollback procedure"
+    },
+    {
+      "path": ".ado/artifacts/P0-T01A/architecture-adoption-report.json",
+      "changeType": "added",
+      "reason": "Record architecture adoption and ownership-boundary verification"
+    },
+    {
+      "path": ".ado/artifacts/P0-T01A/document-hashes.json",
+      "changeType": "added",
+      "reason": "Record canonical SHA-256 values for all adopted representations"
+    },
+    {
+      "path": ".ado/artifacts/P0-T01A/technology-adoption-report.json",
+      "changeType": "added",
+      "reason": "Record Technology Baseline v1.0 adoption without implementation substitutions"
+    }
+  ]
+}

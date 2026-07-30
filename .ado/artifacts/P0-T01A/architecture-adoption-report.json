@@ -1,0 +1,42 @@
+{
+  "taskId": "P0-T01A",
+  "repository": "asxeed-codex/asxeed-platform-contracts",
+  "branch": "codex/P0-T01A-platform-contracts-adoption",
+  "status": "pass",
+  "adoptionStatus": "adopted-pending-checkpoint",
+  "architectureFreezeVersion": "1.1",
+  "adoptedAdrRange": "ADR-001..ADR-024",
+  "technologyBaselineVersion": "1.0",
+  "masterImplementationPlanVersion": "1.2",
+  "adoTaskGraphVersion": "1.2",
+  "sprintExecutionPlanVersion": "1.0",
+  "systemResponsibilityBoundariesVersion": "1.0",
+  "developmentReadinessReportVersion": "1.0",
+  "phase0CodexPackVersion": "1.3",
+  "canonicalRepresentations": 12,
+  "copyIntegrity": {
+    "status": "pass",
+    "byteIdenticalComparisons": 12,
+    "hashAgreementCount": 12
+  },
+  "governance": {
+    "index": "docs/README.md",
+    "responsibilityPolicy": "docs/architecture/repository-responsibility.md",
+    "manifest": "docs/architecture/adoption-manifest.json",
+    "deterministicVerifier": "scripts/verify-architecture-adoption.mjs"
+  },
+  "repositoryAudit": {
+    "initialTrackedFiles": 0,
+    "existingGovernanceConflict": false,
+    "existingCi": false,
+    "existingPackageStructure": false
+  },
+  "consumerSynchronization": {
+    "ado": "not-started-P0-T01B",
+    "manufacturingOs": "not-started-P0-T01C",
+    "crossRepositoryVerification": "not-started-P0-T01D"
+  },
+  "needsDesignDecision": false,
+  "blockedExternal": false,
+  "checkpointStatus": "pending-human-review"
+}

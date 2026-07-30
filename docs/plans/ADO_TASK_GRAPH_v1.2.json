@@ -1,0 +1,4381 @@
+{
+  "graphId": "asxeed-master-implementation-v1",
+  "graphVersion": "1.2",
+  "status": "architecture-freeze-aligned",
+  "sourceDocuments": [
+    "ASXEED_Architecture_Freeze_v1.1.md",
+    "TECHNOLOGY_STACK.md",
+    "TECHNOLOGY_VERSION_MATRIX.md",
+    "TECHNOLOGY_SELECTION_RATIONALE.md",
+    "DEFERRED_TECHNOLOGY.md",
+    "MASTER_IMPLEMENTATION_PLAN_v1.2.md",
+    "SPRINT_EXECUTION_PLAN_v1.0.md",
+    "SYSTEM_RESPONSIBILITY_BOUNDARIES_v1.0.md"
+  ],
+  "taskCount": 103,
+  "phaseCount": 8,
+  "validation": {
+    "missingDependencyCount": 0,
+    "cycleCount": 0,
+    "missingSprintAssignmentCount": 0,
+    "sprintDependencyOrderViolationCount": 0,
+    "topologicalOrder": [
+      "P0-T01",
+      "P0-T02",
+      "P0-T03",
+      "P0-T04",
+      "P0-T05",
+      "P0-T06",
+      "P0-GATE",
+      "P1-T01",
+      "P1-T02",
+      "P1-T03",
+      "P1-T04",
+      "P1-T07",
+      "P1-T05",
+      "P1-T06",
+      "P1-TS06",
+      "P1-TS07",
+      "P1-TS04",
+      "P1-TS01",
+      "P1-TS02",
+      "P1-TS03",
+      "P1-TS05",
+      "P1-T08",
+      "P1-T09",
+      "P1-T10",
+      "P1-T11",
+      "P1-T13",
+      "P1-T12",
+      "P1-T15",
+      "P1-T14",
+      "P1-T16",
+      "P1-T17",
+      "P1-GATE",
+      "P2-T01",
+      "P4-T01",
+      "P5-T01",
+      "P2-T02",
+      "P2-T03",
+      "P2-T04",
+      "P2-T05",
+      "P4-T02",
+      "P4-T03",
+      "P5-T02",
+      "P2-T06",
+      "P4-T04",
+      "P5-T03",
+      "P2-T07",
+      "P4-T05",
+      "P4-T06",
+      "P5-T04",
+      "P2-T08",
+      "P4-T07",
+      "P5-T05",
+      "P5-T09",
+      "P2-T09",
+      "P4-T08",
+      "P4-T09",
+      "P5-T06",
+      "P5-T10",
+      "P2-T10",
+      "P4-T10",
+      "P4-T11",
+      "P5-T07",
+      "P2-T11",
+      "P4-T12",
+      "P5-T11",
+      "P2-GATE",
+      "P4-GATE",
+      "P3-T01",
+      "P3-T07",
+      "P3-T09",
+      "P3-T02",
+      "P3-T08",
+      "P3-T10",
+      "P5-T08",
+      "P3-T03",
+      "P3-T04",
+      "P3-T05",
+      "P5-T12",
+      "P3-T11",
+      "P3-T06",
+      "P5-GATE",
+      "P3-T12",
+      "P3-T13",
+      "P3-GATE",
+      "P6-T01",
+      "P6-T02",
+      "P6-T03",
+      "P6-T04",
+      "P6-T05",
+      "P6-T06",
+      "P6-T07",
+      "P6-T08",
+      "P6-T09",
+      "P6-GATE",
+      "P7-T01",
+      "P7-T04",
+      "P7-T02",
+      "P7-T05",
+      "P7-T03",
+      "P7-T06",
+      "P7-T07",
+      "P7-T08",
+      "P7-GATE"
+    ],
+    "sprintDependencyOrderViolations": []
+  },
+  "tasks": [
+    {
+      "id": "P0-T01",
+      "phase": "P0",
+      "title": "Architecture Freeze v1.1・Technology Baseline文書を3 Repositoryへ配置",
+      "repository": "platform-contracts",
+      "agent": "architect",
+      "dependsOn": [],
+      "riskLevel": "medium",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-016"
+      ],
+      "objective": "Freeze、ADR、Technology Baseline、Master Plan、責任境界を各Repositoryの正式参照位置へ配置する。",
+      "outputs": [
+        "docs/architecture/ASXEED_Architecture_Freeze_v1.1.md",
+        "docs/architecture/TECHNOLOGY_STACK.md",
+        "docs/architecture/TECHNOLOGY_VERSION_MATRIX.md",
+        "docs/architecture/TECHNOLOGY_SELECTION_RATIONALE.md",
+        "docs/architecture/DEFERRED_TECHNOLOGY.md",
+        "docs/plans/MASTER_IMPLEMENTATION_PLAN_v1.1.md",
+        "repository-responsibility.md"
+      ],
+      "acceptanceCriteria": [
+        "3 Repositoryで同一HashのFreeze v1.1とTechnology Baselineを参照できる",
+        "文書階層と衝突時停止手順が明記される",
+        "Technology Version MatrixがCIから検証可能"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P0-A",
+      "status": "planned",
+      "readiness": "ready",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "ARCHITECTURE-ADOPTION",
+      "sprintId": "SPRINT-00",
+      "sprintSequence": 0
+    },
+    {
+      "id": "P0-T02",
+      "phase": "P0",
+      "title": "各RepositoryのAGENTS.mdをArchitecture準拠へ更新",
+      "repository": "platform-contracts",
+      "agent": "architect",
+      "dependsOn": [
+        "P0-T01"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-010",
+        "ADR-016"
+      ],
+      "objective": "Codexが独自設計せず、ADR・禁止事項・Artifact要件を守る統治文書を作る。",
+      "outputs": [
+        "ADO AGENTS.md",
+        "Manufacturing OS AGENTS.md",
+        "Platform Contracts AGENTS.md"
+      ],
+      "acceptanceCriteria": [
+        "ADR参照が必須",
+        "Architecture判断時の停止条件がある",
+        "Main Merge・Production権限禁止が明記される"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "ARCHITECTURE-ADOPTION",
+      "sprintId": "SPRINT-00",
+      "sprintSequence": 0
+    },
+    {
+      "id": "P0-T03",
+      "phase": "P0",
+      "title": "ADO Task Contract v1を定義",
+      "repository": "platform-contracts",
+      "agent": "architect",
+      "dependsOn": [
+        "P0-T01"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-010",
+        "ADR-013"
+      ],
+      "objective": "Task ID、依存関係、Acceptance Criteria、Artifact、Approvalを機械可読化する。",
+      "outputs": [
+        "ado-task.schema.json",
+        "ado-task.example.json"
+      ],
+      "acceptanceCriteria": [
+        "dependsOnはTask ID配列",
+        "ADR・Risk・Approval・Rollbackが必須",
+        "Schema validationが通る"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P0-A",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "ARCHITECTURE-ADOPTION",
+      "sprintId": "SPRINT-00",
+      "sprintSequence": 0
+    },
+    {
+      "id": "P0-T04",
+      "phase": "P0",
+      "title": "Architecture Rule Catalogを定義",
+      "repository": "platform-contracts",
+      "agent": "architect",
+      "dependsOn": [
+        "P0-T01"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-001",
+        "ADR-002",
+        "ADR-009",
+        "ADR-012",
+        "ADR-013"
+      ],
+      "objective": "初期Architecture違反を安定したRule IDとして定義する。",
+      "outputs": [
+        "architecture-rules.json",
+        "prohibited-patterns.md"
+      ],
+      "acceptanceCriteria": [
+        "最低7種類の違反Ruleがある",
+        "各RuleにSeverity・対象・修正方針がある"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P0-A",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "ARCHITECTURE-ADOPTION",
+      "sprintId": "SPRINT-00",
+      "sprintSequence": 0
+    },
+    {
+      "id": "P0-T05",
+      "phase": "P0",
+      "title": "Architecture Judge Skeletonを実装",
+      "repository": "ado",
+      "agent": "implementer",
+      "dependsOn": [
+        "P0-T03",
+        "P0-T04"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-010",
+        "ADR-015"
+      ],
+      "objective": "Repository Diffを解析してArchitecture Rule違反をReportするJudgeを作る。",
+      "outputs": [
+        "architecture judge package",
+        "architecture-report.json"
+      ],
+      "acceptanceCriteria": [
+        "直接Domain importを検出",
+        "商品名分岐を検出",
+        "禁止Fieldとevalを検出",
+        "ReportがJSON Schema準拠"
+      ],
+      "requiredTests": [
+        "unit",
+        "fixture-based architecture violations"
+      ],
+      "requiredArtifacts": [
+        "architecture-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "ARCHITECTURE-ADOPTION",
+      "sprintId": "SPRINT-00",
+      "sprintSequence": 0
+    },
+    {
+      "id": "P0-T06",
+      "phase": "P0",
+      "title": "Architecture CheckをGitHub Required Check化",
+      "repository": "platform-contracts",
+      "agent": "implementer",
+      "dependsOn": [
+        "P0-T02",
+        "P0-T05"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-010",
+        "ADR-016"
+      ],
+      "objective": "Architecture Judgeを各RepositoryのPR Gateへ組み込む。",
+      "outputs": [
+        "reusable architecture workflow",
+        "branch protection setup guide"
+      ],
+      "acceptanceCriteria": [
+        "3 RepositoryでCheckが毎回完了",
+        "違反PRがMerge不可",
+        "not-applicableでも成功状態を返す"
+      ],
+      "requiredTests": [
+        "workflow smoke test"
+      ],
+      "requiredArtifacts": [
+        "ci-check-evidence.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "ARCHITECTURE-ADOPTION",
+      "sprintId": "SPRINT-00",
+      "sprintSequence": 0
+    },
+    {
+      "id": "P0-GATE",
+      "phase": "P0",
+      "title": "M0 Architecture Operational Gate",
+      "repository": "platform-contracts",
+      "agent": "judge",
+      "dependsOn": [
+        "P0-T06"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-010",
+        "ADR-015"
+      ],
+      "objective": "Phase 1開始前にArchitecture統治が実動することを確認する。",
+      "outputs": [
+        "M0 gate report"
+      ],
+      "acceptanceCriteria": [
+        "Freeze参照が揃う",
+        "Task Contractが有効",
+        "Architecture違反をCIが停止",
+        "Human Approval完了"
+      ],
+      "requiredTests": [
+        "cross-repository smoke"
+      ],
+      "requiredArtifacts": [
+        "judge-summary.json",
+        "rollback-plan.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "ARCHITECTURE-ADOPTION",
+      "sprintId": "SPRINT-00",
+      "sprintSequence": 0
+    },
+    {
+      "id": "P1-T01",
+      "phase": "P1",
+      "title": "Platform Contracts Repository基盤を構築",
+      "repository": "platform-contracts",
+      "agent": "implementer",
+      "dependsOn": [
+        "P0-GATE"
+      ],
+      "riskLevel": "medium",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-013",
+        "ADR-016"
+      ],
+      "objective": "pnpm Workspace、Turborepo、TypeScript、Vitest、Package Release基盤を整える。",
+      "outputs": [
+        "workspace config",
+        "shared tsconfig",
+        "package release config"
+      ],
+      "acceptanceCriteria": [
+        "install・lint・typecheck・build・testが通る",
+        "Nodeとpnpm Versionが固定"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P1-FOUND",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "PLATFORM-FOUNDATION",
+      "sprintId": "SPRINT-01",
+      "sprintSequence": 1
+    },
+    {
+      "id": "P1-T02",
+      "phase": "P1",
+      "title": "Core Job・Artifact・Trace Contractを実装",
+      "repository": "platform-contracts",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T01"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-008",
+        "ADR-013",
+        "ADR-014"
+      ],
+      "objective": "Job、Artifact、Trace、Version、Organization Scopeの共通Schemaを作る。",
+      "outputs": [
+        "job-contract",
+        "artifact-contract",
+        "trace-contract",
+        "version-contract",
+        "organization-contract"
+      ],
+      "acceptanceCriteria": [
+        "JSON Schema 2020-12準拠",
+        "TypeScript型とValidatorを生成",
+        "互換Fixtureが通る"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P1-CONTRACT",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "PLATFORM-FOUNDATION",
+      "sprintId": "SPRINT-01",
+      "sprintSequence": 1
+    },
+    {
+      "id": "P1-T03",
+      "phase": "P1",
+      "title": "Error・Approval・Verification・Event Contractを実装",
+      "repository": "platform-contracts",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T01"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-010",
+        "ADR-013"
+      ],
+      "objective": "Error、Approval、Verification Artifact、CloudEvents互換Envelopeを作る。",
+      "outputs": [
+        "error-contract",
+        "approval-base",
+        "verification-contract",
+        "event-envelope"
+      ],
+      "acceptanceCriteria": [
+        "安定Error Codeを持つ",
+        "ApprovalがVersion・Hashへ結び付く",
+        "EventにSchema VersionとTraceがある"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P1-CONTRACT",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "PLATFORM-FOUNDATION",
+      "sprintId": "SPRINT-01",
+      "sprintSequence": 1
+    },
+    {
+      "id": "P1-T04",
+      "phase": "P1",
+      "title": "Reusable CI Workflowを構築",
+      "repository": "platform-contracts",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T01",
+        "P0-T06"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-015",
+        "ADR-016"
+      ],
+      "objective": "Static、Unit、Contract、Integration、Security、Judgeの共通Workflowを作る。",
+      "outputs": [
+        "ci-static",
+        "ci-unit",
+        "ci-contract",
+        "ci-integration",
+        "ci-security",
+        "ci-judge"
+      ],
+      "acceptanceCriteria": [
+        "Required Checkが必ず完了",
+        "OIDC前提",
+        "Artifactを保存"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P1-FOUND",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "PLATFORM-FOUNDATION",
+      "sprintId": "SPRINT-01",
+      "sprintSequence": 1
+    },
+    {
+      "id": "P1-T05",
+      "phase": "P1",
+      "title": "ADO RepositoryをMonorepo構成へ整備",
+      "repository": "ado",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T02",
+        "P1-T03",
+        "P1-T04"
+      ],
+      "riskLevel": "medium",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-016"
+      ],
+      "objective": "apps/web・api・workersとDomain packagesの境界を作る。",
+      "outputs": [
+        "ADO workspace",
+        "apps/api",
+        "apps/workers",
+        "apps/web"
+      ],
+      "acceptanceCriteria": [
+        "platform contractsをVersion依存",
+        "Manufacturing packageをimportしない"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P1-REPO",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "PLATFORM-FOUNDATION",
+      "sprintId": "SPRINT-01",
+      "sprintSequence": 1
+    },
+    {
+      "id": "P1-T06",
+      "phase": "P1",
+      "title": "Manufacturing OS RepositoryをMonorepo構成へ整備",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T02",
+        "P1-T03",
+        "P1-T04"
+      ],
+      "riskLevel": "medium",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-016"
+      ],
+      "objective": "apps/web・api・workersとPUE・DSL・Rule・Geometry packagesの境界を作る。",
+      "outputs": [
+        "Manufacturing workspace",
+        "apps/api",
+        "apps/workers",
+        "apps/web"
+      ],
+      "acceptanceCriteria": [
+        "platform contractsをVersion依存",
+        "ADO内部packageをimportしない"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P1-REPO",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "PLATFORM-FOUNDATION",
+      "sprintId": "SPRINT-01",
+      "sprintSequence": 1
+    },
+    {
+      "id": "P1-T07",
+      "phase": "P1",
+      "title": "共通Bicep ModuleとEnvironment Parameterを作成",
+      "repository": "platform-contracts",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T01"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-017"
+      ],
+      "objective": "Network、Identity、Key Vault、Monitoring、Container EnvironmentのIaC Moduleを作る。",
+      "outputs": [
+        "infra/modules",
+        "development.bicepparam",
+        "staging.bicepparam"
+      ],
+      "acceptanceCriteria": [
+        "Bicep lint/build成功",
+        "SecretをParameterへ含めない",
+        "必須Tagが付く"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P1-INFRA",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "PLATFORM-FOUNDATION",
+      "sprintId": "SPRINT-01",
+      "sprintSequence": 1
+    },
+    {
+      "id": "P1-T08",
+      "phase": "P1",
+      "title": "Development Cloud基盤をProvision",
+      "repository": "platform-contracts",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T07",
+        "P1-TS07"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-007",
+        "ADR-008",
+        "ADR-009",
+        "ADR-017"
+      ],
+      "objective": "Development用Container Apps、PostgreSQL、Blob、Key Vault、Monitorを構築する。",
+      "outputs": [
+        "development resources",
+        "what-if report",
+        "deployment report"
+      ],
+      "acceptanceCriteria": [
+        "Private Access原則",
+        "OIDC Deploy",
+        "Resource Tag・Budget・Policy適用"
+      ],
+      "requiredTests": [
+        "infra smoke",
+        "what-if validation"
+      ],
+      "requiredArtifacts": [
+        "infrastructure-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "PLATFORM-FOUNDATION",
+      "sprintId": "SPRINT-02",
+      "sprintSequence": 2
+    },
+    {
+      "id": "P1-T09",
+      "phase": "P1",
+      "title": "Staging Environment SkeletonをProvision",
+      "repository": "platform-contracts",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T08",
+        "P1-TS07"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-017",
+        "ADR-022"
+      ],
+      "objective": "Staging用に独立したResource、Identity、Data境界を作る。",
+      "outputs": [
+        "staging resources",
+        "environment isolation report"
+      ],
+      "acceptanceCriteria": [
+        "DevelopmentとCredential・DB・Storageが分離",
+        "Production Dataなし"
+      ],
+      "requiredTests": [
+        "environment isolation"
+      ],
+      "requiredArtifacts": [
+        "infrastructure-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "PLATFORM-FOUNDATION",
+      "sprintId": "SPRINT-02",
+      "sprintSequence": 2
+    },
+    {
+      "id": "P1-T10",
+      "phase": "P1",
+      "title": "Entra ID LoginとRole Contractを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T03",
+        "P1-T06",
+        "P1-T08"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-009",
+        "ADR-011"
+      ],
+      "objective": "MFA前提Loginとplatform_owner等のRole Authorizationを実装する。",
+      "outputs": [
+        "auth middleware",
+        "role guards",
+        "login UI"
+      ],
+      "acceptanceCriteria": [
+        "未認証拒否",
+        "Role別Access Test",
+        "Audit Event生成"
+      ],
+      "requiredTests": [
+        "auth integration",
+        "authorization matrix"
+      ],
+      "requiredArtifacts": [
+        "security-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "PLATFORM-FOUNDATION",
+      "sprintId": "SPRINT-02",
+      "sprintSequence": 2
+    },
+    {
+      "id": "P1-T11",
+      "phase": "P1",
+      "title": "Managed Identity・Key Vault Accessを実装",
+      "repository": "platform-contracts",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T08"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-009",
+        "ADR-017"
+      ],
+      "objective": "API・Workerごとに分離したIdentityと最小権限を設定する。",
+      "outputs": [
+        "managed identities",
+        "RBAC assignments",
+        "Key Vault references"
+      ],
+      "acceptanceCriteria": [
+        "Repository Secretなし",
+        "Workerごとに権限分離",
+        "Production権限なし"
+      ],
+      "requiredTests": [
+        "identity access smoke"
+      ],
+      "requiredArtifacts": [
+        "security-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "PLATFORM-FOUNDATION",
+      "sprintId": "SPRINT-02",
+      "sprintSequence": 2
+    },
+    {
+      "id": "P1-T12",
+      "phase": "P1",
+      "title": "Quarantine StorageとMalware Scan基盤を構築",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T08",
+        "P1-T11"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-009"
+      ],
+      "objective": "PDF Upload隔離、File Validation、Scan ResultのContractとStorage Flowを作る。",
+      "outputs": [
+        "quarantine container",
+        "scan result persistence",
+        "upload validation"
+      ],
+      "acceptanceCriteria": [
+        "clean以外はPUEへ進まない",
+        "MIME・magic number・size検証",
+        "Scan ErrorはFail Closed"
+      ],
+      "requiredTests": [
+        "malicious fixture",
+        "mime spoof fixture"
+      ],
+      "requiredArtifacts": [
+        "security-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "PLATFORM-FOUNDATION",
+      "sprintId": "SPRINT-02",
+      "sprintSequence": 2
+    },
+    {
+      "id": "P1-T13",
+      "phase": "P1",
+      "title": "Prisma Domain SchemaとMigration基盤を構築",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T02",
+        "P1-T03",
+        "P1-T06",
+        "P1-T08",
+        "P1-TS05"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-008",
+        "ADR-016"
+      ],
+      "objective": "core、manufacturing、audit SchemaとMigration Review Flowを作る。",
+      "outputs": [
+        "Prisma schema",
+        "initial migrations",
+        "migration report"
+      ],
+      "acceptanceCriteria": [
+        "organizationIdを保持",
+        "Immutable Snapshot基底",
+        "Productionでdb push禁止"
+      ],
+      "requiredTests": [
+        "migration test",
+        "schema contract"
+      ],
+      "requiredArtifacts": [
+        "migration-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "PLATFORM-FOUNDATION",
+      "sprintId": "SPRINT-02",
+      "sprintSequence": 2
+    },
+    {
+      "id": "P1-T14",
+      "phase": "P1",
+      "title": "Artifact Repository・Audit・Transaction Outboxを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T02",
+        "P1-T03",
+        "P1-T13"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-008",
+        "ADR-013"
+      ],
+      "objective": "Blob実体とDB Metadata、Append-only Audit、Outboxを同一Transactionで扱う。",
+      "outputs": [
+        "artifact repository",
+        "audit repository",
+        "outbox publisher skeleton"
+      ],
+      "acceptanceCriteria": [
+        "Content Hash検証",
+        "公開URL保存なし",
+        "Audit更新・削除禁止"
+      ],
+      "requiredTests": [
+        "transaction rollback",
+        "idempotency"
+      ],
+      "requiredArtifacts": [
+        "artifact-manifest.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "PLATFORM-FOUNDATION",
+      "sprintId": "SPRINT-02",
+      "sprintSequence": 2
+    },
+    {
+      "id": "P1-T15",
+      "phase": "P1",
+      "title": "Temporal Namespace・Worker Runtimeを構築",
+      "repository": "ado",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T05",
+        "P1-T08",
+        "P1-T11"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-007"
+      ],
+      "objective": "APIとWorkerを分離し、Task Queue、Retry、Timeout、Cancelを使えるようにする。",
+      "outputs": [
+        "Temporal client",
+        "worker runtime",
+        "base workflow"
+      ],
+      "acceptanceCriteria": [
+        "Activity idempotent",
+        "Queue分離可能",
+        "Retry上限が明示"
+      ],
+      "requiredTests": [
+        "Temporal testing suite",
+        "time skipping"
+      ],
+      "requiredArtifacts": [
+        "workflow-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "PLATFORM-FOUNDATION",
+      "sprintId": "SPRINT-02",
+      "sprintSequence": 2
+    },
+    {
+      "id": "P1-T16",
+      "phase": "P1",
+      "title": "Job API・Signal／Update／Query・SSEを実装",
+      "repository": "ado",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T02",
+        "P1-T03",
+        "P1-T15"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-007",
+        "ADR-013"
+      ],
+      "objective": "Job開始、進捗、承認待ち、Cancel・ResumeをAPIとSSEで提供する。",
+      "outputs": [
+        "job API",
+        "SSE endpoint",
+        "polling fallback"
+      ],
+      "acceptanceCriteria": [
+        "Page reload後も進捗復帰",
+        "Idempotency-Key検証",
+        "SignalとUpdateの用途分離"
+      ],
+      "requiredTests": [
+        "API contract",
+        "workflow integration"
+      ],
+      "requiredArtifacts": [
+        "job-trace.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "PLATFORM-FOUNDATION",
+      "sprintId": "SPRINT-02",
+      "sprintSequence": 2
+    },
+    {
+      "id": "P1-T17",
+      "phase": "P1",
+      "title": "OpenTelemetry・Cost Attributionを実装",
+      "repository": "platform-contracts",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T02",
+        "P1-T08",
+        "P1-T15",
+        "P1-T16",
+        "P1-TS04"
+      ],
+      "riskLevel": "medium",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-014"
+      ],
+      "objective": "API、Workflow、Worker、Artifactを単一Traceで追跡しCostをJobへ帰属する。",
+      "outputs": [
+        "OTel SDK config",
+        "collector config",
+        "metric catalog",
+        "cost records"
+      ],
+      "acceptanceCriteria": [
+        "Critical Trace 100%",
+        "機密本文をLogしない",
+        "TraceからArtifactまで到達"
+      ],
+      "requiredTests": [
+        "trace propagation",
+        "log redaction"
+      ],
+      "requiredArtifacts": [
+        "observability-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "PLATFORM-FOUNDATION",
+      "sprintId": "SPRINT-02",
+      "sprintSequence": 2
+    },
+    {
+      "id": "P1-TS01",
+      "phase": "P1",
+      "title": "PDFKit製作用PDF・日本語Font・Scale Spike",
+      "repository": "asxeed-manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T06"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-003",
+        "ADR-011",
+        "ADR-015"
+      ],
+      "objective": "Drawing ModelからPDFKitでA3/A4の固定Scale Vector PDFを生成し、日本語Font埋込みと寸法一致を検証する。",
+      "outputs": [
+        "pdf-spike fixture",
+        "PDF scale report",
+        "font embedding report"
+      ],
+      "acceptanceCriteria": [
+        "A3/A4 page sizeが正しい",
+        "指定Scaleが検証可能",
+        "日本語Glyph欠落なし",
+        "Drawing Model寸法とPDF寸法が一致"
+      ],
+      "requiredTests": [
+        "PDF parser validation",
+        "visual fixture",
+        "dimension comparison"
+      ],
+      "requiredArtifacts": [
+        "technology-spike-report.json",
+        "risk-report.json"
+      ],
+      "parallelGroup": "P1-TECH",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "TECHNOLOGY-VALIDATION",
+      "sprintId": "SPRINT-01",
+      "sprintSequence": 1
+    },
+    {
+      "id": "P1-TS02",
+      "phase": "P1",
+      "title": "AC1032 DXF Write・Read・External Viewer Spike",
+      "repository": "asxeed-manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T06"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-003",
+        "ADR-015"
+      ],
+      "objective": "acad-tsをASXEED Adapter内で使用し、AC1032 ASCII DXFの生成、Parser Round-trip、外部Viewer Fixtureを検証する。",
+      "outputs": [
+        "AC1032 fixture",
+        "round-trip report",
+        "external-viewer checklist"
+      ],
+      "acceptanceCriteria": [
+        "Entity・Layer・寸法がDrawing Modelと一致",
+        "Parserで再読込可能",
+        "DXFがSource of Truthになっていない"
+      ],
+      "requiredTests": [
+        "DXF round-trip",
+        "semantic entity comparison"
+      ],
+      "requiredArtifacts": [
+        "technology-spike-report.json",
+        "cad-validation-report.json"
+      ],
+      "parallelGroup": "P1-TECH",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "TECHNOLOGY-VALIDATION",
+      "sprintId": "SPRINT-01",
+      "sprintSequence": 1
+    },
+    {
+      "id": "P1-TS03",
+      "phase": "P1",
+      "title": "Next.js・React・pdfjs-dist Client Boundary Spike",
+      "repository": "asxeed-manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T06"
+      ],
+      "riskLevel": "medium",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-005",
+        "ADR-011"
+      ],
+      "objective": "Next.js App Router上でpdfjs-distをClient-only境界へ隔離し、Source PDFとEvidence Overlayを表示できることを検証する。",
+      "outputs": [
+        "PDF viewer spike",
+        "evidence overlay fixture"
+      ],
+      "acceptanceCriteria": [
+        "Server BuildでDOM依存Errorなし",
+        "Page・Polygon Overlayが一致",
+        "機密URLをLogへ出さない"
+      ],
+      "requiredTests": [
+        "Next build",
+        "Playwright viewer smoke"
+      ],
+      "requiredArtifacts": [
+        "technology-spike-report.json"
+      ],
+      "parallelGroup": "P1-TECH",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "TECHNOLOGY-VALIDATION",
+      "sprintId": "SPRINT-01",
+      "sprintSequence": 1
+    },
+    {
+      "id": "P1-TS04",
+      "phase": "P1",
+      "title": "NestJS・Fastify・Pino・OpenTelemetry Integration Spike",
+      "repository": "ado",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T05"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-007",
+        "ADR-014"
+      ],
+      "objective": "NestJS/Fastify APIからTemporal相当のWorker境界までTraceを伝播し、Pino Logを関連付ける。",
+      "outputs": [
+        "backend integration spike",
+        "trace propagation report",
+        "redaction report"
+      ],
+      "acceptanceCriteria": [
+        "Trace IDがAPIとWorkerで一致",
+        "Pino LogにTrace Contextあり",
+        "Secret・本文Redactionが有効"
+      ],
+      "requiredTests": [
+        "API integration",
+        "trace assertion",
+        "redaction test"
+      ],
+      "requiredArtifacts": [
+        "technology-spike-report.json",
+        "observability-report.json"
+      ],
+      "parallelGroup": "P1-TECH",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "TECHNOLOGY-VALIDATION",
+      "sprintId": "SPRINT-01",
+      "sprintSequence": 1
+    },
+    {
+      "id": "P1-TS05",
+      "phase": "P1",
+      "title": "Prisma・PostgreSQL JSONB・Transaction・Migration Spike",
+      "repository": "asxeed-manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T06"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-008",
+        "ADR-012",
+        "ADR-015"
+      ],
+      "objective": "Prisma 6.19.3とPostgreSQLでImmutable Snapshot、JSONB Index、Domain Transaction、Migrationを検証する。",
+      "outputs": [
+        "Prisma fixture",
+        "migration fixture",
+        "transaction report"
+      ],
+      "acceptanceCriteria": [
+        "JSONB QueryとIndexが動く",
+        "Transaction OutboxがAtomic",
+        "MigrationとRollback手順が検証される"
+      ],
+      "requiredTests": [
+        "Testcontainers integration",
+        "migration test",
+        "transaction failure test"
+      ],
+      "requiredArtifacts": [
+        "technology-spike-report.json",
+        "migration-report.json"
+      ],
+      "parallelGroup": "P1-TECH",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "TECHNOLOGY-VALIDATION",
+      "sprintId": "SPRINT-01",
+      "sprintSequence": 1
+    },
+    {
+      "id": "P1-TS06",
+      "phase": "P1",
+      "title": "GitHub Packages Publish・Consume Spike",
+      "repository": "platform-contracts",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T01",
+        "P1-T04"
+      ],
+      "riskLevel": "medium",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-013",
+        "ADR-016"
+      ],
+      "objective": "@asxeed Scope PackageをTest PackageとしてPublishし、別RepositoryからVersion固定でConsumeできることを検証する。",
+      "outputs": [
+        "test package",
+        "publish workflow evidence",
+        "consumer lockfile evidence"
+      ],
+      "acceptanceCriteria": [
+        "Branch/Git URL依存なし",
+        "CodexにPublish権限なし",
+        "Version付きPackageをConsumerが利用できる"
+      ],
+      "requiredTests": [
+        "package publish dry-run",
+        "consumer install and contract test"
+      ],
+      "requiredArtifacts": [
+        "technology-spike-report.json",
+        "package-provenance.json"
+      ],
+      "parallelGroup": "P1-TECH",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "TECHNOLOGY-VALIDATION",
+      "sprintId": "SPRINT-01",
+      "sprintSequence": 1
+    },
+    {
+      "id": "P1-TS07",
+      "phase": "P1",
+      "title": "Japan East Provision・Japan West DR Reconstruction Spike",
+      "repository": "platform-contracts",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T07"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-017",
+        "ADR-022"
+      ],
+      "objective": "Japan Eastの初期Resource Matrixと、BicepによるJapan West再構築手順をWhat-if中心に検証する。",
+      "outputs": [
+        "region availability matrix",
+        "Japan East what-if",
+        "Japan West DR reconstruction report"
+      ],
+      "acceptanceCriteria": [
+        "Core Resourceが承認Regionで利用可能",
+        "DR Parameterが分離",
+        "AI RegionをCore Regionと独立管理",
+        "破壊的変更なし"
+      ],
+      "requiredTests": [
+        "Bicep build",
+        "what-if",
+        "DR parameter validation"
+      ],
+      "requiredArtifacts": [
+        "technology-spike-report.json",
+        "infrastructure-report.json",
+        "rollback-plan.json"
+      ],
+      "parallelGroup": "P1-TECH",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "TECHNOLOGY-VALIDATION",
+      "sprintId": "SPRINT-01",
+      "sprintSequence": 1
+    },
+    {
+      "id": "P1-GATE",
+      "phase": "P1",
+      "title": "M1 Cloud Foundation Gate",
+      "repository": "platform-contracts",
+      "agent": "judge",
+      "dependsOn": [
+        "P1-T09",
+        "P1-T10",
+        "P1-T12",
+        "P1-T14",
+        "P1-T16",
+        "P1-T17",
+        "P1-TS01",
+        "P1-TS02",
+        "P1-TS03",
+        "P1-TS04",
+        "P1-TS05",
+        "P1-TS06",
+        "P1-TS07"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-007",
+        "ADR-008",
+        "ADR-009",
+        "ADR-014"
+      ],
+      "objective": "Authenticated JobがCloudで完走し、Artifact・Audit・Traceが保存されることを確認する。",
+      "outputs": [
+        "M1 gate report"
+      ],
+      "acceptanceCriteria": [
+        "Login→Job→Worker→Artifactが完走",
+        "重複Artifactなし",
+        "Secret・Public Access違反なし",
+        "Staging分離済み"
+      ],
+      "requiredTests": [
+        "cloud E2E",
+        "security smoke",
+        "idempotency"
+      ],
+      "requiredArtifacts": [
+        "judge-summary.json",
+        "rollback-plan.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "COMMON-FOUNDATION",
+      "trackId": "PLATFORM-FOUNDATION",
+      "sprintId": "SPRINT-02",
+      "sprintSequence": 2
+    },
+    {
+      "id": "P2-T01",
+      "phase": "P2",
+      "title": "Product DSL Core Schema v1を実装",
+      "repository": "manufacturing-os",
+      "agent": "architect",
+      "dependsOn": [
+        "P1-GATE"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-001",
+        "ADR-005",
+        "ADR-012"
+      ],
+      "objective": "Core、namespaced extension、Evidence Reference、Rule AST、Part Templateを定義する。",
+      "outputs": [
+        "product-dsl.schema.json",
+        "generated types",
+        "example DSL"
+      ],
+      "acceptanceCriteria": [
+        "禁止Fieldなし",
+        "Semantic Versionあり",
+        "Critical値にApproval Stateあり"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P2-CONTRACT",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "REFERENCE-DSL-VERTICAL-SLICE",
+      "sprintId": "SPRINT-03",
+      "sprintSequence": 3
+    },
+    {
+      "id": "P2-T02",
+      "phase": "P2",
+      "title": "Product DSL Version・Migration Harnessを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P2-T01"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-001",
+        "ADR-008"
+      ],
+      "objective": "Immutable Version、Parent、Migration、Hashを実装する。",
+      "outputs": [
+        "DSL repository",
+        "migration harness",
+        "version tests"
+      ],
+      "acceptanceCriteria": [
+        "Approved直接更新不可",
+        "旧Version読取り可能",
+        "Migration前後Hash記録"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "REFERENCE-DSL-VERTICAL-SLICE",
+      "sprintId": "SPRINT-03",
+      "sprintSequence": 3
+    },
+    {
+      "id": "P2-T03",
+      "phase": "P2",
+      "title": "Human-reviewed Reference DSL v1を作成",
+      "repository": "manufacturing-os",
+      "agent": "architect",
+      "dependsOn": [
+        "P2-T01"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-001",
+        "ADR-019"
+      ],
+      "objective": "最初の商品を表現する承認済みReference DSL Fixtureを作る。",
+      "outputs": [
+        "reference-product-dsl.v1.json",
+        "fixture manifest",
+        "approval evidence"
+      ],
+      "acceptanceCriteria": [
+        "ガラス入り片開き扉＋標準枠を表現",
+        "W・H標準、材質、板厚、Rule、Constraintを含む",
+        "人間確認済み"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P2-CONTRACT",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "REFERENCE-DSL-VERTICAL-SLICE",
+      "sprintId": "SPRINT-03",
+      "sprintSequence": 3
+    },
+    {
+      "id": "P2-T04",
+      "phase": "P2",
+      "title": "Product Instance Contractを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P2-T01"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-012",
+        "ADR-019"
+      ],
+      "objective": "W、H、Option、吊元、Override、Version、Hashを定義する。",
+      "outputs": [
+        "product-instance.schema.json",
+        "instance repository"
+      ],
+      "acceptanceCriteria": [
+        "案件情報をDSLへ混入しない",
+        "Override Policyを持つ",
+        "変更でVersion更新"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P2-CONTRACT",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "REFERENCE-DSL-VERTICAL-SLICE",
+      "sprintId": "SPRINT-03",
+      "sprintSequence": 3
+    },
+    {
+      "id": "P2-T05",
+      "phase": "P2",
+      "title": "Decimal・Unit Value Objectを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P2-T01"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-012"
+      ],
+      "objective": "decimal.jsによる単位付き製造計算基盤を作る。",
+      "outputs": [
+        "decimal value object",
+        "unit validator",
+        "serialization"
+      ],
+      "acceptanceCriteria": [
+        "DB・JSONは文字列保存",
+        "暗黙丸めなし",
+        "Unit不整合を拒否"
+      ],
+      "requiredTests": [
+        "precision fixtures",
+        "unit mismatch"
+      ],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "REFERENCE-DSL-VERTICAL-SLICE",
+      "sprintId": "SPRINT-03",
+      "sprintSequence": 3
+    },
+    {
+      "id": "P2-T06",
+      "phase": "P2",
+      "title": "Rule AST Evaluatorを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P2-T01",
+        "P2-T04",
+        "P2-T05"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-012"
+      ],
+      "objective": "Whitelist OperatorでCalculation、Constraint、Prohibition等を評価する。",
+      "outputs": [
+        "rule evaluator",
+        "operator registry",
+        "rule result schema"
+      ],
+      "acceptanceCriteria": [
+        "evalなし",
+        "同一入力で同一結果",
+        "全値にTraceあり"
+      ],
+      "requiredTests": [
+        "operator unit",
+        "determinism"
+      ],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "REFERENCE-DSL-VERTICAL-SLICE",
+      "sprintId": "SPRINT-03",
+      "sprintSequence": 3
+    },
+    {
+      "id": "P2-T07",
+      "phase": "P2",
+      "title": "Rule Dependency Graph・Unknown・Readinessを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P2-T06"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-012"
+      ],
+      "objective": "Topological Sort、循環検出、three-valued logic、工程別Readinessを実装する。",
+      "outputs": [
+        "dependency graph",
+        "unknown propagation",
+        "readiness evaluator"
+      ],
+      "acceptanceCriteria": [
+        "CycleはFail Closed",
+        "Unknownを無言補完しない",
+        "Drawing PreviewとRelease Readinessを分離"
+      ],
+      "requiredTests": [
+        "cycle fixture",
+        "unknown propagation"
+      ],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "REFERENCE-DSL-VERTICAL-SLICE",
+      "sprintId": "SPRINT-03",
+      "sprintSequence": 3
+    },
+    {
+      "id": "P2-T08",
+      "phase": "P2",
+      "title": "Parts Model・Assembly Treeを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P2-T03",
+        "P2-T07"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-012"
+      ],
+      "objective": "Stable Semantic Part ID、材料、板厚、数量、加工意味を持つ部材Modelを作る。",
+      "outputs": [
+        "parts-model.schema.json",
+        "part generator",
+        "assembly tree"
+      ],
+      "acceptanceCriteria": [
+        "商品名分岐なし",
+        "Part ID安定",
+        "必要部材と数量がReference DSLに一致"
+      ],
+      "requiredTests": [
+        "parts golden fixture"
+      ],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "REFERENCE-DSL-VERTICAL-SLICE",
+      "sprintId": "SPRINT-04",
+      "sprintSequence": 4
+    },
+    {
+      "id": "P2-T09",
+      "phase": "P2",
+      "title": "Geometry Model Contractを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P2-T08"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-002"
+      ],
+      "objective": "mm、右手系、原点、Anchor、Transform、Bounding Boxを定義する。",
+      "outputs": [
+        "geometry-model.schema.json",
+        "anchor registry",
+        "geometry validator"
+      ],
+      "acceptanceCriteria": [
+        "座標系がADR準拠",
+        "Part ID Mappingあり",
+        "Geometryが形状正本"
+      ],
+      "requiredTests": [
+        "coordinate fixtures"
+      ],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "REFERENCE-DSL-VERTICAL-SLICE",
+      "sprintId": "SPRINT-04",
+      "sprintSequence": 4
+    },
+    {
+      "id": "P2-T10",
+      "phase": "P2",
+      "title": "扉・枠・ガラスのReference Geometry Generatorを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P2-T09"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-002",
+        "ADR-012"
+      ],
+      "objective": "Parts Modelから箱型の扉、枠、ガラス開口、ガラス枠を生成する。",
+      "outputs": [
+        "geometry generator",
+        "door/frame/glass entities"
+      ],
+      "acceptanceCriteria": [
+        "Product名条件分岐なし",
+        "Partsの寸法を再判断しない",
+        "W・H変更で正しく再生成"
+      ],
+      "requiredTests": [
+        "geometry golden",
+        "boundary cases"
+      ],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "REFERENCE-DSL-VERTICAL-SLICE",
+      "sprintId": "SPRINT-04",
+      "sprintSequence": 4
+    },
+    {
+      "id": "P2-T11",
+      "phase": "P2",
+      "title": "Cross-model Validation・Property Testを実装",
+      "repository": "manufacturing-os",
+      "agent": "judge",
+      "dependsOn": [
+        "P2-T07",
+        "P2-T08",
+        "P2-T10"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-015"
+      ],
+      "objective": "DSL、Rule、Parts、GeometryのSemantic Dimension一致と不変条件を検証する。",
+      "outputs": [
+        "cross-model validator",
+        "fast-check property suite"
+      ],
+      "acceptanceCriteria": [
+        "寸法完全一致",
+        "NaN・Infinityなし",
+        "ガラスが扉外形を超えない",
+        "数量が負にならない"
+      ],
+      "requiredTests": [
+        "golden",
+        "property-based"
+      ],
+      "requiredArtifacts": [
+        "product-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "REFERENCE-DSL-VERTICAL-SLICE",
+      "sprintId": "SPRINT-04",
+      "sprintSequence": 4
+    },
+    {
+      "id": "P2-GATE",
+      "phase": "P2",
+      "title": "M2 Manufacturing Core Gate",
+      "repository": "manufacturing-os",
+      "agent": "judge",
+      "dependsOn": [
+        "P2-T02",
+        "P2-T03",
+        "P2-T04",
+        "P2-T11"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-001",
+        "ADR-002",
+        "ADR-012",
+        "ADR-015"
+      ],
+      "objective": "Reference DSLからRule、Parts、Geometryが決定論的に生成されることを確認する。",
+      "outputs": [
+        "M2 gate report",
+        "benchmark report"
+      ],
+      "acceptanceCriteria": [
+        "同一Hash再現",
+        "商品名分岐なし",
+        "最小・最大・範囲外PASS",
+        "目標性能を計測"
+      ],
+      "requiredTests": [
+        "full core suite",
+        "benchmark"
+      ],
+      "requiredArtifacts": [
+        "judge-summary.json",
+        "benchmark-report.json",
+        "rollback-plan.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "REFERENCE-DSL-VERTICAL-SLICE",
+      "sprintId": "SPRINT-04",
+      "sprintSequence": 4
+    },
+    {
+      "id": "P3-T01",
+      "phase": "P3",
+      "title": "Drawing Contract・ASXEED Drawing Profile v1を定義",
+      "repository": "manufacturing-os",
+      "agent": "architect",
+      "dependsOn": [
+        "P2-GATE"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-003"
+      ],
+      "objective": "Sheet、View、Dimension、Layer、Title Block、公差、Revision Contractを定義する。",
+      "outputs": [
+        "drawing-model.schema.json",
+        "drawing-profile.v1.json"
+      ],
+      "acceptanceCriteria": [
+        "第三角法",
+        "A3横標準",
+        "必須Title Block",
+        "公差未決定時Release Block"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P3-DRAW",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "DRAWING-3D-CORE",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P3-T02",
+      "phase": "P3",
+      "title": "GeometryからDrawing Modelを生成",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P3-T01"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-002",
+        "ADR-003"
+      ],
+      "objective": "Geometry Anchorを投影し、View・Section・Dimensionを生成する。",
+      "outputs": [
+        "drawing model generator",
+        "dimension anchor mapping"
+      ],
+      "acceptanceCriteria": [
+        "Drawingで寸法再計算しない",
+        "必須6 Sheetを生成可能",
+        "Semantic ID維持"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "DRAWING-3D-CORE",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P3-T03",
+      "phase": "P3",
+      "title": "SVG Drawing Adapterを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P3-T02"
+      ],
+      "riskLevel": "medium",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-003"
+      ],
+      "objective": "Browser向けSemantic SVGを生成する。",
+      "outputs": [
+        "SVG adapter",
+        "SVG validator"
+      ],
+      "acceptanceCriteria": [
+        "部材・寸法にIDあり",
+        "拡大縮小で劣化なし",
+        "再読込成功"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P3-OUTPUT",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "DRAWING-3D-CORE",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P3-T04",
+      "phase": "P3",
+      "title": "PDF Drawing Adapterを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P3-T02"
+      ],
+      "riskLevel": "medium",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-003"
+      ],
+      "objective": "A3/A4/A2、Font埋込、Scale固定のPDFを生成する。",
+      "outputs": [
+        "PDF adapter",
+        "page/font validator"
+      ],
+      "acceptanceCriteria": [
+        "Page Size正しい",
+        "日本語Font欠落なし",
+        "ベクター維持"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P3-OUTPUT",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "DRAWING-3D-CORE",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P3-T05",
+      "phase": "P3",
+      "title": "DXF Drawing Adapterを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P3-T02"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-003"
+      ],
+      "objective": "AutoCAD 2018 ASCII DXFとCompatibility DXFを生成する。",
+      "outputs": [
+        "DXF adapter",
+        "compatibility adapter",
+        "DXF parser test"
+      ],
+      "acceptanceCriteria": [
+        "必須Layerあり",
+        "再読込成功",
+        "図面交換用に限定",
+        "NC/CAMを混入しない"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P3-OUTPUT",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "DRAWING-3D-CORE",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P3-T06",
+      "phase": "P3",
+      "title": "Drawing Judgeを実装",
+      "repository": "manufacturing-os",
+      "agent": "judge",
+      "dependsOn": [
+        "P3-T03",
+        "P3-T04",
+        "P3-T05"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-003",
+        "ADR-015"
+      ],
+      "objective": "必須View、寸法、公差、材質、板厚、出力再読込を検証する。",
+      "outputs": [
+        "drawing judge",
+        "drawing-report.json"
+      ],
+      "acceptanceCriteria": [
+        "Critical不足でRelease不可",
+        "SVG/PDF/DXFを検証",
+        "空白Sheetなし"
+      ],
+      "requiredTests": [
+        "artifact validation"
+      ],
+      "requiredArtifacts": [
+        "drawing-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "DRAWING-3D-CORE",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P3-T07",
+      "phase": "P3",
+      "title": "Three.js Part Mesh Generatorを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P2-GATE"
+      ],
+      "riskLevel": "medium",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-004"
+      ],
+      "objective": "Geometry ModelからPart単位Meshを生成する。",
+      "outputs": [
+        "R3F viewer package",
+        "part mesh adapter"
+      ],
+      "acceptanceCriteria": [
+        "1 Part 1論理Mesh",
+        "安定Part ID",
+        "Geometry値だけを使用"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P3-3D",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "DRAWING-3D-CORE",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P3-T08",
+      "phase": "P3",
+      "title": "3D Viewer・GLB Exportを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P3-T07"
+      ],
+      "riskLevel": "medium",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-004"
+      ],
+      "objective": "Orbit、View、透明化、Section、GLB Exportを実装する。",
+      "outputs": [
+        "3D viewer",
+        "GLB exporter",
+        "GLB validator"
+      ],
+      "acceptanceCriteria": [
+        "回転・Zoom・Pan",
+        "GLB再読込",
+        "Server正式Export"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P3-3D",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "DRAWING-3D-CORE",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P3-T09",
+      "phase": "P3",
+      "title": "Manufacturing Web App Shellを構築",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T10",
+        "P2-GATE"
+      ],
+      "riskLevel": "medium",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-011"
+      ],
+      "objective": "Next.js、Design System、Query、Zustand、Form基盤を構築する。",
+      "outputs": [
+        "manufacturing-web shell",
+        "shared UI tokens"
+      ],
+      "acceptanceCriteria": [
+        "認証済み",
+        "左・中央・右・下部Layout",
+        "Desktop First"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P3-UI",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-3",
+      "trackId": "PRODUCT-UI-UX",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P3-T10",
+      "phase": "P3",
+      "title": "Input Panel・Inspector・Trace UIを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P3-T09",
+        "P2-T11"
+      ],
+      "riskLevel": "medium",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-011",
+        "ADR-012"
+      ],
+      "objective": "W・H入力、値の由来、Part／Dimension Inspector、Rule Traceを実装する。",
+      "outputs": [
+        "input panel",
+        "inspector",
+        "trace panel"
+      ],
+      "acceptanceCriteria": [
+        "Draft自動保存",
+        "正式値はServer再評価",
+        "寸法からRule・Evidence参照"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P3-UI",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-3",
+      "trackId": "PRODUCT-UI-UX",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P3-T11",
+      "phase": "P3",
+      "title": "2D・3D・Parts双方向連動を実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P3-T03",
+        "P3-T08",
+        "P3-T10"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-011"
+      ],
+      "objective": "semanticId／partIdでViewer・部材表・Inspectorを同期する。",
+      "outputs": [
+        "selection store",
+        "highlight integration",
+        "sheet navigation"
+      ],
+      "acceptanceCriteria": [
+        "2D選択で3D Highlight",
+        "3D選択で該当Sheetへ移動",
+        "Warningから対象へZoom"
+      ],
+      "requiredTests": [
+        "viewer integration"
+      ],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-3",
+      "trackId": "PRODUCT-UI-UX",
+      "sprintId": "SPRINT-06",
+      "sprintSequence": 6
+    },
+    {
+      "id": "P3-T12",
+      "phase": "P3",
+      "title": "Manufacturing Approval・Release Package基盤を実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T03",
+        "P3-T06",
+        "P3-T11"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-019"
+      ],
+      "objective": "4段階承認、Hash固定、Release Package、Revocationを実装する。",
+      "outputs": [
+        "approval service",
+        "release package",
+        "revision lifecycle"
+      ],
+      "acceptanceCriteria": [
+        "一括承認ボタンなし",
+        "変更で承認失効",
+        "DraftにNOT FOR MANUFACTURING表示",
+        "Released Package Immutable"
+      ],
+      "requiredTests": [
+        "approval lifecycle",
+        "revocation"
+      ],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "DRAWING-3D-CORE",
+      "sprintId": "SPRINT-06",
+      "sprintSequence": 6
+    },
+    {
+      "id": "P3-T13",
+      "phase": "P3",
+      "title": "Manufacturing UI E2E・Visual Regressionを実装",
+      "repository": "manufacturing-os",
+      "agent": "judge",
+      "dependsOn": [
+        "P3-T12"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-015"
+      ],
+      "objective": "W・H変更からDrawing・3D・Release BlockまでBrowserで検証する。",
+      "outputs": [
+        "Playwright suite",
+        "visual baseline"
+      ],
+      "acceptanceCriteria": [
+        "Chromium・WebKit Critical Flow",
+        "Semantic値検証",
+        "Golden画像の自動更新禁止"
+      ],
+      "requiredTests": [
+        "E2E",
+        "visual regression"
+      ],
+      "requiredArtifacts": [
+        "product-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-3",
+      "trackId": "PRODUCT-UI-UX",
+      "sprintId": "SPRINT-06",
+      "sprintSequence": 6
+    },
+    {
+      "id": "P3-GATE",
+      "phase": "P3",
+      "title": "M3 Visual Manufacturing Gate",
+      "repository": "manufacturing-os",
+      "agent": "judge",
+      "dependsOn": [
+        "P3-T13"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-003",
+        "ADR-004",
+        "ADR-011",
+        "ADR-019"
+      ],
+      "objective": "図面・3D・UI・Release Gateが同じGeometryで連動することを確認する。",
+      "outputs": [
+        "M3 gate report"
+      ],
+      "acceptanceCriteria": [
+        "必須図面6種",
+        "SVG/PDF/DXF/GLB PASS",
+        "2D/3D双方向連動",
+        "不足時Release停止"
+      ],
+      "requiredTests": [
+        "full visual suite"
+      ],
+      "requiredArtifacts": [
+        "judge-summary.json",
+        "rollback-plan.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PORTFOLIO",
+      "trackId": "VISUAL-MANUFACTURING-INTEGRATION",
+      "sprintId": "SPRINT-06",
+      "sprintSequence": 6
+    },
+    {
+      "id": "P4-T01",
+      "phase": "P4",
+      "title": "ADO Goal・Plan・Task Graph Domainを実装",
+      "repository": "ado",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-GATE",
+        "P0-T03"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-010"
+      ],
+      "objective": "Goal、Plan、Task、Dependency、Readiness、Risk、ADR参照を永続化する。",
+      "outputs": [
+        "task graph domain",
+        "task repository",
+        "readiness evaluator"
+      ],
+      "acceptanceCriteria": [
+        "循環を拒否",
+        "未解決依存をreadyにしない",
+        "Task Contract準拠"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P4-CORE",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-1",
+      "trackId": "ADO-CONTROL-PLANE-MVP",
+      "sprintId": "SPRINT-03",
+      "sprintSequence": 3
+    },
+    {
+      "id": "P4-T02",
+      "phase": "P4",
+      "title": "Plan Import・Task Generateを安全化",
+      "repository": "ado",
+      "agent": "implementer",
+      "dependsOn": [
+        "P4-T01"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-010",
+        "ADR-013"
+      ],
+      "objective": "Markdown／JSON Planから固定ID Taskを生成しFail Closedで依存解決する。",
+      "outputs": [
+        "plan importer",
+        "task generator",
+        "dependency diagnostics"
+      ],
+      "acceptanceCriteria": [
+        "曖昧参照を拒否",
+        "dry-runで全依存表示",
+        "既存Taskを重複生成しない"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-1",
+      "trackId": "ADO-CONTROL-PLANE-MVP",
+      "sprintId": "SPRINT-03",
+      "sprintSequence": 3
+    },
+    {
+      "id": "P4-T03",
+      "phase": "P4",
+      "title": "Isolated Codex Runnerを実装",
+      "repository": "ado",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T11",
+        "P4-T01"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-009",
+        "ADR-010"
+      ],
+      "objective": "一時Container、Repo・Branch Scope、短時間CredentialでCodexを実行する。",
+      "outputs": [
+        "runner service",
+        "credential broker",
+        "workspace cleanup"
+      ],
+      "acceptanceCriteria": [
+        "Production Accessなし",
+        "Main Pushなし",
+        "終了後Credential・Container破棄"
+      ],
+      "requiredTests": [
+        "isolation test"
+      ],
+      "requiredArtifacts": [
+        "security-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-1",
+      "trackId": "ADO-CONTROL-PLANE-MVP",
+      "sprintId": "SPRINT-03",
+      "sprintSequence": 3
+    },
+    {
+      "id": "P4-T04",
+      "phase": "P4",
+      "title": "Verification Artifact生成Contractを実装",
+      "repository": "ado",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T03",
+        "P4-T03"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-010",
+        "ADR-015"
+      ],
+      "objective": "Codex実装後のCommands、Tests、Diff、Risk、Cost、Rollbackを保存する。",
+      "outputs": [
+        "verification artifact producer",
+        "artifact schemas"
+      ],
+      "acceptanceCriteria": [
+        "必須12 Artifact生成",
+        "生結果と要約を分離",
+        "Content Hashあり"
+      ],
+      "requiredTests": [
+        "artifact schema"
+      ],
+      "requiredArtifacts": [
+        "implementation-summary.json",
+        "test-results.json",
+        "risk-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-1",
+      "trackId": "ADO-CONTROL-PLANE-MVP",
+      "sprintId": "SPRINT-03",
+      "sprintSequence": 3
+    },
+    {
+      "id": "P4-T05",
+      "phase": "P4",
+      "title": "Build Judge・Test Judgeを実装",
+      "repository": "ado",
+      "agent": "implementer",
+      "dependsOn": [
+        "P4-T04"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-010",
+        "ADR-015"
+      ],
+      "objective": "Build、Lint、Type、Unit、Integration、E2E結果を独立確認する。",
+      "outputs": [
+        "build judge",
+        "test judge"
+      ],
+      "acceptanceCriteria": [
+        "Codex自己申告を信頼しない",
+        "失敗Commandを再現",
+        "Flakyを記録"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P4-JUDGE",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-1",
+      "trackId": "ADO-CONTROL-PLANE-MVP",
+      "sprintId": "SPRINT-04",
+      "sprintSequence": 4
+    },
+    {
+      "id": "P4-T06",
+      "phase": "P4",
+      "title": "Architecture Judge・Security Judgeを完成",
+      "repository": "ado",
+      "agent": "implementer",
+      "dependsOn": [
+        "P0-T05",
+        "P4-T04"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-009",
+        "ADR-010"
+      ],
+      "objective": "Diff、Dependency、Public Endpoint、Secret、Tenant、AI送信先を独立検証する。",
+      "outputs": [
+        "architecture judge v1",
+        "security judge v1"
+      ],
+      "acceptanceCriteria": [
+        "Architecture FAILを上書き不可",
+        "Security FAILはFail Closed",
+        "ReportにRule ID"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P4-JUDGE",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-1",
+      "trackId": "ADO-CONTROL-PLANE-MVP",
+      "sprintId": "SPRINT-04",
+      "sprintSequence": 4
+    },
+    {
+      "id": "P4-T07",
+      "phase": "P4",
+      "title": "Product Judge・Deterministic Policy Gateを実装",
+      "repository": "ado",
+      "agent": "implementer",
+      "dependsOn": [
+        "P4-T05",
+        "P4-T06"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-010"
+      ],
+      "objective": "5 Judge結果を固定Policyで最終状態へ変換する。",
+      "outputs": [
+        "product judge",
+        "policy gate",
+        "decision matrix"
+      ],
+      "acceptanceCriteria": [
+        "必須FAILをPASSにしない",
+        "定義済み最終状態のみ",
+        "Judge Context分離"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-1",
+      "trackId": "ADO-CONTROL-PLANE-MVP",
+      "sprintId": "SPRINT-04",
+      "sprintSequence": 4
+    },
+    {
+      "id": "P4-T08",
+      "phase": "P4",
+      "title": "最大2回Fix Loop・Design Escalationを実装",
+      "repository": "ado",
+      "agent": "implementer",
+      "dependsOn": [
+        "P4-T07"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-010"
+      ],
+      "objective": "Fixable失敗だけを最大2回自動修正し、設計問題を停止する。",
+      "outputs": [
+        "fix workflow",
+        "attempt counter",
+        "design escalation"
+      ],
+      "acceptanceCriteria": [
+        "3回目を自動実行しない",
+        "ADR変更が必要なら停止",
+        "各試行Artifact保存"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-1",
+      "trackId": "ADO-CONTROL-PLANE-MVP",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P4-T09",
+      "phase": "P4",
+      "title": "Smartphone Approval Inboxを実装",
+      "repository": "ado",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T10",
+        "P4-T07"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-010",
+        "ADR-011",
+        "ADR-021"
+      ],
+      "objective": "変更概要、Judge、Risk、Cost、Rollbackをスマートフォンで確認・判断できるようにする。",
+      "outputs": [
+        "approval inbox",
+        "approval detail",
+        "deep links"
+      ],
+      "acceptanceCriteria": [
+        "Version・Hash再確認",
+        "Approve/Reject/Hold/Return",
+        "内容変更でRequest失効"
+      ],
+      "requiredTests": [
+        "mobile E2E",
+        "authorization"
+      ],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-1",
+      "trackId": "ADO-CONTROL-PLANE-MVP",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P4-T10",
+      "phase": "P4",
+      "title": "Notification・Escalationを実装",
+      "repository": "ado",
+      "agent": "implementer",
+      "dependsOn": [
+        "P4-T09"
+      ],
+      "riskLevel": "medium",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-021"
+      ],
+      "objective": "In-app正本、Email、Severity、期限、Escalationを実装する。",
+      "outputs": [
+        "notification service",
+        "email adapter",
+        "escalation policy"
+      ],
+      "acceptanceCriteria": [
+        "通知から直接承認不可",
+        "Criticalは再通知・停止",
+        "重複送信防止"
+      ],
+      "requiredTests": [
+        "notification idempotency"
+      ],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-1",
+      "trackId": "ADO-CONTROL-PLANE-MVP",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P4-T11",
+      "phase": "P4",
+      "title": "GitHub Required Checks・Merge Gateを実装",
+      "repository": "ado",
+      "agent": "implementer",
+      "dependsOn": [
+        "P4-T07",
+        "P4-T09"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-010",
+        "ADR-016"
+      ],
+      "objective": "Judge結果をGitHub Checkへ反映し、人間以外のMergeを禁止する。",
+      "outputs": [
+        "GitHub checks adapter",
+        "merge gate"
+      ],
+      "acceptanceCriteria": [
+        "必須Check全PASS",
+        "Codex・ADO・JudgeにMerge権限なし",
+        "Commit更新で承認失効"
+      ],
+      "requiredTests": [
+        "GitHub integration"
+      ],
+      "requiredArtifacts": [
+        "release-evidence.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-1",
+      "trackId": "ADO-CONTROL-PLANE-MVP",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P4-T12",
+      "phase": "P4",
+      "title": "Staging Release・Revision Rollbackを実装",
+      "repository": "ado",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T09",
+        "P4-T11"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-010",
+        "ADR-017"
+      ],
+      "objective": "Container Apps Revision、Health Check、Traffic切替、RollbackをWorkflow化する。",
+      "outputs": [
+        "release workflow",
+        "rollback workflow",
+        "release report"
+      ],
+      "acceptanceCriteria": [
+        "Staging専用Identity",
+        "旧Revisionへ戻せる",
+        "Audit・Incident生成"
+      ],
+      "requiredTests": [
+        "release smoke",
+        "rollback"
+      ],
+      "requiredArtifacts": [
+        "release-report.json",
+        "rollback-plan.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-1",
+      "trackId": "ADO-CONTROL-PLANE-MVP",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P4-GATE",
+      "phase": "P4",
+      "title": "M4 ADO Approval Loop Gate",
+      "repository": "ado",
+      "agent": "judge",
+      "dependsOn": [
+        "P4-T08",
+        "P4-T10",
+        "P4-T12"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-010",
+        "ADR-021"
+      ],
+      "objective": "Task→Codex→5 Judge→Fix→スマホ承認→Staging Releaseを完走する。",
+      "outputs": [
+        "M4 gate report"
+      ],
+      "acceptanceCriteria": [
+        "Context分離",
+        "2回Fix上限",
+        "人間承認",
+        "Rollback成功",
+        "Terminal手動確認を通常運用から除外"
+      ],
+      "requiredTests": [
+        "ADO E2E"
+      ],
+      "requiredArtifacts": [
+        "judge-summary.json",
+        "release-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-1",
+      "trackId": "ADO-CONTROL-PLANE-MVP",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P5-T01",
+      "phase": "P5",
+      "title": "Secure Document Intake Workflowを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-GATE",
+        "P1-T12",
+        "P1-T16"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-005",
+        "ADR-009"
+      ],
+      "objective": "Upload、Quarantine、Scan、Source Hash、Page ManifestをWorkflow化する。",
+      "outputs": [
+        "document intake workflow",
+        "source document records"
+      ],
+      "acceptanceCriteria": [
+        "Scan cleanのみOCRへ進む",
+        "Source Hash固定",
+        "Signed URL短時間"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P5-INTAKE",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "PUE-SAFETY",
+      "sprintId": "SPRINT-04",
+      "sprintSequence": 4
+    },
+    {
+      "id": "P5-T02",
+      "phase": "P5",
+      "title": "Azure Document Intelligence OCR Adapterを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P5-T01"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-005"
+      ],
+      "objective": "prebuilt-layoutのPage、Table、Figure、Polygon、Text SpanをArtifact化する。",
+      "outputs": [
+        "OCR adapter",
+        "OCR artifact schema"
+      ],
+      "acceptanceCriteria": [
+        "全Page処理",
+        "Provider Version記録",
+        "OCR Confidence分離"
+      ],
+      "requiredTests": [
+        "OCR fixture"
+      ],
+      "requiredArtifacts": [],
+      "parallelGroup": "P5-OCR",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "PUE-SAFETY",
+      "sprintId": "SPRINT-04",
+      "sprintSequence": 4
+    },
+    {
+      "id": "P5-T03",
+      "phase": "P5",
+      "title": "Page Classification Stageを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P5-T02"
+      ],
+      "riskLevel": "medium",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-005"
+      ],
+      "objective": "製品説明、寸法表、認定条件、図、対象外Pageを分類する。",
+      "outputs": [
+        "page classifier",
+        "classification artifact"
+      ],
+      "acceptanceCriteria": [
+        "Page Locator保持",
+        "重要Pageを抽出",
+        "分類不明をunknownとして保持"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P5-OCR",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "PUE-SAFETY",
+      "sprintId": "SPRINT-04",
+      "sprintSequence": 4
+    },
+    {
+      "id": "P5-T04",
+      "phase": "P5",
+      "title": "Evidence Contract・Extraction Stageを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P5-T03"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-005"
+      ],
+      "objective": "Page／Polygon／Span／Crop／Parsed Value／Scope／Conditionを持つEvidenceを生成する。",
+      "outputs": [
+        "evidence schema",
+        "evidence extractor",
+        "evidence viewer API"
+      ],
+      "acceptanceCriteria": [
+        "Locator完全",
+        "Fallback Evidence禁止",
+        "Source・Model Version記録"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "PUE-SAFETY",
+      "sprintId": "SPRINT-04",
+      "sprintSequence": 4
+    },
+    {
+      "id": "P5-T05",
+      "phase": "P5",
+      "title": "Semantic Dimension Registryを実装",
+      "repository": "manufacturing-os",
+      "agent": "architect",
+      "dependsOn": [
+        "P2-T01",
+        "P5-T04"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-005",
+        "ADR-012"
+      ],
+      "objective": "W、WW、DW、KW等を別Identityとして定義し、Collisionを検出する。",
+      "outputs": [
+        "dimension registry",
+        "identity matcher",
+        "collision report"
+      ],
+      "acceptanceCriteria": [
+        "既知Fixture一致100%",
+        "Context・Unit・Locatorで識別",
+        "曖昧時unknown"
+      ],
+      "requiredTests": [
+        "dimension identity fixtures"
+      ],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "PUE-SAFETY",
+      "sprintId": "SPRINT-04",
+      "sprintSequence": 4
+    },
+    {
+      "id": "P5-T06",
+      "phase": "P5",
+      "title": "Candidate Generation・Evidence Gateを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P5-T04",
+        "P5-T05"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-005"
+      ],
+      "objective": "CandidateをEvidence、Semantic Target、Scope、Condition、Trace付きで生成する。",
+      "outputs": [
+        "candidate schema",
+        "candidate generator",
+        "evidence gate"
+      ],
+      "acceptanceCriteria": [
+        "Candidate without Evidence=0",
+        "Critical推測を明示",
+        "Schema Validation"
+      ],
+      "requiredTests": [
+        "negative candidates"
+      ],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "PUE-SAFETY",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P5-T07",
+      "phase": "P5",
+      "title": "Conflict・Placeholder・Missing Infoを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P5-T06"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-005"
+      ],
+      "objective": "矛盾、Placeholder、Unknownを下流で失わず、質問候補へ変換する。",
+      "outputs": [
+        "conflict model",
+        "placeholder quarantine",
+        "missing info engine"
+      ],
+      "acceptanceCriteria": [
+        "Conflict無言消失0",
+        "Placeholder Approved流入0",
+        "重複質問抑制"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "PUE-SAFETY",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P5-T08",
+      "phase": "P5",
+      "title": "Evidence／Candidate／Conflict Review UIを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P3-T09",
+        "P5-T07"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-011",
+        "ADR-019"
+      ],
+      "objective": "Page EvidenceとCandidateを比較し、Critical項目を人間が承認・修正できるようにする。",
+      "outputs": [
+        "review workspace",
+        "evidence crop viewer",
+        "question UI"
+      ],
+      "acceptanceCriteria": [
+        "ConfidenceとApprovalを分離",
+        "Conflict解消まで下流Block",
+        "変更履歴保存"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "PUE-SAFETY",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P5-T09",
+      "phase": "P5",
+      "title": "Prompt Package・AI Model Routerを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P1-T17",
+        "P5-T04"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-006",
+        "ADR-018"
+      ],
+      "objective": "PromptをGit Version管理し、Roleから承認済みModel Deploymentを選択する。",
+      "outputs": [
+        "prompt packages",
+        "model router",
+        "structured output validator"
+      ],
+      "acceptanceCriteria": [
+        "Model名散在なし",
+        "Critical Silent Fallbackなし",
+        "Prompt Injection対策"
+      ],
+      "requiredTests": [
+        "router fixtures",
+        "schema failure"
+      ],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "PUE-SAFETY",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P5-T10",
+      "phase": "P5",
+      "title": "PUE Run Manifest・Cache・Reanalysis Graphを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P5-T09"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-018"
+      ],
+      "objective": "Source、Stage、Prompt、Model、Schema、Artifact Hashを記録し影響Stageだけ再実行する。",
+      "outputs": [
+        "PUE run manifest",
+        "content-addressed cache",
+        "dependency graph"
+      ],
+      "acceptanceCriteria": [
+        "完全一致のみCache再利用",
+        "Approved DSL上書きなし",
+        "Stage再実行範囲が決定論的"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "PUE-SAFETY",
+      "sprintId": "SPRINT-05",
+      "sprintSequence": 5
+    },
+    {
+      "id": "P5-T11",
+      "phase": "P5",
+      "title": "PUE Eval・Shadow Run基盤を実装",
+      "repository": "manufacturing-os",
+      "agent": "judge",
+      "dependsOn": [
+        "P5-T06",
+        "P5-T07",
+        "P5-T09",
+        "P5-T10"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-015",
+        "ADR-018"
+      ],
+      "objective": "旧／新Prompt・Modelを同一Datasetで比較しCritical Regressionを停止する。",
+      "outputs": [
+        "eval runner",
+        "comparison report",
+        "shadow workflow"
+      ],
+      "acceptanceCriteria": [
+        "Evidence欠落・Conflict消失でFAIL",
+        "Cost・Latency比較",
+        "Golden自動更新禁止"
+      ],
+      "requiredTests": [
+        "PUE eval"
+      ],
+      "requiredArtifacts": [
+        "evaluation-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "PUE-SAFETY",
+      "sprintId": "SPRINT-06",
+      "sprintSequence": 6
+    },
+    {
+      "id": "P5-T12",
+      "phase": "P5",
+      "title": "Draft DSL Adapter・Human Approval接続を実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P2-T02",
+        "P5-T08",
+        "P5-T10"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-001",
+        "ADR-005",
+        "ADR-019"
+      ],
+      "objective": "Review済みCandidateからDraft DSLを作り、承認後に新Approved Versionを生成する。",
+      "outputs": [
+        "draft DSL adapter",
+        "DSL diff",
+        "approval integration"
+      ],
+      "acceptanceCriteria": [
+        "PUEはDraftまで",
+        "Reference DSLと同じContract",
+        "Critical承認必須"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "PUE-SAFETY",
+      "sprintId": "SPRINT-06",
+      "sprintSequence": 6
+    },
+    {
+      "id": "P5-GATE",
+      "phase": "P5",
+      "title": "M5 Safe PUE Gate",
+      "repository": "manufacturing-os",
+      "agent": "judge",
+      "dependsOn": [
+        "P5-T11",
+        "P5-T12"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-005",
+        "ADR-018"
+      ],
+      "objective": "実仕様書からReview可能なDraft DSLを生成し、安全指標を満たすことを確認する。",
+      "outputs": [
+        "M5 gate report"
+      ],
+      "acceptanceCriteria": [
+        "Candidate without Evidence=0",
+        "Critical Hallucination=0",
+        "Conflict消失=0",
+        "Dimension Fixture=100%",
+        "Prompt/Model Rollback可能"
+      ],
+      "requiredTests": [
+        "full PUE safety suite"
+      ],
+      "requiredArtifacts": [
+        "judge-summary.json",
+        "evaluation-report.json",
+        "rollback-plan.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "PUE-SAFETY",
+      "sprintId": "SPRINT-06",
+      "sprintSequence": 6
+    },
+    {
+      "id": "P6-T01",
+      "phase": "P6",
+      "title": "Pilot対象Data・承認者・Runbookを準備",
+      "repository": "manufacturing-os",
+      "agent": "architect",
+      "dependsOn": [
+        "P3-GATE",
+        "P4-GATE",
+        "P5-GATE"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-019",
+        "ADR-022"
+      ],
+      "objective": "実仕様書、匿名化範囲、承認者、停止条件、復旧手順を固定する。",
+      "outputs": [
+        "pilot manifest",
+        "approval matrix",
+        "incident runbook"
+      ],
+      "acceptanceCriteria": [
+        "Source Hash固定",
+        "役割明確",
+        "緊急停止手順あり"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PORTFOLIO",
+      "trackId": "END-TO-END-PILOT",
+      "sprintId": "SPRINT-07",
+      "sprintSequence": 7
+    },
+    {
+      "id": "P6-T02",
+      "phase": "P6",
+      "title": "Pilot Infrastructure Readinessを検証",
+      "repository": "platform-contracts",
+      "agent": "judge",
+      "dependsOn": [
+        "P6-T01",
+        "P1-T09"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-017",
+        "ADR-020",
+        "ADR-022"
+      ],
+      "objective": "Pilot用Identity、Backup、Budget、Monitoring、Capacityを準備する。",
+      "outputs": [
+        "pilot infra report",
+        "what-if",
+        "capacity config"
+      ],
+      "acceptanceCriteria": [
+        "環境分離",
+        "Backup成功",
+        "Alert・Budget設定",
+        "必要Replica上限"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PORTFOLIO",
+      "trackId": "END-TO-END-PILOT",
+      "sprintId": "SPRINT-07",
+      "sprintSequence": 7
+    },
+    {
+      "id": "P6-T03",
+      "phase": "P6",
+      "title": "実仕様書End-to-End Baselineを実行",
+      "repository": "manufacturing-os",
+      "agent": "integration",
+      "dependsOn": [
+        "P6-T02"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-005",
+        "ADR-019"
+      ],
+      "objective": "UploadからReleased Manufacturing Packageまで基準ケースを完走する。",
+      "outputs": [
+        "baseline release package",
+        "E2E trace"
+      ],
+      "acceptanceCriteria": [
+        "4段階承認",
+        "必須Artifact",
+        "全Trace",
+        "Dimension一致"
+      ],
+      "requiredTests": [
+        "pilot E2E"
+      ],
+      "requiredArtifacts": [
+        "release-package-manifest.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PORTFOLIO",
+      "trackId": "END-TO-END-PILOT",
+      "sprintId": "SPRINT-07",
+      "sprintSequence": 7
+    },
+    {
+      "id": "P6-T04",
+      "phase": "P6",
+      "title": "W・H Boundary・Invalid Caseを検証",
+      "repository": "manufacturing-os",
+      "agent": "judge",
+      "dependsOn": [
+        "P6-T03"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-012",
+        "ADR-015"
+      ],
+      "objective": "標準、最小、最大、範囲外の3件以上を検証する。",
+      "outputs": [
+        "boundary report"
+      ],
+      "acceptanceCriteria": [
+        "Valid Caseは生成",
+        "Invalid Caseは理由付きBlock",
+        "Unknown伝播"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PORTFOLIO",
+      "trackId": "END-TO-END-PILOT",
+      "sprintId": "SPRINT-08",
+      "sprintSequence": 8
+    },
+    {
+      "id": "P6-T05",
+      "phase": "P6",
+      "title": "Revision・Approval失効・Revocationを検証",
+      "repository": "manufacturing-os",
+      "agent": "judge",
+      "dependsOn": [
+        "P6-T03"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-019"
+      ],
+      "objective": "変更後の再生成・再承認・旧Revision停止を検証する。",
+      "outputs": [
+        "revision report",
+        "revocation report"
+      ],
+      "acceptanceCriteria": [
+        "Hash変更で承認失効",
+        "上流Revocationで下流停止",
+        "旧版警告表示"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PORTFOLIO",
+      "trackId": "END-TO-END-PILOT",
+      "sprintId": "SPRINT-08",
+      "sprintSequence": 8
+    },
+    {
+      "id": "P6-T06",
+      "phase": "P6",
+      "title": "Backup・Restore・Business Continuityを検証",
+      "repository": "platform-contracts",
+      "agent": "judge",
+      "dependsOn": [
+        "P6-T02",
+        "P6-T03"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-022"
+      ],
+      "objective": "DB・Artifact・Approval履歴を復元し、Release済みPackageの継続閲覧を確認する。",
+      "outputs": [
+        "restore report",
+        "business continuity package"
+      ],
+      "acceptanceCriteria": [
+        "Product DSL・Drawing・Approval復元",
+        "Hash一致",
+        "Cloud停止時に新規Release不可"
+      ],
+      "requiredTests": [
+        "restore drill"
+      ],
+      "requiredArtifacts": [
+        "disaster-recovery-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PORTFOLIO",
+      "trackId": "END-TO-END-PILOT",
+      "sprintId": "SPRINT-08",
+      "sprintSequence": 8
+    },
+    {
+      "id": "P6-T07",
+      "phase": "P6",
+      "title": "Load・Concurrency・Failure Injectionを実施",
+      "repository": "platform-contracts",
+      "agent": "judge",
+      "dependsOn": [
+        "P6-T03"
+      ],
+      "riskLevel": "medium",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-020"
+      ],
+      "objective": "Pilot Tierの同時Job、Rate Limit、Queue Backpressure、Worker障害を検証する。",
+      "outputs": [
+        "load report",
+        "failure injection report"
+      ],
+      "acceptanceCriteria": [
+        "Interactive SLO",
+        "低優先Job停止",
+        "Approval・Revocation維持",
+        "重複Artifactなし"
+      ],
+      "requiredTests": [
+        "load",
+        "soak",
+        "failure injection"
+      ],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PORTFOLIO",
+      "trackId": "END-TO-END-PILOT",
+      "sprintId": "SPRINT-08",
+      "sprintSequence": 8
+    },
+    {
+      "id": "P6-T08",
+      "phase": "P6",
+      "title": "Pilot Security Reviewを実施",
+      "repository": "platform-contracts",
+      "agent": "security",
+      "dependsOn": [
+        "P6-T03"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-009"
+      ],
+      "objective": "Tenant、Signed URL、Log、Secret、Codex Isolation、Public Accessを検証する。",
+      "outputs": [
+        "pilot security report"
+      ],
+      "acceptanceCriteria": [
+        "Cross-tenant 0",
+        "Secret漏えい0",
+        "機密Log 0",
+        "Production権限なし"
+      ],
+      "requiredTests": [
+        "penetration smoke",
+        "tenant isolation"
+      ],
+      "requiredArtifacts": [
+        "security-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PORTFOLIO",
+      "trackId": "END-TO-END-PILOT",
+      "sprintId": "SPRINT-08",
+      "sprintSequence": 8
+    },
+    {
+      "id": "P6-T09",
+      "phase": "P6",
+      "title": "レウによるOperational UATを実施",
+      "repository": "manufacturing-os",
+      "agent": "reviewer",
+      "dependsOn": [
+        "P6-T04",
+        "P6-T05",
+        "P6-T06",
+        "P6-T07",
+        "P6-T08"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-011",
+        "ADR-019"
+      ],
+      "objective": "日常運用としてPDF投入、確認、寸法変更、図面・3D、承認が扱えるか確認する。",
+      "outputs": [
+        "UAT report",
+        "accepted issues",
+        "follow-up backlog"
+      ],
+      "acceptanceCriteria": [
+        "主要Flowを自力で完了",
+        "Blocking UXなし",
+        "製作判断に必要な情報が見える"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PORTFOLIO",
+      "trackId": "END-TO-END-PILOT",
+      "sprintId": "SPRINT-09",
+      "sprintSequence": 9
+    },
+    {
+      "id": "P6-GATE",
+      "phase": "P6",
+      "title": "M6 Practical Prototype Gate",
+      "repository": "manufacturing-os",
+      "agent": "judge",
+      "dependsOn": [
+        "P6-T09"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-010",
+        "ADR-019",
+        "ADR-022"
+      ],
+      "objective": "実用プロトタイプのDefinition of Doneを最終判定する。",
+      "outputs": [
+        "M6 gate report",
+        "pilot release report"
+      ],
+      "acceptanceCriteria": [
+        "代表商品完走",
+        "Critical Safety Metric 0",
+        "Restore・Rollback成功",
+        "レウが実用可と承認"
+      ],
+      "requiredTests": [
+        "full pilot suite"
+      ],
+      "requiredArtifacts": [
+        "judge-summary.json",
+        "pilot-release-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PORTFOLIO",
+      "trackId": "END-TO-END-PILOT",
+      "sprintId": "SPRINT-09",
+      "sprintSequence": 9
+    },
+    {
+      "id": "P7-T01",
+      "phase": "P7",
+      "title": "Order Engine Version付きFile Adapterを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P6-GATE"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-023"
+      ],
+      "objective": "Released Package、Instance、Quantity、Parts SummaryをJSON／CSVで既存Order Engineへ渡す。",
+      "outputs": [
+        "order export contract",
+        "JSON/CSV adapter"
+      ],
+      "acceptanceCriteria": [
+        "Product DSLへ価格・数量を混入しない",
+        "Version・Hashあり",
+        "既存運用を変更しない"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P7-ORDER",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "ORDER-INTEGRATION",
+      "sprintId": "SPRINT-10",
+      "sprintSequence": 10
+    },
+    {
+      "id": "P7-T02",
+      "phase": "P7",
+      "title": "既存Order・Invoice Regressionを検証",
+      "repository": "manufacturing-os",
+      "agent": "judge",
+      "dependsOn": [
+        "P7-T01"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-023"
+      ],
+      "objective": "既存請求自動化が連携追加で壊れていないことを確認する。",
+      "outputs": [
+        "order regression report"
+      ],
+      "acceptanceCriteria": [
+        "既存Fixture PASS",
+        "請求金額不変",
+        "Adapter Errorで本体停止なし"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "ORDER-INTEGRATION",
+      "sprintId": "SPRINT-10",
+      "sprintSequence": 10
+    },
+    {
+      "id": "P7-T03",
+      "phase": "P7",
+      "title": "Order API・Outbox Consumer Skeletonを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P7-T02",
+        "P1-T14"
+      ],
+      "riskLevel": "medium",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-013",
+        "ADR-023"
+      ],
+      "objective": "将来API・Domain Event連携へ進めるIdempotent Adapterを作る。",
+      "outputs": [
+        "order API adapter",
+        "outbox consumer",
+        "reconciliation job"
+      ],
+      "acceptanceCriteria": [
+        "重複処理なし",
+        "Dead Letter可視化",
+        "直接DB Accessなし"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-2",
+      "trackId": "ORDER-INTEGRATION",
+      "sprintId": "SPRINT-10",
+      "sprintSequence": 10
+    },
+    {
+      "id": "P7-T04",
+      "phase": "P7",
+      "title": "Public Demo専用Infrastructureを構築",
+      "repository": "platform-contracts",
+      "agent": "implementer",
+      "dependsOn": [
+        "P6-GATE"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-009",
+        "ADR-024"
+      ],
+      "objective": "Productionから分離したpublic-web、API、Storage、Queue、Budgetを構築する。",
+      "outputs": [
+        "public infra",
+        "WAF/rate policy",
+        "kill switch"
+      ],
+      "acceptanceCriteria": [
+        "Production接続なし",
+        "匿名化Dataのみ",
+        "Cost Limit・Kill Switch"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P7-DEMO",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-3",
+      "trackId": "PUBLIC-DEMO",
+      "sprintId": "SPRINT-10",
+      "sprintSequence": 10
+    },
+    {
+      "id": "P7-T05",
+      "phase": "P7",
+      "title": "Public Demo Webを実装",
+      "repository": "manufacturing-os",
+      "agent": "implementer",
+      "dependsOn": [
+        "P3-GATE",
+        "P7-T04"
+      ],
+      "riskLevel": "medium",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-011",
+        "ADR-024"
+      ],
+      "objective": "固定FixtureでW・H変更、図面・3D、Part Highlightを体験できる画面を作る。",
+      "outputs": [
+        "public-web demo",
+        "demo fixture"
+      ],
+      "acceptanceCriteria": [
+        "DEMO DATA表示",
+        "正式Release署名なし",
+        "Public Uploadなし"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": "P7-DEMO",
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-3",
+      "trackId": "PUBLIC-DEMO",
+      "sprintId": "SPRINT-10",
+      "sprintSequence": 10
+    },
+    {
+      "id": "P7-T06",
+      "phase": "P7",
+      "title": "Demo Session Reset・Abuse・Cost Controlを実装",
+      "repository": "platform-contracts",
+      "agent": "implementer",
+      "dependsOn": [
+        "P7-T04",
+        "P7-T05"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-020",
+        "ADR-024"
+      ],
+      "objective": "Session期限、State削除、Rate Limit、AI Job制限、Kill Switchを実装する。",
+      "outputs": [
+        "session reset",
+        "abuse controls",
+        "cost controls"
+      ],
+      "acceptanceCriteria": [
+        "利用者間State共有なし",
+        "期限後削除",
+        "Budget超過で低優先処理停止"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-3",
+      "trackId": "PUBLIC-DEMO",
+      "sprintId": "SPRINT-10",
+      "sprintSequence": 10
+    },
+    {
+      "id": "P7-T07",
+      "phase": "P7",
+      "title": "ASXEED Website・動画・Demo Scriptを作成",
+      "repository": "manufacturing-os",
+      "agent": "reviewer",
+      "dependsOn": [
+        "P7-T05"
+      ],
+      "riskLevel": "medium",
+      "humanApproval": "checkpoint",
+      "adrReferences": [
+        "ADR-024"
+      ],
+      "objective": "実装済み機能を正確に説明する公開資産を作る。",
+      "outputs": [
+        "product page",
+        "demo video",
+        "customer demo script"
+      ],
+      "acceptanceCriteria": [
+        "誇大表現なし",
+        "将来構想と実装済みを分離",
+        "機密Dataなし"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-3",
+      "trackId": "PUBLIC-DEMO",
+      "sprintId": "SPRINT-11",
+      "sprintSequence": 11
+    },
+    {
+      "id": "P7-T08",
+      "phase": "P7",
+      "title": "Guided Customer Demo Readinessを検証",
+      "repository": "platform-contracts",
+      "agent": "judge",
+      "dependsOn": [
+        "P7-T03",
+        "P7-T06",
+        "P7-T07"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-024"
+      ],
+      "objective": "Customer Demo用Security、Cost、Reset、Claim Accuracyを確認する。",
+      "outputs": [
+        "customer demo readiness report"
+      ],
+      "acceptanceCriteria": [
+        "Production分離",
+        "WAF・Rate Limit",
+        "Session Reset",
+        "Kill Switch",
+        "Human Approval"
+      ],
+      "requiredTests": [],
+      "requiredArtifacts": [],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PROGRAM-3",
+      "trackId": "PUBLIC-DEMO",
+      "sprintId": "SPRINT-11",
+      "sprintSequence": 11
+    },
+    {
+      "id": "P7-GATE",
+      "phase": "P7",
+      "title": "M7 Customer Demonstration Gate",
+      "repository": "platform-contracts",
+      "agent": "judge",
+      "dependsOn": [
+        "P7-T08"
+      ],
+      "riskLevel": "high",
+      "humanApproval": "mandatory",
+      "adrReferences": [
+        "ADR-023",
+        "ADR-024"
+      ],
+      "objective": "Order連携と公開Demoを正式なCustomer Demonstration状態へ進める。",
+      "outputs": [
+        "M7 gate report",
+        "demo release report"
+      ],
+      "acceptanceCriteria": [
+        "Order Regression 0",
+        "Demo URL稼働",
+        "機密分離",
+        "顧客案内可能"
+      ],
+      "requiredTests": [
+        "demo E2E",
+        "order integration"
+      ],
+      "requiredArtifacts": [
+        "judge-summary.json",
+        "demo-release-report.json"
+      ],
+      "parallelGroup": null,
+      "status": "planned",
+      "readiness": "blocked",
+      "programId": "PORTFOLIO",
+      "trackId": "CUSTOMER-DEMONSTRATION",
+      "sprintId": "SPRINT-11",
+      "sprintSequence": 11
+    }
+  ],
+  "sprintCount": 12,
+  "sprints": [
+    {
+      "id": "SPRINT-00",
+      "sequence": 0,
+      "name": "Architecture Operational",
+      "programs": [
+        "COMMON-FOUNDATION"
+      ],
+      "goal": "Architecture Freeze、Technology Baseline、Task Contract、Architecture JudgeをRepositoryとCIへ反映し、大規模実装を安全に開始できる状態にする。",
+      "tasks": [
+        "P0-T01",
+        "P0-T02",
+        "P0-T03",
+        "P0-T04",
+        "P0-T05",
+        "P0-T06",
+        "P0-GATE"
+      ],
+      "milestone": "M0 Architecture Operational"
+    },
+    {
+      "id": "SPRINT-01",
+      "sequence": 1,
+      "name": "Platform Contracts and Technology Validation",
+      "programs": [
+        "COMMON-FOUNDATION"
+      ],
+      "goal": "共通Contract、Repository基盤、Reusable CI、Bicep Module、および7つの技術互換性Spikeを完了する。",
+      "tasks": [
+        "P1-T01",
+        "P1-T02",
+        "P1-T03",
+        "P1-T04",
+        "P1-T05",
+        "P1-T06",
+        "P1-T07",
+        "P1-TS01",
+        "P1-TS02",
+        "P1-TS03",
+        "P1-TS04",
+        "P1-TS05",
+        "P1-TS06",
+        "P1-TS07"
+      ],
+      "milestone": "M1前半 Platform Contract Baseline"
+    },
+    {
+      "id": "SPRINT-02",
+      "sequence": 2,
+      "name": "Cloud, Security and Workflow Foundation",
+      "programs": [
+        "COMMON-FOUNDATION"
+      ],
+      "goal": "Development／Staging、Identity、Storage、PostgreSQL、Temporal、Job API、Audit、Observabilityを統合し、Cloud Jobを安全に完走させる。",
+      "tasks": [
+        "P1-T08",
+        "P1-T09",
+        "P1-T10",
+        "P1-T11",
+        "P1-T12",
+        "P1-T13",
+        "P1-T14",
+        "P1-T15",
+        "P1-T16",
+        "P1-T17",
+        "P1-GATE"
+      ],
+      "milestone": "M1 Cloud Foundation"
+    },
+    {
+      "id": "SPRINT-03",
+      "sequence": 3,
+      "name": "DSL and ADO Execution Foundations",
+      "programs": [
+        "PROGRAM-1",
+        "PROGRAM-2"
+      ],
+      "goal": "Reference DSL、Instance、Decimal／Unit、Rule ASTの基礎と、ADO Goal／Plan／Task／Codex Runnerの入口を並行実装する。",
+      "tasks": [
+        "P2-T01",
+        "P2-T02",
+        "P2-T03",
+        "P2-T04",
+        "P2-T05",
+        "P2-T06",
+        "P2-T07",
+        "P4-T01",
+        "P4-T02",
+        "P4-T03",
+        "P4-T04"
+      ],
+      "milestone": "M2前半 Rule Runtime / M4前半 ADO Runner"
+    },
+    {
+      "id": "SPRINT-04",
+      "sequence": 4,
+      "name": "Parts, Geometry, Judges and PUE Intake",
+      "programs": [
+        "PROGRAM-1",
+        "PROGRAM-2"
+      ],
+      "goal": "Parts／Geometryを完成させ、ADOの主要Judgeと、PUEのSecure Intake／OCR／Evidence基盤を並行構築する。",
+      "tasks": [
+        "P2-T08",
+        "P2-T09",
+        "P2-T10",
+        "P2-T11",
+        "P2-GATE",
+        "P4-T05",
+        "P4-T06",
+        "P4-T07",
+        "P5-T01",
+        "P5-T02",
+        "P5-T03",
+        "P5-T04",
+        "P5-T05"
+      ],
+      "milestone": "M2 Manufacturing Core"
+    },
+    {
+      "id": "SPRINT-05",
+      "sequence": 5,
+      "name": "Drawing, 3D, Product UI and Approval Loop",
+      "programs": [
+        "PROGRAM-1",
+        "PROGRAM-2",
+        "PROGRAM-3"
+      ],
+      "goal": "Drawing／3D／Manufacturing UIの基礎、ADO Fix・Approval・Release、PUE Candidate／Conflict／Model管理を並行実装する。",
+      "tasks": [
+        "P3-T01",
+        "P3-T02",
+        "P3-T03",
+        "P3-T04",
+        "P3-T05",
+        "P3-T06",
+        "P3-T07",
+        "P3-T08",
+        "P3-T09",
+        "P3-T10",
+        "P4-T08",
+        "P4-T09",
+        "P4-T10",
+        "P4-T11",
+        "P4-T12",
+        "P4-GATE",
+        "P5-T06",
+        "P5-T07",
+        "P5-T08",
+        "P5-T09",
+        "P5-T10"
+      ],
+      "milestone": "M4 ADO Approval Loop"
+    },
+    {
+      "id": "SPRINT-06",
+      "sequence": 6,
+      "name": "Visual Manufacturing and Safe PUE Integration",
+      "programs": [
+        "PROGRAM-2",
+        "PROGRAM-3"
+      ],
+      "goal": "2D／3D／Parts連動、製造承認、E2E UI、PUE Eval、Draft DSL承認接続を完成させる。",
+      "tasks": [
+        "P3-T11",
+        "P3-T12",
+        "P3-T13",
+        "P3-GATE",
+        "P5-T11",
+        "P5-T12",
+        "P5-GATE"
+      ],
+      "milestone": "M3 Visual Manufacturing / M5 Safe PUE"
+    },
+    {
+      "id": "SPRINT-07",
+      "sequence": 7,
+      "name": "Pilot Readiness and Baseline Run",
+      "programs": [
+        "PORTFOLIO"
+      ],
+      "goal": "Pilot Data、承認者、Runbook、Infrastructure Readinessを整え、実仕様書End-to-End Baselineを完走する。",
+      "tasks": [
+        "P6-T01",
+        "P6-T02",
+        "P6-T03"
+      ],
+      "milestone": "M6前半 Pilot Baseline"
+    },
+    {
+      "id": "SPRINT-08",
+      "sequence": 8,
+      "name": "Pilot Quality, Resilience and Security",
+      "programs": [
+        "PORTFOLIO"
+      ],
+      "goal": "寸法境界、Revision／Revocation、Backup／Restore、負荷、障害注入、Securityを検証する。",
+      "tasks": [
+        "P6-T04",
+        "P6-T05",
+        "P6-T06",
+        "P6-T07",
+        "P6-T08"
+      ],
+      "milestone": "M6検証完了"
+    },
+    {
+      "id": "SPRINT-09",
+      "sequence": 9,
+      "name": "Operational UAT and Practical Prototype Gate",
+      "programs": [
+        "PORTFOLIO"
+      ],
+      "goal": "レウによるOperational UATを完了し、実用プロトタイプを正式判定する。",
+      "tasks": [
+        "P6-T09",
+        "P6-GATE"
+      ],
+      "milestone": "M6 Practical Prototype"
+    },
+    {
+      "id": "SPRINT-10",
+      "sequence": 10,
+      "name": "Order Integration and Public Demo Build",
+      "programs": [
+        "PROGRAM-2",
+        "PROGRAM-3"
+      ],
+      "goal": "既存Order Engineとの安全な接続と、Productionから隔離されたPublic Demoを構築する。",
+      "tasks": [
+        "P7-T01",
+        "P7-T02",
+        "P7-T03",
+        "P7-T04",
+        "P7-T05",
+        "P7-T06"
+      ],
+      "milestone": "M7前半 Integration / Demo"
+    },
+    {
+      "id": "SPRINT-11",
+      "sequence": 11,
+      "name": "Customer Demonstration and Beta Readiness",
+      "programs": [
+        "PROGRAM-3",
+        "PORTFOLIO"
+      ],
+      "goal": "Webサイト、動画、Demo Script、Guided Customer Demo検証を完了し、β準備へ進む。",
+      "tasks": [
+        "P7-T07",
+        "P7-T08",
+        "P7-GATE"
+      ],
+      "milestone": "M7 Customer Demonstration"
+    }
+  ]
+}
