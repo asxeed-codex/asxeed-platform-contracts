@@ -1,5 +1,6 @@
 {
   "taskId": "P0-T01A",
+  "latestCorrectionId": "P0-T01A-R1",
   "files": [
     {
       "path": ".gitignore",
@@ -20,6 +21,11 @@
       "path": "docs/architecture/ASXEED_Architecture_Freeze_v1.1.md",
       "changeType": "added",
       "reason": "Install the canonical Architecture Freeze v1.1"
+    },
+    {
+      "path": "docs/architecture/ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md",
+      "changeType": "added",
+      "reason": "Adopt the versioned regional clarification immediately below Architecture Freeze v1.1"
     },
     {
       "path": "docs/architecture/TECHNOLOGY_STACK.md",
@@ -69,7 +75,8 @@
     {
       "path": "docs/plans/ADO_TASK_GRAPH_v1.2.json",
       "changeType": "added",
-      "reason": "Install the canonical ADO Task Graph v1.2 machine-readable representation"
+      "reason": "Install the corrected canonical ADO Task Graph v1.2 machine-readable representation",
+      "correction": "P0-T01A-R1 changed /tasks/0/outputs/5 from Master Implementation Plan v1.1 to v1.2"
     },
     {
       "path": "docs/plans/SPRINT_EXECUTION_PLAN_v1.0.md",
@@ -89,7 +96,7 @@
     {
       "path": "scripts/verify-architecture-adoption.mjs",
       "changeType": "added",
-      "reason": "Implement dependency-free deterministic adoption checks"
+      "reason": "Implement dependency-free deterministic adoption and task-graph semantic checks"
     },
     {
       "path": ".ado/artifacts/P0-T01A/implementation-summary.json",
@@ -135,6 +142,19 @@
       "path": ".ado/artifacts/P0-T01A/technology-adoption-report.json",
       "changeType": "added",
       "reason": "Record Technology Baseline v1.0 adoption without implementation substitutions"
+    },
+    {
+      "path": ".ado/artifacts/P0-T01A/source-correction-record.json",
+      "changeType": "added",
+      "reason": "Record the architecture-owner-approved P0-T01A-R1 source correction and hash transition"
+    }
+  ],
+  "untrackedSourceCorrections": [
+    {
+      "path": "_phase0_input/ADO_TASK_GRAPH_v1.2.json",
+      "tracked": false,
+      "changeType": "approved-source-correction",
+      "reason": "Keep the local approved source byte-identical to the corrected canonical task graph"
     }
   ]
 }

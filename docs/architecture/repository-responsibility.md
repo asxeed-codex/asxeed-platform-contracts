@@ -60,18 +60,19 @@ An approved architecture change must create a new version. Existing adopted vers
 Conflicts are resolved in this order:
 
 1. Architecture Freeze v1.1
-2. ADR-001 through ADR-024 as incorporated by the Freeze
-3. Technology Stack v1.0
-4. Technology Version Matrix v1.0
-5. Technology Selection Rationale v1.0
-6. Deferred Technology v1.0
-7. Master Implementation Plan v1.2
-8. ADO Task Graph v1.2 Markdown and JSON
-9. Sprint Execution Plan v1.0
-10. System Responsibility Boundaries v1.0
-11. Development Readiness Report v1.0
-12. Phase 0 Architecture Adoption Codex Pack v1.3
-13. Repository-specific governance, individual ADO tasks, and implementation
+2. [Architecture Freeze v1.1 Clarification 001](ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md)
+3. ADR-001 through ADR-024 as incorporated by the Freeze
+4. Technology Stack v1.0
+5. Technology Version Matrix v1.0
+6. Technology Selection Rationale v1.0
+7. Deferred Technology v1.0
+8. Master Implementation Plan v1.2
+9. ADO Task Graph v1.2 Markdown and JSON
+10. Sprint Execution Plan v1.0
+11. System Responsibility Boundaries v1.0
+12. Development Readiness Report v1.0
+13. Phase 0 Architecture Adoption Codex Pack v1.3
+14. Repository-specific governance, individual ADO tasks, and implementation
 
 The [governance index](../README.md) links each adopted document. The [adoption manifest](adoption-manifest.json) is a verification record and does not override the documents it identifies.
 

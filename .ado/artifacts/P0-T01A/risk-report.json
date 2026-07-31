@@ -3,32 +3,46 @@
   "riskLevel": "medium",
   "risks": [
     {
-      "id": "P0-T01A-R1",
+      "id": "P0-T01A-RISK-001",
       "severity": "low",
       "description": "The local host provides Node.js 25.9.0 while the frozen application baseline is Node.js 24.18.0.",
       "impact": "The current dependency-free filesystem and cryptographic verifier uses only stable Node.js core APIs, but the environment is not the future application runtime baseline.",
       "mitigation": "Rerun the verifier under Node.js 24.18.0 when the repository toolchain is bootstrapped; no application dependency or runtime substitution was committed."
     },
     {
-      "id": "P0-T01A-R2",
+      "id": "P0-T01A-RISK-002",
       "severity": "low",
       "description": "The repository had no tracked CI configuration.",
       "impact": "The deterministic verifier is locally executable but is not yet an enforced GitHub required check.",
       "mitigation": "Keep this script as the deterministic source and integrate the approved reusable workflow in its separately scoped Phase 0 CI task."
     },
     {
-      "id": "P0-T01A-R3",
+      "id": "P0-T01A-RISK-003",
       "severity": "low",
       "description": "The canonical Development Readiness Report v1.0 refers internally to Phase 0 Codex Pack v1.2, while the approved source supplied for adoption is v1.3.",
       "impact": "A reader may notice a stale historical version reference.",
       "mitigation": "The readiness report was preserved byte-for-byte, while the user-required manifest and exact-version checks pin the adopted Codex Pack to v1.3. Any source correction must be a separately approved versioned governance change."
     },
     {
-      "id": "P0-T01A-R4",
+      "id": "P0-T01A-RISK-004",
       "severity": "low",
       "description": "GitHub CLI is not installed in the execution environment.",
       "impact": "CLI-based Draft PR creation is unavailable.",
       "mitigation": "Use authenticated Git push plus the connected GitHub application for Draft PR creation."
+    }
+  ],
+  "resolvedCheckpointFindings": [
+    {
+      "id": "P0-T01A-R1",
+      "severity": "blocking",
+      "status": "corrected",
+      "description": "P0-T01 now references Master Implementation Plan v1.2 in the source and canonical task graph, with matching new SHA-256 and deterministic semantic validation."
+    },
+    {
+      "id": "ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001",
+      "severity": "architecture-ambiguity",
+      "status": "clarified",
+      "description": "Core regions are fixed to Japan East and Japan West while SKU and AI deployment-region validation remain separately governed; no fallback is authorized."
     }
   ],
   "conflicts": [],

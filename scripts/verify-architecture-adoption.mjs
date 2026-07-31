@@ -21,6 +21,14 @@ const expectedDocuments = [
     heading: "# ASXEED Architecture Freeze v1.1",
   },
   {
+    name: "ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md",
+    version: "1.1-clarification-001",
+    filePath:
+      "docs/architecture/ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md",
+    source: "architecture-owner-checkpoint-review/P0-T01A-R1",
+    heading: "# ASXEED Architecture Freeze v1.1 Clarification 001",
+  },
+  {
     name: "TECHNOLOGY_STACK.md",
     version: "1.0",
     filePath: "docs/architecture/TECHNOLOGY_STACK.md",
@@ -107,6 +115,7 @@ const expectedDocuments = [
 const expectedTopLevelVersions = {
   manifestVersion: "1.0",
   architectureFreezeVersion: "1.1",
+  architectureClarificationVersion: "1.1-clarification-001",
   technologyBaselineVersion: "1.0",
   masterImplementationPlanVersion: "1.2",
   adoTaskGraphVersion: "1.2",
@@ -123,6 +132,7 @@ const checks = {
   exactVersions: { status: "pass", checked: 0 },
   sha256Agreement: { status: "pass", checked: 0 },
   relativeLinks: { status: "pass", checked: 0 },
+  taskGraphSemantics: { status: "pass", checked: 0, metrics: {} },
 };
 
 function fail(checkName, message) {
@@ -142,6 +152,278 @@ function readJson(path, checkName) {
 
 function sha256(path) {
   return createHash("sha256").update(readFileSync(path)).digest("hex");
+}
+
+function checkTaskGraph(condition, message) {
+  checks.taskGraphSemantics.checked += 1;
+  if (!condition) {
+    fail("taskGraphSemantics", message);
+  }
+}
+
+function validateTaskGraph(graph, manifest) {
+  if (!graph) {
+    checkTaskGraph(false, "ADO Task Graph JSON could not be parsed");
+    return;
+  }
+
+  const tasks = Array.isArray(graph.tasks) ? graph.tasks : [];
+  checkTaskGraph(Array.isArray(graph.tasks), "tasks must be an array");
+  checkTaskGraph(
+    graph.taskCount === tasks.length,
+    `taskCount must equal tasks.length; found ${graph.taskCount} and ${tasks.length}`,
+  );
+
+  const taskIds = tasks.map((task) => task.id);
+  const uniqueTaskIds = new Set(taskIds);
+  const duplicateTaskIds = taskIds.filter(
+    (id, index) => taskIds.indexOf(id) !== index,
+  );
+  checkTaskGraph(
+    uniqueTaskIds.size === taskIds.length,
+    `task IDs must be unique; duplicates: ${[...new Set(duplicateTaskIds)].join(", ")}`,
+  );
+
+  const taskById = new Map(tasks.map((task) => [task.id, task]));
+  const missingDependencies = [];
+  let dependencyReferenceCount = 0;
+  for (const task of tasks) {
+    const dependencies = Array.isArray(task.dependsOn) ? task.dependsOn : [];
+    dependencyReferenceCount += dependencies.length;
+    for (const dependencyId of dependencies) {
+      if (!taskById.has(dependencyId)) {
+        missingDependencies.push(`${task.id}->${dependencyId}`);
+      }
+    }
+  }
+  checkTaskGraph(
+    missingDependencies.length === 0,
+    `every dependsOn ID must resolve; missing: ${missingDependencies.join(", ")}`,
+  );
+
+  const visitState = new Map();
+  const cyclePaths = [];
+  function visit(taskId, path) {
+    const state = visitState.get(taskId);
+    if (state === "visiting") {
+      cyclePaths.push([...path, taskId].join("->"));
+      return;
+    }
+    if (state === "visited") {
+      return;
+    }
+
+    visitState.set(taskId, "visiting");
+    const task = taskById.get(taskId);
+    for (const dependencyId of task?.dependsOn ?? []) {
+      if (taskById.has(dependencyId)) {
+        visit(dependencyId, [...path, taskId]);
+      }
+    }
+    visitState.set(taskId, "visited");
+  }
+  for (const taskId of taskIds) {
+    visit(taskId, []);
+  }
+  checkTaskGraph(
+    cyclePaths.length === 0,
+    `dependency graph must be acyclic; cycles: ${cyclePaths.join(", ")}`,
+  );
+
+  const topologicalOrder = graph.validation?.topologicalOrder;
+  checkTaskGraph(
+    Array.isArray(topologicalOrder),
+    "validation.topologicalOrder must be an array",
+  );
+  if (Array.isArray(topologicalOrder)) {
+    const topologicalSet = new Set(topologicalOrder);
+    const unknownTopologicalIds = topologicalOrder.filter(
+      (id) => !taskById.has(id),
+    );
+    const duplicateTopologicalIds = topologicalOrder.filter(
+      (id, index) => topologicalOrder.indexOf(id) !== index,
+    );
+    const omittedTaskIds = taskIds.filter((id) => !topologicalSet.has(id));
+    checkTaskGraph(
+      unknownTopologicalIds.length === 0,
+      `every topologicalOrder ID must exist; unknown: ${unknownTopologicalIds.join(", ")}`,
+    );
+    checkTaskGraph(
+      topologicalSet.size === topologicalOrder.length,
+      `every topologicalOrder ID must appear once; duplicates: ${[...new Set(duplicateTopologicalIds)].join(", ")}`,
+    );
+    checkTaskGraph(
+      omittedTaskIds.length === 0 && topologicalOrder.length === tasks.length,
+      `topologicalOrder must contain every task exactly once; omitted: ${omittedTaskIds.join(", ")}`,
+    );
+
+    const positions = new Map(
+      topologicalOrder.map((taskId, index) => [taskId, index]),
+    );
+    const orderViolations = [];
+    for (const task of tasks) {
+      for (const dependencyId of task.dependsOn ?? []) {
+        if (
+          positions.has(task.id) &&
+          positions.has(dependencyId) &&
+          positions.get(dependencyId) >= positions.get(task.id)
+        ) {
+          orderViolations.push(`${task.id}->${dependencyId}`);
+        }
+      }
+    }
+    checkTaskGraph(
+      orderViolations.length === 0,
+      `topologicalOrder must place dependencies first; violations: ${orderViolations.join(", ")}`,
+    );
+  }
+
+  const requiredTaskFields = [
+    "programId",
+    "trackId",
+    "sprintId",
+    "status",
+    "readiness",
+  ];
+  const missingRequiredFields = [];
+  for (const task of tasks) {
+    for (const field of requiredTaskFields) {
+      if (typeof task[field] !== "string" || task[field].trim() === "") {
+        missingRequiredFields.push(`${task.id}.${field}`);
+      }
+    }
+  }
+  checkTaskGraph(
+    missingRequiredFields.length === 0,
+    `every task must have required governance fields; missing: ${missingRequiredFields.join(", ")}`,
+  );
+
+  const sprints = Array.isArray(graph.sprints) ? graph.sprints : [];
+  const sprintSequenceById = new Map(
+    sprints.map((sprint) => [sprint.id, sprint.sequence]),
+  );
+  const missingTaskSprints = tasks
+    .filter((task) => !sprintSequenceById.has(task.sprintId))
+    .map((task) => `${task.id}->${task.sprintId}`);
+  checkTaskGraph(
+    missingTaskSprints.length === 0,
+    `every task sprintId must resolve; missing: ${missingTaskSprints.join(", ")}`,
+  );
+
+  const sprintOrderViolations = [];
+  for (const task of tasks) {
+    const taskSequence = sprintSequenceById.get(task.sprintId);
+    for (const dependencyId of task.dependsOn ?? []) {
+      const dependency = taskById.get(dependencyId);
+      const dependencySequence = sprintSequenceById.get(dependency?.sprintId);
+      if (
+        Number.isInteger(taskSequence) &&
+        Number.isInteger(dependencySequence) &&
+        dependencySequence > taskSequence
+      ) {
+        sprintOrderViolations.push(
+          `${task.id}(${task.sprintId})->${dependencyId}(${dependency.sprintId})`,
+        );
+      }
+    }
+  }
+  checkTaskGraph(
+    sprintOrderViolations.length === 0,
+    `sprint dependency order must have no violation; violations: ${sprintOrderViolations.join(", ")}`,
+  );
+  checkTaskGraph(
+    graph.validation?.sprintDependencyOrderViolationCount === 0 &&
+      Array.isArray(graph.validation?.sprintDependencyOrderViolations) &&
+      graph.validation.sprintDependencyOrderViolations.length === 0,
+    "recorded sprint dependency validation must report zero violations",
+  );
+
+  const sourceDocuments = Array.isArray(graph.sourceDocuments)
+    ? graph.sourceDocuments
+    : [];
+  checkTaskGraph(
+    Array.isArray(graph.sourceDocuments),
+    "sourceDocuments must be an array",
+  );
+  checkTaskGraph(
+    new Set(sourceDocuments).size === sourceDocuments.length,
+    "sourceDocuments must not contain duplicate references",
+  );
+  const requiredSourceVersions = new Map([
+    ["ASXEED_Architecture_Freeze_v1.1.md", "1.1"],
+    ["TECHNOLOGY_STACK.md", "1.0"],
+    ["TECHNOLOGY_VERSION_MATRIX.md", "1.0"],
+    ["TECHNOLOGY_SELECTION_RATIONALE.md", "1.0"],
+    ["DEFERRED_TECHNOLOGY.md", "1.0"],
+    ["MASTER_IMPLEMENTATION_PLAN_v1.2.md", "1.2"],
+    ["SPRINT_EXECUTION_PLAN_v1.0.md", "1.0"],
+    ["SYSTEM_RESPONSIBILITY_BOUNDARIES_v1.0.md", "1.0"],
+  ]);
+  const manifestDocumentsByName = new Map(
+    (manifest?.documents ?? []).map((document) => [document.name, document]),
+  );
+  const staleOrUnknownSources = sourceDocuments.filter((name) => {
+    const expectedVersion = requiredSourceVersions.get(name);
+    const adoptedDocument = manifestDocumentsByName.get(name);
+    return !expectedVersion || adoptedDocument?.version !== expectedVersion;
+  });
+  const missingCurrentSources = [...requiredSourceVersions.keys()].filter(
+    (name) => !sourceDocuments.includes(name),
+  );
+  checkTaskGraph(
+    staleOrUnknownSources.length === 0 && missingCurrentSources.length === 0,
+    `sourceDocuments must reference currently adopted versions; stale/unknown: ${staleOrUnknownSources.join(", ")}; missing: ${missingCurrentSources.join(", ")}`,
+  );
+
+  const p0T01 = taskById.get("P0-T01");
+  const p0T01PlanOutputs = (p0T01?.outputs ?? []).filter((output) =>
+    output.includes("MASTER_IMPLEMENTATION_PLAN"),
+  );
+  const expectedP0T01PlanOutput =
+    "docs/plans/MASTER_IMPLEMENTATION_PLAN_v1.2.md";
+  checkTaskGraph(Boolean(p0T01), "P0-T01 must exist");
+  checkTaskGraph(
+    p0T01PlanOutputs.length === 1 &&
+      p0T01PlanOutputs[0] === expectedP0T01PlanOutput,
+    `P0-T01 must output ${expectedP0T01PlanOutput}; found ${p0T01PlanOutputs.join(", ")}`,
+  );
+
+  const markdownGraphPath = join(
+    repositoryRoot,
+    "docs/plans/ADO_TASK_GRAPH_v1.2.md",
+  );
+  const markdownGraphHeading = readFileSync(markdownGraphPath, "utf8").split(
+    /\r?\n/,
+    1,
+  )[0];
+  checkTaskGraph(
+    graph.graphVersion === "1.2",
+    `JSON graphVersion must be 1.2; found ${graph.graphVersion}`,
+  );
+  checkTaskGraph(
+    markdownGraphHeading === "# ASXEED ADO TASK GRAPH v1.2",
+    `Markdown graph version must be 1.2; found ${markdownGraphHeading}`,
+  );
+
+  checks.taskGraphSemantics.metrics = {
+    taskCount: tasks.length,
+    uniqueTaskIds: uniqueTaskIds.size,
+    dependencyReferences: dependencyReferenceCount,
+    missingDependencyReferences: missingDependencies.length,
+    dependencyCycles: cyclePaths.length,
+    topologicalOrderIds: Array.isArray(topologicalOrder)
+      ? topologicalOrder.length
+      : 0,
+    tasksWithRequiredGovernanceFields:
+      tasks.length - new Set(missingRequiredFields.map((item) => item.split(".")[0])).size,
+    sprintDependencyOrderViolations: sprintOrderViolations.length,
+    sourceDocumentReferences: sourceDocuments.length,
+    p0T01MasterPlanOutput: p0T01PlanOutputs[0] ?? null,
+    markdownGraphVersion: markdownGraphHeading.endsWith("v1.2")
+      ? "1.2"
+      : null,
+    jsonGraphVersion: graph.graphVersion,
+  };
 }
 
 function collectMarkdownFiles(path) {
@@ -168,6 +450,8 @@ if (!existsSync(manifestPath)) {
 const manifest = existsSync(manifestPath)
   ? readJson(manifestPath, "jsonParsing")
   : null;
+
+let parsedTaskGraph = null;
 
 if (manifest) {
   for (const [field, expected] of Object.entries(expectedTopLevelVersions)) {
@@ -199,6 +483,23 @@ if (manifest) {
       fail(
         "requiredFiles",
         `manifest must contain exactly ${expectedDocuments.length} documents; found ${manifest.documents.length}`,
+      );
+    }
+
+    checks.exactVersions.checked += 1;
+    const expectedDocumentOrder = expectedDocuments.map(
+      (document) => document.filePath,
+    );
+    const manifestDocumentOrder = manifest.documents.map(
+      (document) => document.filePath,
+    );
+    if (
+      JSON.stringify(manifestDocumentOrder) !==
+      JSON.stringify(expectedDocumentOrder)
+    ) {
+      fail(
+        "exactVersions",
+        "manifest document order must follow the adopted authority hierarchy",
       );
     }
 
@@ -255,6 +556,9 @@ if (manifest) {
 
       if (expected.jsonVersionField) {
         const parsedDocument = readJson(absolutePath, "jsonParsing");
+        if (expected.name === "ADO_TASK_GRAPH_v1.2.json") {
+          parsedTaskGraph = parsedDocument;
+        }
         checks.exactVersions.checked += 1;
         if (
           parsedDocument &&
@@ -278,6 +582,8 @@ if (manifest) {
     }
   }
 }
+
+validateTaskGraph(parsedTaskGraph, manifest);
 
 const markdownFiles = [
   ...collectMarkdownFiles(join(repositoryRoot, "README.md")),

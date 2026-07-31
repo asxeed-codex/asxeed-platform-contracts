@@ -1,5 +1,6 @@
 {
   "taskId": "P0-T01A",
+  "latestCorrectionId": "P0-T01A-R1",
   "overall": "pass",
   "suites": [
     {
@@ -13,11 +14,26 @@
       "status": "pass",
       "command": "node scripts/verify-architecture-adoption.mjs",
       "assertions": {
-        "requiredFiles": 14,
+        "requiredFiles": 15,
         "jsonParsing": 2,
-        "exactVersionsAndMetadata": 95,
-        "sha256Agreement": 12,
-        "relativeLinks": 22
+        "exactVersionsAndMetadata": 104,
+        "sha256Agreement": 13,
+        "relativeLinks": 24,
+        "taskGraphSemantics": 21
+      },
+      "taskGraphMetrics": {
+        "taskCount": 103,
+        "uniqueTaskIds": 103,
+        "dependencyReferences": 192,
+        "missingDependencyReferences": 0,
+        "dependencyCycles": 0,
+        "topologicalOrderIds": 103,
+        "tasksWithRequiredGovernanceFields": 103,
+        "sprintDependencyOrderViolations": 0,
+        "sourceDocumentReferences": 8,
+        "p0T01MasterPlanOutput": "docs/plans/MASTER_IMPLEMENTATION_PLAN_v1.2.md",
+        "markdownGraphVersion": "1.2",
+        "jsonGraphVersion": "1.2"
       }
     },
     {
@@ -32,10 +48,10 @@
       "comparisons": 12
     },
     {
-      "name": "immutable-source-integrity",
+      "name": "source-integrity-and-approved-correction",
       "status": "pass",
       "command": "shasum -a 256 _phase0_input/*",
-      "details": "All 13 source files retained their pre-adoption SHA-256 values."
+      "details": "The approved ADO Task Graph source changed from 21ce8f960244935bb9cc7bd1d4c4ad5fc5c504fdfee996b308613171bb5bc026 to 34efcebdf71abf12bfc91977d012604c7d83b9d719de7f4fb3a45ad70943634d; the other 12 local source files retained their prior hashes."
     },
     {
       "name": "task-authored-diff-hygiene",
@@ -55,31 +71,90 @@
       "name": "evidence-json-parsing",
       "status": "pass",
       "command": "node <parse every JSON file under docs and .ado>",
-      "parsedFiles": 11
+      "parsedFiles": 12
     },
     {
       "name": "changed-file-inventory-consistency",
       "status": "pass",
       "command": "node <compare worktree file inventory to changed-files.json>",
-      "declaredFiles": 27,
-      "actualFiles": 27
+      "declaredFiles": 29,
+      "actualFiles": 29
     },
     {
       "name": "hash-artifact-consistency",
       "status": "pass",
       "command": "node <normalize and compare manifest hashes to document-hashes.json>",
-      "matchingDocuments": 12
+      "matchingDocuments": 13
     },
     {
       "name": "tamper-detection",
       "status": "pass",
-      "command": "node scripts/verify-architecture-adoption.mjs (temporary tampered canonical copy)",
+      "command": "node scripts/verify-architecture-adoption.mjs (clean and four isolated tamper fixtures)",
+      "fixtures": [
+        {
+          "name": "clean-baseline",
+          "expectedExitCode": 0,
+          "actualExitCode": 0,
+          "status": "pass"
+        },
+        {
+          "name": "clarification-heading-and-hash",
+          "expectedExitCode": 1,
+          "actualExitCode": 1,
+          "detectedFailures": [
+            "exactVersions",
+            "sha256Agreement"
+          ]
+        },
+        {
+          "name": "p0-t01-stale-output-with-matching-hash",
+          "expectedExitCode": 1,
+          "actualExitCode": 1,
+          "detectedFailures": [
+            "taskGraphSemantics"
+          ]
+        },
+        {
+          "name": "duplicate-task-id-with-matching-hash",
+          "expectedExitCode": 1,
+          "actualExitCode": 1,
+          "detectedFailures": [
+            "taskGraphSemantics"
+          ]
+        },
+        {
+          "name": "dependency-cycle-with-matching-hash",
+          "expectedExitCode": 1,
+          "actualExitCode": 1,
+          "detectedFailures": [
+            "taskGraphSemantics"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "authority-hierarchy-order",
+      "status": "pass",
+      "command": "node <verify clarification follows Architecture Freeze in both authority hierarchies>",
+      "checkedFiles": 2
+    },
+    {
+      "name": "secret-pattern-scan",
+      "status": "pass",
+      "command": "rg -n <secret patterns> .ado docs scripts README.md .gitignore",
       "expectedExitCode": 1,
       "actualExitCode": 1,
-      "detectedFailures": [
-        "exactVersions",
-        "sha256Agreement"
-      ]
+      "matches": 0
+    },
+    {
+      "name": "correction-worktree-whitespace",
+      "status": "pass",
+      "command": "git diff --check"
+    },
+    {
+      "name": "correction-staged-whitespace",
+      "status": "pass",
+      "command": "git diff --cached --check"
     }
   ],
   "failures": [],

@@ -1,6 +1,7 @@
 {
   "manifestVersion": "1.0",
   "architectureFreezeVersion": "1.1",
+  "architectureClarificationVersion": "1.1-clarification-001",
   "technologyBaselineVersion": "1.0",
   "masterImplementationPlanVersion": "1.2",
   "adoTaskGraphVersion": "1.2",
@@ -17,6 +18,15 @@
       "filePath": "docs/architecture/ASXEED_Architecture_Freeze_v1.1.md",
       "sha256": "b58e7d1cd6fd3225f3d554ac01e5a97104094dc760a34f00f6ff3e61209977c0",
       "source": "_phase0_input/ASXEED_Architecture_Freeze_v1.1.md",
+      "repository": "asxeed-codex/asxeed-platform-contracts",
+      "adoptionStatus": "adopted"
+    },
+    {
+      "name": "ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md",
+      "version": "1.1-clarification-001",
+      "filePath": "docs/architecture/ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md",
+      "sha256": "f5dbf974697c294c69ae18f1151935b9b1b5de3909197fd506be155a64497b9b",
+      "source": "architecture-owner-checkpoint-review/P0-T01A-R1",
       "repository": "asxeed-codex/asxeed-platform-contracts",
       "adoptionStatus": "adopted"
     },
@@ -78,7 +88,7 @@
       "name": "ADO_TASK_GRAPH_v1.2.json",
       "version": "1.2",
       "filePath": "docs/plans/ADO_TASK_GRAPH_v1.2.json",
-      "sha256": "21ce8f960244935bb9cc7bd1d4c4ad5fc5c504fdfee996b308613171bb5bc026",
+      "sha256": "34efcebdf71abf12bfc91977d012604c7d83b9d719de7f4fb3a45ad70943634d",
       "source": "_phase0_input/ADO_TASK_GRAPH_v1.2.json",
       "repository": "asxeed-codex/asxeed-platform-contracts",
       "adoptionStatus": "adopted"
