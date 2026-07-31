@@ -1,0 +1,21 @@
+{
+  "taskId": "P0-T01A-R1",
+  "parentTaskId": "P0-T01A",
+  "correctionStatus": "approved-and-applied",
+  "approvalType": "clerical-pre-adoption-correction",
+  "reviewer": "Architecture Owner / AI CTO checkpoint review",
+  "reviewDate": "2026-07-31",
+  "sourceFile": "_phase0_input/ADO_TASK_GRAPH_v1.2.json",
+  "canonicalFile": "docs/plans/ADO_TASK_GRAPH_v1.2.json",
+  "jsonPointer": "/tasks/0/outputs/5",
+  "semanticJsonPath": "$.tasks[?(@.id == 'P0-T01')].outputs[5]",
+  "oldValue": "docs/plans/MASTER_IMPLEMENTATION_PLAN_v1.1.md",
+  "newValue": "docs/plans/MASTER_IMPLEMENTATION_PLAN_v1.2.md",
+  "oldSha256": "21ce8f960244935bb9cc7bd1d4c4ad5fc5c504fdfee996b308613171bb5bc026",
+  "newSha256": "34efcebdf71abf12bfc91977d012604c7d83b9d719de7f4fb3a45ad70943634d",
+  "reason": "Correct the P0-T01 output to the formally adopted Master Implementation Plan v1.2; the v1.1 path was a clerical pre-adoption inconsistency.",
+  "sourceAndCanonicalByteIdentical": true,
+  "semanticVerificationStatus": "pass",
+  "needsDesignDecision": false,
+  "blockedExternal": false
+}

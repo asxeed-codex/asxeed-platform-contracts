@@ -1,0 +1,172 @@
+{
+  "taskId": "P0-T01A",
+  "latestCorrectionId": "P0-T01A-R1",
+  "overall": "pass",
+  "suites": [
+    {
+      "name": "existing-repository-checks",
+      "status": "not-applicable",
+      "command": null,
+      "details": "The initial repository contained no tracked package, test, build, lint, or CI configuration."
+    },
+    {
+      "name": "architecture-adoption-verifier",
+      "status": "pass",
+      "command": "node scripts/verify-architecture-adoption.mjs",
+      "assertions": {
+        "requiredFiles": 15,
+        "jsonParsing": 2,
+        "exactVersionsAndMetadata": 104,
+        "sha256Agreement": 13,
+        "relativeLinks": 24,
+        "taskGraphSemantics": 21
+      },
+      "taskGraphMetrics": {
+        "taskCount": 103,
+        "uniqueTaskIds": 103,
+        "dependencyReferences": 192,
+        "missingDependencyReferences": 0,
+        "dependencyCycles": 0,
+        "topologicalOrderIds": 103,
+        "tasksWithRequiredGovernanceFields": 103,
+        "sprintDependencyOrderViolations": 0,
+        "sourceDocumentReferences": 8,
+        "p0T01MasterPlanOutput": "docs/plans/MASTER_IMPLEMENTATION_PLAN_v1.2.md",
+        "markdownGraphVersion": "1.2",
+        "jsonGraphVersion": "1.2"
+      }
+    },
+    {
+      "name": "verifier-syntax",
+      "status": "pass",
+      "command": "node --check scripts/verify-architecture-adoption.mjs"
+    },
+    {
+      "name": "canonical-byte-comparison",
+      "status": "pass",
+      "command": "cmp _phase0_input/<approved-document> <stable-canonical-path>",
+      "comparisons": 12
+    },
+    {
+      "name": "source-integrity-and-approved-correction",
+      "status": "pass",
+      "command": "shasum -a 256 _phase0_input/*",
+      "details": "The approved ADO Task Graph source changed from 21ce8f960244935bb9cc7bd1d4c4ad5fc5c504fdfee996b308613171bb5bc026 to 34efcebdf71abf12bfc91977d012604c7d83b9d719de7f4fb3a45ad70943634d; the other 12 local source files retained their prior hashes."
+    },
+    {
+      "name": "task-authored-diff-hygiene",
+      "status": "pass",
+      "command": "git diff --cached --check -- <task-authored-files>",
+      "details": "Canonical copies are intentionally excluded because their adopted bytes include Markdown hard-break spaces and final blank lines."
+    },
+    {
+      "name": "canonical-source-format-preservation",
+      "status": "pass",
+      "command": "git diff --cached --check",
+      "expectedExitCode": 2,
+      "actualExitCode": 2,
+      "details": "Every full-diff warning is within a byte-identical canonical source copy; those bytes were not normalized or rewritten."
+    },
+    {
+      "name": "evidence-json-parsing",
+      "status": "pass",
+      "command": "node <parse every JSON file under docs and .ado>",
+      "parsedFiles": 12
+    },
+    {
+      "name": "changed-file-inventory-consistency",
+      "status": "pass",
+      "command": "node <compare worktree file inventory to changed-files.json>",
+      "declaredFiles": 29,
+      "actualFiles": 29
+    },
+    {
+      "name": "hash-artifact-consistency",
+      "status": "pass",
+      "command": "node <normalize and compare manifest hashes to document-hashes.json>",
+      "matchingDocuments": 13
+    },
+    {
+      "name": "tamper-detection",
+      "status": "pass",
+      "command": "node scripts/verify-architecture-adoption.mjs (clean and four isolated tamper fixtures)",
+      "fixtures": [
+        {
+          "name": "clean-baseline",
+          "expectedExitCode": 0,
+          "actualExitCode": 0,
+          "status": "pass"
+        },
+        {
+          "name": "clarification-heading-and-hash",
+          "expectedExitCode": 1,
+          "actualExitCode": 1,
+          "detectedFailures": [
+            "exactVersions",
+            "sha256Agreement"
+          ]
+        },
+        {
+          "name": "p0-t01-stale-output-with-matching-hash",
+          "expectedExitCode": 1,
+          "actualExitCode": 1,
+          "detectedFailures": [
+            "taskGraphSemantics"
+          ]
+        },
+        {
+          "name": "duplicate-task-id-with-matching-hash",
+          "expectedExitCode": 1,
+          "actualExitCode": 1,
+          "detectedFailures": [
+            "taskGraphSemantics"
+          ]
+        },
+        {
+          "name": "dependency-cycle-with-matching-hash",
+          "expectedExitCode": 1,
+          "actualExitCode": 1,
+          "detectedFailures": [
+            "taskGraphSemantics"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "authority-hierarchy-order",
+      "status": "pass",
+      "command": "node <verify clarification follows Architecture Freeze in both authority hierarchies>",
+      "checkedFiles": 2
+    },
+    {
+      "name": "secret-pattern-scan",
+      "status": "pass",
+      "command": "rg -n <secret patterns> .ado docs scripts README.md .gitignore",
+      "expectedExitCode": 1,
+      "actualExitCode": 1,
+      "matches": 0
+    },
+    {
+      "name": "correction-worktree-whitespace",
+      "status": "pass",
+      "command": "git diff --check"
+    },
+    {
+      "name": "correction-staged-whitespace",
+      "status": "pass",
+      "command": "git diff --cached --check"
+    }
+  ],
+  "failures": [],
+  "skipped": [
+    {
+      "name": "pre-existing project checks",
+      "reason": "No pre-existing project checks were present."
+    }
+  ],
+  "environment": {
+    "localNode": "25.9.0",
+    "approvedApplicationBaselineNode": "24.18.0",
+    "dependenciesInstalled": false
+  }
+}

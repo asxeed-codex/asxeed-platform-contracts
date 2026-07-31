@@ -1,0 +1,234 @@
+{
+  "taskId": "P0-T01A",
+  "latestCorrectionId": "P0-T01A-R1",
+  "commands": [
+    {
+      "command": "git status --short --branch",
+      "exitCode": 0,
+      "purpose": "Confirm the initial branch and clean working tree"
+    },
+    {
+      "command": "git remote -v",
+      "exitCode": 0,
+      "purpose": "Confirm the authorized repository remote"
+    },
+    {
+      "command": "git ls-tree -r --name-only HEAD",
+      "exitCode": 0,
+      "purpose": "Inventory tracked repository content"
+    },
+    {
+      "command": "git log --oneline --decorate --max-count=10",
+      "exitCode": 0,
+      "purpose": "Inspect existing repository history"
+    },
+    {
+      "command": "git status --short --ignored --untracked-files=all",
+      "exitCode": 0,
+      "purpose": "Confirm immutable input material is ignored"
+    },
+    {
+      "command": "rg --files -g '!_phase0_input/**'",
+      "exitCode": 1,
+      "purpose": "Confirm there were no existing tracked or visible project files to preserve"
+    },
+    {
+      "command": "rg --files _phase0_input",
+      "exitCode": 0,
+      "purpose": "Inventory required immutable source files"
+    },
+    {
+      "command": "shasum -a 256 _phase0_input/*",
+      "exitCode": 0,
+      "purpose": "Capture immutable input hashes before adoption"
+    },
+    {
+      "command": "node -e '<parse ADO_TASK_GRAPH_v1.2.json metadata>'",
+      "exitCode": 0,
+      "purpose": "Inspect task graph version and validation metadata"
+    },
+    {
+      "command": "git remote show origin",
+      "exitCode": 0,
+      "purpose": "Confirm origin default branch and tracking configuration"
+    },
+    {
+      "command": "git ls-remote --heads origin",
+      "exitCode": 0,
+      "purpose": "Verify read access to the GitHub remote"
+    },
+    {
+      "command": "gh --version",
+      "exitCode": 127,
+      "purpose": "Check GitHub CLI availability"
+    },
+    {
+      "command": "gh auth status",
+      "exitCode": 127,
+      "purpose": "Check GitHub CLI authentication availability"
+    },
+    {
+      "command": "git switch -c codex/P0-T01A-platform-contracts-adoption",
+      "exitCode": 0,
+      "purpose": "Create the dedicated task branch"
+    },
+    {
+      "command": "mkdir -p docs/architecture docs/plans docs/reports scripts .ado/artifacts/P0-T01A",
+      "exitCode": 0,
+      "purpose": "Create stable adoption and evidence directories"
+    },
+    {
+      "command": "cp _phase0_input/<approved-document> <stable-canonical-path> (12 approved files)",
+      "exitCode": 0,
+      "purpose": "Install byte-for-byte canonical copies"
+    },
+    {
+      "command": "shasum -a 256 docs/architecture/<adopted-files> docs/plans/<adopted-files> docs/reports/<adopted-files>",
+      "exitCode": 0,
+      "purpose": "Compute canonical document hashes"
+    },
+    {
+      "command": "node scripts/verify-architecture-adoption.mjs",
+      "exitCode": 0,
+      "purpose": "Run deterministic existence, JSON, version, hash, and relative-link checks"
+    },
+    {
+      "command": "cmp _phase0_input/<approved-document> <stable-canonical-path> (12 approved files)",
+      "exitCode": 0,
+      "purpose": "Independently verify every canonical copy is byte-identical to its source"
+    },
+    {
+      "command": "node --check scripts/verify-architecture-adoption.mjs",
+      "exitCode": 0,
+      "purpose": "Validate verifier syntax"
+    },
+    {
+      "command": "git diff --cached --check -- <task-authored-files>",
+      "exitCode": 0,
+      "purpose": "Check task-authored files for whitespace errors while preserving canonical source bytes"
+    },
+    {
+      "command": "shasum -a 256 _phase0_input/*",
+      "exitCode": 0,
+      "purpose": "Confirm immutable input hashes remain unchanged after adoption"
+    },
+    {
+      "command": "node <parse every JSON file under docs and .ado>",
+      "exitCode": 0,
+      "purpose": "Validate the complete manifest, task graph, and evidence bundle as JSON"
+    },
+    {
+      "command": "node <compare worktree file inventory to changed-files.json>",
+      "exitCode": 0,
+      "purpose": "Confirm the evidence inventory declares every intended repository file and no nonexistent file"
+    },
+    {
+      "command": "node <normalize and compare manifest hashes to document-hashes.json>",
+      "exitCode": 0,
+      "purpose": "Confirm cross-artifact document hash agreement"
+    },
+    {
+      "command": "node scripts/verify-architecture-adoption.mjs (temporary tampered canonical copy)",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "purpose": "Confirm the verifier rejects an exact-version and SHA-256 mismatch"
+    },
+    {
+      "command": "git diff --cached --check",
+      "exitCode": 2,
+      "expectedExitCode": 2,
+      "purpose": "Confirm full-diff whitespace findings are limited to formatting already present in immutable canonical sources"
+    },
+    {
+      "command": "git status --short --branch --ignored",
+      "exitCode": 0,
+      "purpose": "Confirm the existing correction branch is clean before P0-T01A-R1"
+    },
+    {
+      "command": "GitHub app: get metadata for Draft PR #1",
+      "exitCode": 0,
+      "purpose": "Confirm PR #1 is open, draft, mergeable, and points to the active branch"
+    },
+    {
+      "command": "shasum -a 256 _phase0_input/ADO_TASK_GRAPH_v1.2.json docs/plans/ADO_TASK_GRAPH_v1.2.json",
+      "exitCode": 0,
+      "purpose": "Capture the matching pre-correction task graph SHA-256"
+    },
+    {
+      "command": "apply_patch <P0-T01 output v1.1 to v1.2 in source and canonical JSON>",
+      "exitCode": 0,
+      "purpose": "Apply the architecture-owner-approved clerical correction to both byte-identical representations"
+    },
+    {
+      "command": "shasum -a 256 _phase0_input/ADO_TASK_GRAPH_v1.2.json docs/plans/ADO_TASK_GRAPH_v1.2.json",
+      "exitCode": 0,
+      "purpose": "Capture the matching corrected task graph SHA-256"
+    },
+    {
+      "command": "cmp _phase0_input/ADO_TASK_GRAPH_v1.2.json docs/plans/ADO_TASK_GRAPH_v1.2.json",
+      "exitCode": 0,
+      "purpose": "Verify corrected source and canonical task graph remain byte-identical"
+    },
+    {
+      "command": "node --check scripts/verify-architecture-adoption.mjs",
+      "exitCode": 0,
+      "purpose": "Validate the extended semantic verifier syntax"
+    },
+    {
+      "command": "node scripts/verify-architecture-adoption.mjs",
+      "exitCode": 0,
+      "purpose": "Run required-file, JSON, version, hash, link, and 21 task-graph semantic checks"
+    },
+    {
+      "command": "node <parse every JSON file under docs and .ado>",
+      "exitCode": 0,
+      "purpose": "Parse all 12 committed JSON files after correction"
+    },
+    {
+      "command": "cmp _phase0_input/<approved-document> <stable-canonical-path> (12 approved source/copy pairs)",
+      "exitCode": 0,
+      "purpose": "Verify all source-backed canonical representations remain byte-identical"
+    },
+    {
+      "command": "node scripts/verify-architecture-adoption.mjs (clean and four isolated tamper fixtures)",
+      "exitCode": 0,
+      "purpose": "Confirm the clean fixture passes and document/hash, stale output, duplicate ID, and dependency-cycle tampering fail deterministically"
+    },
+    {
+      "command": "node <compare repository inventory to changed-files.json>",
+      "exitCode": 0,
+      "purpose": "Confirm all 29 tracked task files are declared"
+    },
+    {
+      "command": "node <normalize and compare manifest hashes to document-hashes.json>",
+      "exitCode": 0,
+      "purpose": "Confirm 13 adopted representation hashes agree across evidence"
+    },
+    {
+      "command": "node <verify clarification follows Architecture Freeze in both authority hierarchies>",
+      "exitCode": 0,
+      "purpose": "Verify clarification precedence in the governance index and responsibility policy"
+    },
+    {
+      "command": "rg -n <secret patterns> .ado docs scripts README.md .gitignore",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "purpose": "Confirm no secret patterns are present"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0,
+      "purpose": "Verify P0-T01A-R1 worktree whitespace hygiene"
+    },
+    {
+      "command": "git diff --cached --check",
+      "exitCode": 0,
+      "purpose": "Verify P0-T01A-R1 staged whitespace hygiene"
+    },
+    {
+      "command": "git ls-files _phase0_input",
+      "exitCode": 0,
+      "purpose": "Confirm the corrected local source remains untracked"
+    }
+  ]
+}

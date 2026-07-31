@@ -1,0 +1,67 @@
+{
+  "taskId": "P0-T01A",
+  "repository": "asxeed-codex/asxeed-platform-contracts",
+  "branch": "codex/P0-T01A-platform-contracts-adoption",
+  "status": "pass",
+  "adoptionStatus": "adopted-pending-checkpoint",
+  "architectureFreezeVersion": "1.1",
+  "architectureClarificationVersion": "1.1-clarification-001",
+  "adoptedAdrRange": "ADR-001..ADR-024",
+  "technologyBaselineVersion": "1.0",
+  "masterImplementationPlanVersion": "1.2",
+  "adoTaskGraphVersion": "1.2",
+  "sprintExecutionPlanVersion": "1.0",
+  "systemResponsibilityBoundariesVersion": "1.0",
+  "developmentReadinessReportVersion": "1.0",
+  "phase0CodexPackVersion": "1.3",
+  "canonicalRepresentations": 13,
+  "copyIntegrity": {
+    "status": "pass",
+    "byteIdenticalComparisons": 12,
+    "hashAgreementCount": 13
+  },
+  "sourceCorrection": {
+    "id": "P0-T01A-R1",
+    "status": "approved-and-applied",
+    "jsonPointer": "/tasks/0/outputs/5",
+    "oldSha256": "21ce8f960244935bb9cc7bd1d4c4ad5fc5c504fdfee996b308613171bb5bc026",
+    "newSha256": "34efcebdf71abf12bfc91977d012604c7d83b9d719de7f4fb3a45ad70943634d",
+    "record": ".ado/artifacts/P0-T01A/source-correction-record.json"
+  },
+  "taskGraphSemantics": {
+    "status": "pass",
+    "taskCount": 103,
+    "uniqueTaskIds": 103,
+    "dependencyReferences": 192,
+    "missingDependencyReferences": 0,
+    "dependencyCycles": 0,
+    "topologicalOrderIds": 103,
+    "tasksWithRequiredGovernanceFields": 103,
+    "sprintDependencyOrderViolations": 0,
+    "sourceDocumentReferences": 8,
+    "p0T01MasterPlanOutput": "docs/plans/MASTER_IMPLEMENTATION_PLAN_v1.2.md",
+    "markdownGraphVersion": "1.2",
+    "jsonGraphVersion": "1.2"
+  },
+  "governance": {
+    "index": "docs/README.md",
+    "clarification": "docs/architecture/ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md",
+    "responsibilityPolicy": "docs/architecture/repository-responsibility.md",
+    "manifest": "docs/architecture/adoption-manifest.json",
+    "deterministicVerifier": "scripts/verify-architecture-adoption.mjs"
+  },
+  "repositoryAudit": {
+    "initialTrackedFiles": 0,
+    "existingGovernanceConflict": false,
+    "existingCi": false,
+    "existingPackageStructure": false
+  },
+  "consumerSynchronization": {
+    "ado": "not-started-P0-T01B",
+    "manufacturingOs": "not-started-P0-T01C",
+    "crossRepositoryVerification": "not-started-P0-T01D"
+  },
+  "needsDesignDecision": false,
+  "blockedExternal": false,
+  "checkpointStatus": "pending-human-review"
+}

@@ -1,0 +1,47 @@
+{
+  "taskId": "P0-T01A",
+  "parentTaskId": "P0-T01",
+  "status": "completed",
+  "approvalStatus": "checkpoint-pending",
+  "repository": "asxeed-codex/asxeed-platform-contracts",
+  "branch": "codex/P0-T01A-platform-contracts-adoption",
+  "summary": "Installed canonical Architecture Freeze, Technology Baseline, planning, task graph, sprint, responsibility, readiness, and Phase 0 execution documents; applied the approved P0-T01A-R1 task-graph correction and regional clarification with deterministic semantic governance.",
+  "adrReferences": [
+    "ADR-010",
+    "ADR-013",
+    "ADR-016"
+  ],
+  "outputs": [
+    "docs/architecture/",
+    "docs/plans/",
+    "docs/reports/",
+    "docs/architecture/ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md",
+    "docs/architecture/repository-responsibility.md",
+    "docs/architecture/adoption-manifest.json",
+    "scripts/verify-architecture-adoption.mjs",
+    ".ado/artifacts/P0-T01A/",
+    ".ado/artifacts/P0-T01A/source-correction-record.json"
+  ],
+  "canonicalDocumentCount": 13,
+  "checkpointCorrections": [
+    {
+      "id": "P0-T01A-R1",
+      "status": "corrected",
+      "jsonPointer": "/tasks/0/outputs/5",
+      "oldSha256": "21ce8f960244935bb9cc7bd1d4c4ad5fc5c504fdfee996b308613171bb5bc026",
+      "newSha256": "34efcebdf71abf12bfc91977d012604c7d83b9d719de7f4fb3a45ad70943634d"
+    },
+    {
+      "id": "ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001",
+      "status": "adopted",
+      "path": "docs/architecture/ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md"
+    }
+  ],
+  "knownLimitations": [
+    "No pre-existing repository CI or test configuration was available to invoke.",
+    "The local host exposes Node.js 25.9.0 rather than the frozen application baseline 24.18.0; the dependency-free document verifier should be rerun under the pinned runtime when repository bootstrap is implemented.",
+    "Development Readiness Report v1.0 retains its historical Phase 0 Codex Pack v1.2 reference; it was not silently rewritten.",
+    "Consumer adoption in ADO and Manufacturing OS is intentionally deferred to P0-T01B and P0-T01C."
+  ],
+  "nextRequiredAction": "AI CTO checkpoint review of P0-T01A; do not begin P0-T01B until approved."
+}
