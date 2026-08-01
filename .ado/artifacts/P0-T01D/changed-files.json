@@ -1,0 +1,100 @@
+{
+  "taskId": "P0-T01D",
+  "fileCount": 16,
+  "files": [
+    {
+      "path": "README.md",
+      "change": "modified",
+      "purpose": "Add cross-repository lock, report, and verifier navigation."
+    },
+    {
+      "path": "docs/README.md",
+      "change": "modified",
+      "purpose": "Add P0-T01D governance navigation."
+    },
+    {
+      "path": "docs/architecture/cross-repository-adoption-lock.json",
+      "change": "added",
+      "purpose": "Pin repositories, approved commits, versions, authority order, documents, hashes, and checkpoint state."
+    },
+    {
+      "path": "docs/reports/P0_T01D_CROSS_REPOSITORY_VERIFICATION.md",
+      "change": "added",
+      "purpose": "Provide the human-readable verification and checkpoint recommendation."
+    },
+    {
+      "path": "scripts/verify-cross-repository-architecture-adoption.mjs",
+      "change": "added",
+      "purpose": "Verify the three approved commits independently and fail closed on drift."
+    },
+    {
+      "path": "test/crossRepositoryArchitectureAdoption.test.js",
+      "change": "added",
+      "purpose": "Cover valid verification, required tamper failures, missing objects, and dirty-worktree isolation."
+    },
+    {
+      "path": ".ado/artifacts/P0-T01D/implementation-summary.json",
+      "change": "added",
+      "purpose": "Summarize scoped implementation and checkpoint state."
+    },
+    {
+      "path": ".ado/artifacts/P0-T01D/commands-executed.json",
+      "change": "added",
+      "purpose": "Record inspection and verification commands."
+    },
+    {
+      "path": ".ado/artifacts/P0-T01D/changed-files.json",
+      "change": "added",
+      "purpose": "Inventory the complete P0-T01D patch."
+    },
+    {
+      "path": ".ado/artifacts/P0-T01D/test-results.json",
+      "change": "added",
+      "purpose": "Record focused, full, parsing, link, scope, and diff results."
+    },
+    {
+      "path": ".ado/artifacts/P0-T01D/risk-report.json",
+      "change": "added",
+      "purpose": "Record residual risks and mitigations."
+    },
+    {
+      "path": ".ado/artifacts/P0-T01D/rollback-plan.json",
+      "change": "added",
+      "purpose": "Describe a scoped revert that leaves predecessor commits untouched."
+    },
+    {
+      "path": ".ado/artifacts/P0-T01D/cross-repository-verification-report.json",
+      "change": "added",
+      "purpose": "Record machine-readable cross-repository verification results."
+    },
+    {
+      "path": ".ado/artifacts/P0-T01D/repository-commit-lock.json",
+      "change": "added",
+      "purpose": "Record repository identities, approved commits, and object availability."
+    },
+    {
+      "path": ".ado/artifacts/P0-T01D/document-comparison-report.json",
+      "change": "added",
+      "purpose": "Record 13-way canonical and consumer document agreement."
+    },
+    {
+      "path": ".ado/artifacts/P0-T01D/responsibility-boundary-report.json",
+      "change": "added",
+      "purpose": "Record ownership, integration, storage, Product DSL, and human-authority agreement."
+    }
+  ],
+  "explicitlyPreserved": [
+    "docs/architecture/ASXEED_Architecture_Freeze_v1.1.md",
+    "docs/architecture/ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md",
+    "docs/architecture/TECHNOLOGY_STACK.md",
+    "docs/architecture/TECHNOLOGY_VERSION_MATRIX.md",
+    "docs/architecture/TECHNOLOGY_SELECTION_RATIONALE.md",
+    "docs/architecture/DEFERRED_TECHNOLOGY.md",
+    "docs/plans/MASTER_IMPLEMENTATION_PLAN_v1.2.md",
+    "docs/plans/ADO_TASK_GRAPH_v1.2.md",
+    "docs/plans/ADO_TASK_GRAPH_v1.2.json",
+    "docs/plans/SPRINT_EXECUTION_PLAN_v1.0.md",
+    "/Users/soushitakeda/Desktop/ado",
+    "/Users/soushitakeda/Desktop/asxeed-manufacturing-os"
+  ]
+}

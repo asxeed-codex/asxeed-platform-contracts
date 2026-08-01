@@ -1,0 +1,49 @@
+{
+  "taskId": "P0-T01D",
+  "status": "pass",
+  "boundaries": {
+    "ado": {
+      "ownsDevelopmentOrchestration": true,
+      "ownsJudgeCoordinationAndFixLoops": true,
+      "ownsDevelopmentApprovalAndReleaseCoordination": true,
+      "claimsProductDslOwnership": false,
+      "claimsManufacturingResultOwnership": false,
+      "mayImportManufacturingOsInternals": false,
+      "mayAccessManufacturingOsStorageDirectly": false
+    },
+    "manufacturingOs": {
+      "ownsManufacturingKnowledgeAndArtifacts": true,
+      "ownsProductDslAndProductInstances": true,
+      "ownsDeterministicManufacturingRulesAndResults": true,
+      "ownsManufacturingApprovalsAndPackages": true,
+      "claimsAdoOrchestrationOwnership": false,
+      "mayImportAdoInternals": false,
+      "mayAccessAdoStorageDirectly": false,
+      "productDslProtectionsPresent": true
+    },
+    "platformContracts": {
+      "ownsCanonicalGovernance": true,
+      "ownsDomainNeutralSharedContractsOnly": true,
+      "claimsAdoDomainBehavior": false,
+      "claimsManufacturingDomainBehavior": false,
+      "mayImportConsumerInternals": false
+    },
+    "integration": {
+      "versionedApis": true,
+      "versionedMessagesAndEvents": true,
+      "versionedArtifacts": true,
+      "versionedPlatformContractPackages": true,
+      "crossConsumerInternalImports": false,
+      "crossConsumerDirectStorage": false
+    },
+    "humanAuthority": {
+      "merge": true,
+      "productionRelease": true,
+      "architectureChanges": true,
+      "manufacturingKnowledgeApproval": true,
+      "manufacturingReleaseApproval": true
+    }
+  },
+  "conflicts": [],
+  "driftDetected": false
+}

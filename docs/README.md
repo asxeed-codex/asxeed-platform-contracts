@@ -23,5 +23,8 @@ This repository is the canonical Phase 0 source for shared ASXEED architecture g
 - [Repository responsibility and synchronization policy](architecture/repository-responsibility.md)
 - [Deterministic adoption manifest](architecture/adoption-manifest.json)
 - [Architecture adoption verifier](../scripts/verify-architecture-adoption.mjs)
+- [P0-T01D cross-repository adoption lock](architecture/cross-repository-adoption-lock.json)
+- [P0-T01D cross-repository verification report](reports/P0_T01D_CROSS_REPOSITORY_VERIFICATION.md)
+- [Cross-repository adoption verifier](../scripts/verify-cross-repository-architecture-adoption.mjs)
 
 ADO and Manufacturing OS must consume versioned platform-contract packages or adopt synchronized document copies pinned to the exact versions and SHA-256 values in the manifest. Unversioned URLs and imports of another repository's internal domain packages are prohibited.

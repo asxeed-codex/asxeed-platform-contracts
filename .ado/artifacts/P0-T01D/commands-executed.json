@@ -1,0 +1,80 @@
+{
+  "taskId": "P0-T01D",
+  "commands": [
+    {
+      "command": "git branch --show-current; git remote -v; git status --short --branch",
+      "exitCode": 0,
+      "purpose": "Confirm the required branch, authorized remote, and clean active worktree."
+    },
+    {
+      "command": "find .. -name AGENTS.md -print",
+      "exitCode": 0,
+      "purpose": "Locate repository instructions before implementation; Platform Contracts has no AGENTS.md."
+    },
+    {
+      "command": "git cat-file -e <approved-commit>^{commit}",
+      "exitCode": 0,
+      "purpose": "Confirm all three approved predecessor commits exist."
+    },
+    {
+      "command": "git show <approved-consumer-commit>:docs/governance/architecture-adoption-manifest.json",
+      "exitCode": 0,
+      "purpose": "Inspect both consumer adoption manifests from committed objects."
+    },
+    {
+      "command": "git show <approved-consumer-commit>:scripts/verify-architecture-adoption.mjs",
+      "exitCode": 0,
+      "purpose": "Inspect both consumer verifiers from committed objects."
+    },
+    {
+      "command": "git show <approved-consumer-commit>:docs/governance/ASXEED_ARCHITECTURE_ADOPTION.md",
+      "exitCode": 0,
+      "purpose": "Inspect committed responsibility, Product DSL, dependency, storage, and human-authority boundaries."
+    },
+    {
+      "command": "git status --short --branch --untracked-files=all",
+      "exitCode": 0,
+      "purpose": "Record clean ADO state and pre-existing dirty Manufacturing OS state without changing either checkout."
+    },
+    {
+      "command": "node --check scripts/verify-cross-repository-architecture-adoption.mjs",
+      "exitCode": 0,
+      "purpose": "Validate the new verifier syntax."
+    },
+    {
+      "command": "node scripts/verify-cross-repository-architecture-adoption.mjs",
+      "exitCode": 0,
+      "purpose": "Run mandatory committed-object cross-repository verification and all three approved verifiers."
+    },
+    {
+      "command": "node --test test/crossRepositoryArchitectureAdoption.test.js",
+      "exitCode": 0,
+      "purpose": "Run the focused valid, tamper, missing-object, and dirty-worktree suite."
+    },
+    {
+      "command": "node --test",
+      "exitCode": 0,
+      "purpose": "Run all deterministic Platform Contracts tests."
+    },
+    {
+      "command": "node scripts/verify-architecture-adoption.mjs",
+      "exitCode": 0,
+      "purpose": "Run the existing canonical Platform Contracts verifier, including Markdown relative-link checks."
+    },
+    {
+      "command": "node <parse every tracked JSON file>",
+      "exitCode": 0,
+      "purpose": "Validate every repository JSON file after artifact generation."
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0,
+      "purpose": "Validate patch whitespace hygiene."
+    },
+    {
+      "command": "git diff --name-only 4cd5fcd4ffe64371ce5a51372459cd225a6176f7",
+      "exitCode": 0,
+      "purpose": "Confirm no canonical Architecture Freeze, ADR, Technology Baseline, Master Plan, Task Graph, or Sprint Plan file changed."
+    }
+  ]
+}
