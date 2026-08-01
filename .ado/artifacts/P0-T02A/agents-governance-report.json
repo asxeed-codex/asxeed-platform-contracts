@@ -1,0 +1,38 @@
+{
+  "taskId": "P0-T02A",
+  "canonicalTaskId": "P0-T02",
+  "status": "pass",
+  "currentState": "checkpoint-review-required",
+  "profile": "docs/architecture/platform-contracts-agents-governance.json",
+  "governingInstructions": "AGENTS.md",
+  "verifier": "scripts/verify-platform-contracts-agents-governance.mjs",
+  "checks": {
+    "repositoryAndTaskIdentity": "pass",
+    "exactBaseCommit": "pass",
+    "requiredAdrs": "pass",
+    "authorityOrder": "pass",
+    "ownedAndProhibitedResponsibilities": "pass",
+    "domainNeutrality": "pass",
+    "consumerInternalImportProhibitions": "pass",
+    "mutableAuthorityProhibition": "pass",
+    "needsDesignDecisionProcedure": "pass",
+    "blockedExternalDistinction": "pass",
+    "gitAndRequiredCheckRestrictions": "pass",
+    "productionAndReleaseRestrictions": "pass",
+    "humanCheckpoint": "pass",
+    "completionEvidenceAndHonestReporting": "pass",
+    "securityAndConfidentiality": "pass",
+    "successorTaskStates": "pass",
+    "readmeNavigation": "pass",
+    "markdownRelativeLinks": "pass"
+  },
+  "focusedTests": {
+    "tests": 15,
+    "passed": 15,
+    "failed": 0
+  },
+  "contractCompatibilityImpact": "none",
+  "responsibilityBoundaryChanged": false,
+  "prState": "draft-pr-pending-after-initial-push",
+  "humanCheckpointRequired": true
+}

@@ -1,0 +1,36 @@
+{
+  "taskId": "P0-T02A",
+  "canonicalTaskId": "P0-T02",
+  "status": "implemented",
+  "currentState": "checkpoint-review-required",
+  "repository": "asxeed-codex/asxeed-platform-contracts",
+  "branch": "codex/P0-T02A-platform-contracts-agents-governance",
+  "baseCommit": "c1bfd76b07b5cc98ffb4dc45f177f5027352fce2",
+  "riskLevel": "high",
+  "humanApproval": "checkpoint",
+  "requiredAdrReferences": [
+    "ADR-010",
+    "ADR-016"
+  ],
+  "summary": "Created repository-wide Platform Contracts agent governance, a canonical machine-readable profile, a dependency-free fail-closed verifier, deterministic tamper tests, minimal navigation, and P0-T02A completion evidence.",
+  "outputs": [
+    "AGENTS.md",
+    "docs/architecture/platform-contracts-agents-governance.json",
+    "scripts/verify-platform-contracts-agents-governance.mjs",
+    "test/platformContractsAgentsGovernance.test.js",
+    ".ado/artifacts/P0-T02A/"
+  ],
+  "responsibilityBoundaryImpact": "Governance-only clarification of already adopted Platform Contracts ownership and consumer boundaries; no responsibility was transferred.",
+  "contractCompatibilityImpact": "none; no shared API, message, event, artifact, schema, or package contract changed",
+  "protectedCanonicalDocumentsChanged": false,
+  "consumerRepositoriesModified": false,
+  "successorTasks": {
+    "P0-T02B": "not-started",
+    "P0-T02C": "not-started",
+    "P0-T02D": "not-started",
+    "P0-T03": "not-started"
+  },
+  "prState": "draft-pr-pending-after-initial-push",
+  "humanCheckpointRequired": true,
+  "nextRequiredAction": "Push the scoped commit, create a Draft PR targeting main, record the Draft PR state, and stop for human checkpoint review."
+}

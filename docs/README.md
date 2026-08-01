@@ -20,6 +20,9 @@ This repository is the canonical Phase 0 source for shared ASXEED architecture g
 
 ## Repository governance
 
+- [Platform Contracts agent governance](../AGENTS.md)
+- [Machine-readable Platform Contracts agent-governance profile](architecture/platform-contracts-agents-governance.json)
+- [Platform Contracts agent-governance verifier](../scripts/verify-platform-contracts-agents-governance.mjs)
 - [Repository responsibility and synchronization policy](architecture/repository-responsibility.md)
 - [Deterministic adoption manifest](architecture/adoption-manifest.json)
 - [Architecture adoption verifier](../scripts/verify-architecture-adoption.mjs)

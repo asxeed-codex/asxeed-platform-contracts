@@ -1,0 +1,40 @@
+{
+  "taskId": "P0-T02A",
+  "status": "pass",
+  "baseCommit": "c1bfd76b07b5cc98ffb4dc45f177f5027352fce2",
+  "authorizedRepository": "asxeed-codex/asxeed-platform-contracts",
+  "authorizedScope": "Platform Contracts AGENTS.md governance only, with its profile, verifier, tests, minimal navigation, and evidence",
+  "protectedAreas": {
+    "architectureFreezeChanged": false,
+    "clarificationChanged": false,
+    "adoptedAdrRepresentationChanged": false,
+    "technologyBaselineChanged": false,
+    "masterPlanChanged": false,
+    "taskGraphChanged": false,
+    "sprintPlanChanged": false,
+    "p0T01AdoptionRecordsIntact": true,
+    "p0T01CrossRepositoryVerificationRecordsIntact": true
+  },
+  "consumerRepositories": {
+    "ado": {
+      "modifiedByP0T02A": false,
+      "agentsMdCreatedOrChanged": false,
+      "observedWorkingTree": "clean"
+    },
+    "manufacturingOs": {
+      "modifiedByP0T02A": false,
+      "agentsMdCreatedOrChanged": false,
+      "observedWorkingTree": "pre-existing modified and untracked files; preserved and not used as verification authority"
+    }
+  },
+  "successorTasks": {
+    "P0-T02B": "not-started",
+    "P0-T02C": "not-started",
+    "P0-T02D": "not-started",
+    "P0-T03": "not-started"
+  },
+  "laterTasksImplemented": false,
+  "crossRepositoryVerifierMethod": "pinned committed Git objects and temporary detached clones",
+  "consumerWorkingTreeContentUsed": false,
+  "humanCheckpointRequired": true
+}
