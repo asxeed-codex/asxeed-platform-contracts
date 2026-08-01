@@ -80,7 +80,48 @@
       "command": "git status --short; git diff --check; git diff --name-status c1bfd76b07b5cc98ffb4dc45f177f5027352fce2",
       "exitCode": 0,
       "purpose": "Inspect the complete visible task scope and confirm patch hygiene against the authorized base before staging."
+    },
+    {
+      "command": "git add <15 explicitly scoped P0-T02A files>",
+      "exitCode": 0,
+      "purpose": "Stage only the reviewed P0-T02A governance, navigation, verifier, tests, and evidence files."
+    },
+    {
+      "command": "git diff --cached --name-status c1bfd76b07b5cc98ffb4dc45f177f5027352fce2; git diff --cached --stat; git diff --cached --check",
+      "exitCode": 0,
+      "purpose": "Confirm the staged patch contains exactly 15 scoped files and no whitespace errors."
+    },
+    {
+      "command": "git commit -m 'P0-T02A add Platform Contracts agent governance'",
+      "exitCode": 0,
+      "purpose": "Create scoped implementation commit 7c9a653ce239eb4856ce3cf180d619b194124e7e."
+    },
+    {
+      "command": "git push -u origin codex/P0-T02A-platform-contracts-agents-governance",
+      "exitCode": 0,
+      "purpose": "Publish the required task branch to the authorized origin remote."
+    },
+    {
+      "command": "GitHub create pull request: head codex/P0-T02A-platform-contracts-agents-governance, base main, draft true",
+      "exitCode": 0,
+      "purpose": "Create Draft PR #3 without merge or auto-merge authority."
+    },
+    {
+      "command": "node scripts/verify-architecture-adoption.mjs; node scripts/verify-cross-repository-architecture-adoption.mjs; node scripts/verify-platform-contracts-agents-governance.mjs",
+      "exitCode": 0,
+      "purpose": "Rerun all three required verifiers after recording the actual Draft PR evidence; each reported pass."
+    },
+    {
+      "command": "node --test test/platformContractsAgentsGovernance.test.js; node --test",
+      "exitCode": 0,
+      "purpose": "Rerun the 15 focused tests and complete 28-test deterministic suite after recording Draft PR evidence; all passed."
+    },
+    {
+      "command": "node --input-type=module -e '<recursive walk; JSON.parse every repository JSON file>'; git diff --check; git diff --name-only c1bfd76b07b5cc98ffb4dc45f177f5027352fce2 -- <protected canonical architecture and plan paths>",
+      "exitCode": 0,
+      "purpose": "Reparse all 33 JSON files, check diff hygiene, and reconfirm protected canonical files remained unchanged after Draft PR evidence finalization."
     }
   ],
-  "publishingCommandsRecorded": false
+  "publishingCommandsRecorded": true,
+  "draftPullRequest": "https://github.com/asxeed-codex/asxeed-platform-contracts/pull/3"
 }

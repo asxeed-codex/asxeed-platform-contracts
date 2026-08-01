@@ -33,6 +33,9 @@
   },
   "contractCompatibilityImpact": "none",
   "responsibilityBoundaryChanged": false,
-  "prState": "draft-pr-pending-after-initial-push",
+  "implementationCommit": "7c9a653ce239eb4856ce3cf180d619b194124e7e",
+  "prState": "draft-open",
+  "prNumber": 3,
+  "prUrl": "https://github.com/asxeed-codex/asxeed-platform-contracts/pull/3",
   "humanCheckpointRequired": true
 }

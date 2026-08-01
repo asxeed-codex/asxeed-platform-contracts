@@ -75,5 +75,16 @@
     "approvedApplicationBaselineNode": "24.18.0",
     "externalNodeDependenciesForNewVerifier": false
   },
+  "finalValidationAfterDraftPrEvidence": {
+    "canonicalVerifier": "pass",
+    "crossRepositoryVerifier": "pass",
+    "agentsGovernanceVerifier": "pass",
+    "focusedTests": "15/15 pass",
+    "completeTestSuite": "28/28 pass",
+    "jsonParsing": "33/33 pass",
+    "markdownRelativeLinks": "52/52 pass",
+    "diffCheck": "pass",
+    "protectedCanonicalFilesChanged": 0
+  },
   "failures": []
 }

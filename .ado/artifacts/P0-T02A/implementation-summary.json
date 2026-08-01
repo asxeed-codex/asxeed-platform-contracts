@@ -30,7 +30,10 @@
     "P0-T02D": "not-started",
     "P0-T03": "not-started"
   },
-  "prState": "draft-pr-pending-after-initial-push",
+  "implementationCommit": "7c9a653ce239eb4856ce3cf180d619b194124e7e",
+  "prState": "draft-open",
+  "prNumber": 3,
+  "prUrl": "https://github.com/asxeed-codex/asxeed-platform-contracts/pull/3",
   "humanCheckpointRequired": true,
-  "nextRequiredAction": "Push the scoped commit, create a Draft PR targeting main, record the Draft PR state, and stop for human checkpoint review."
+  "nextRequiredAction": "Human checkpoint review of Draft PR #3; agents must not merge it or enable auto-merge."
 }
