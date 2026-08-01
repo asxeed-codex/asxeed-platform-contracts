@@ -1,0 +1,33 @@
+{
+  "taskId": "P0-T01D",
+  "parentTaskId": "P0-T01",
+  "status": "implemented",
+  "approvalStatus": "checkpoint-review-required",
+  "repository": "asxeed-codex/asxeed-platform-contracts",
+  "branch": "codex/P0-T01D-cross-repository-verification",
+  "summary": "Independently verified the approved Platform Contracts, ADO, and Manufacturing OS commits from committed Git objects; added a three-repository lock, fail-closed verifier, deterministic tamper tests, human report, and review artifacts.",
+  "outputs": [
+    "docs/architecture/cross-repository-adoption-lock.json",
+    "scripts/verify-cross-repository-architecture-adoption.mjs",
+    "test/crossRepositoryArchitectureAdoption.test.js",
+    "docs/reports/P0_T01D_CROSS_REPOSITORY_VERIFICATION.md",
+    ".ado/artifacts/P0-T01D/"
+  ],
+  "approvedCommits": {
+    "platformContractsP0T01A": "4cd5fcd4ffe64371ce5a51372459cd225a6176f7",
+    "adoP0T01B": "7e48d0ab23ea567be291cc49396f6a9e9ae2077c",
+    "manufacturingOsP0T01C": "49d74b915f7b0095b6b79202f29e474367049dba"
+  },
+  "verificationOutcome": "pass",
+  "canonicalDocumentCount": 13,
+  "taskGraphTaskCount": 103,
+  "driftDetected": false,
+  "readOnlyRepositoriesModified": false,
+  "p0T02Status": "not-started",
+  "knownLimitations": [
+    "The verification result applies only to the three pinned commits; later commits require a reviewed lock update.",
+    "The local Node.js runtime is 25.9.0 rather than the frozen application baseline 24.18.0; the verifier uses only Node.js built-ins and Git.",
+    "Human checkpoint review and merge remain required before P0-T01D can be marked complete."
+  ],
+  "nextRequiredAction": "Human checkpoint review and merge of P0-T01D; do not start P0-T02."
+}

@@ -1,0 +1,25 @@
+{
+  "taskId": "P0-T01D",
+  "strategy": "Revert the single P0-T01D Platform Contracts commit after human review.",
+  "steps": [
+    "Identify the merged P0-T01D commit in asxeed-codex/asxeed-platform-contracts.",
+    "Create a dedicated rollback branch from the then-current protected base.",
+    "Use git revert on only the P0-T01D commit; do not reset, rewrite, or delete predecessor history.",
+    "Run the existing Platform Contracts verifier, JSON parsing, Markdown link checks, and git diff --check.",
+    "Obtain human review before merging the rollback."
+  ],
+  "removes": [
+    "P0-T01D cross-repository lock",
+    "P0-T01D verifier and tests",
+    "P0-T01D human and machine-readable reports",
+    "P0-T01D README navigation"
+  ],
+  "preserves": [
+    "Platform Contracts P0-T01A commit 4cd5fcd4ffe64371ce5a51372459cd225a6176f7",
+    "ADO P0-T01B commit 7e48d0ab23ea567be291cc49396f6a9e9ae2077c",
+    "Manufacturing OS P0-T01C commit 49d74b915f7b0095b6b79202f29e474367049dba",
+    "all canonical Architecture Freeze, ADR, Technology Baseline, Master Plan, Task Graph, and Sprint Plan files"
+  ],
+  "consumerRepositoryRollbackRequired": false,
+  "destructiveResetRequired": false
+}

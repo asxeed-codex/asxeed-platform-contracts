@@ -1,0 +1,40 @@
+{
+  "taskId": "P0-T01D",
+  "overallRisk": "low",
+  "architectureConflict": false,
+  "driftDetected": false,
+  "risks": [
+    {
+      "id": "R1",
+      "level": "low",
+      "description": "The verification result is immutable-commit-specific and does not automatically cover later repository changes.",
+      "mitigation": "Any later adoption change requires a separately reviewed commit-lock update and rerun."
+    },
+    {
+      "id": "R2",
+      "level": "low",
+      "description": "Offline verification depends on the three local repositories retaining the approved Git objects.",
+      "mitigation": "The verifier fails closed when a repository or approved commit is missing; approved commits also remain available through their repository histories."
+    },
+    {
+      "id": "R3",
+      "level": "informational",
+      "description": "The original Manufacturing OS checkout contains pre-existing modified and untracked runtime or real-validation files.",
+      "mitigation": "Only approved committed objects and temporary detached clones were used. Before/after status was preserved, and the dirty-worktree test proves isolation."
+    },
+    {
+      "id": "R4",
+      "level": "low",
+      "description": "The local Node.js runtime differs from the frozen application baseline.",
+      "mitigation": "The verifier has no external dependencies, uses stable Node.js built-ins, and should be rerun under Node.js 24.18.0 when the pinned runtime is available."
+    },
+    {
+      "id": "R5",
+      "level": "medium",
+      "description": "A passing deterministic verification could be mistaken for merge, production, architecture, or manufacturing approval.",
+      "mitigation": "The lock, reports, and verifier preserve checkpoint-review-required, keep P0-T02 not-started, and explicitly retain human authority."
+    }
+  ],
+  "humanCheckpointRequired": true,
+  "p0T02Authorized": false
+}

@@ -1,0 +1,48 @@
+{
+  "taskId": "P0-T01D",
+  "status": "pass",
+  "verificationState": "checkpoint-review-required",
+  "p0T02Status": "not-started",
+  "method": [
+    "git cat-file -e <approved-commit>^{commit}",
+    "git show <approved-commit>:<path>",
+    "SHA-256 of committed document bytes",
+    "temporary detached clones for the three approved verifiers"
+  ],
+  "workingTreeContentUsed": false,
+  "repositoriesChecked": 3,
+  "canonicalRepresentations": 13,
+  "comparison": {
+    "matchingNames": 13,
+    "matchingPaths": 13,
+    "matchingVersions": 13,
+    "matchingHashes": 13,
+    "matchingAuthorityOrders": 3,
+    "conflictingCanonicalCommits": 0,
+    "mutableAuthorityReferences": 0
+  },
+  "verifiers": {
+    "platformContracts": "pass",
+    "ado": "pass",
+    "manufacturingOs": "pass",
+    "crossRepository": "pass"
+  },
+  "taskGraph": {
+    "taskCount": 103,
+    "uniqueTaskIds": 103,
+    "dependencyReferences": 192,
+    "missingDependencyReferences": 0,
+    "dependencyCycles": 0,
+    "missingSprintReferences": 0,
+    "sprintOrderViolations": 0
+  },
+  "boundaryDrift": {
+    "responsibility": false,
+    "dependency": false,
+    "storage": false,
+    "productDsl": false,
+    "humanAuthority": false
+  },
+  "readOnlyRepositoriesModified": false,
+  "recommendation": "Proceed to human checkpoint review and merge; do not mark P0-T01D complete or start P0-T02 before that decision."
+}

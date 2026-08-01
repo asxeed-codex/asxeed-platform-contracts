@@ -1,0 +1,157 @@
+{
+  "lockVersion": "1.0",
+  "verificationTask": {
+    "id": "P0-T01D",
+    "branch": "codex/P0-T01D-cross-repository-verification",
+    "state": "checkpoint-review-required"
+  },
+  "repositories": {
+    "platformContracts": {
+      "repository": "asxeed-codex/asxeed-platform-contracts",
+      "approvedTask": "P0-T01A",
+      "commit": "4cd5fcd4ffe64371ce5a51372459cd225a6176f7",
+      "role": "canonical-domain-neutral-shared-contracts",
+      "adoptionManifestPath": "docs/architecture/adoption-manifest.json",
+      "verifierPath": "scripts/verify-architecture-adoption.mjs"
+    },
+    "ado": {
+      "repository": "asxeed-codex/ado",
+      "approvedTask": "P0-T01B",
+      "commit": "7e48d0ab23ea567be291cc49396f6a9e9ae2077c",
+      "role": "development-orchestration-consumer",
+      "adoptionMethod": "stable-reference-manifest",
+      "adoptionManifestPath": "docs/governance/architecture-adoption-manifest.json",
+      "adoptionDocumentPath": "docs/governance/ASXEED_ARCHITECTURE_ADOPTION.md",
+      "verifierPath": "scripts/verify-architecture-adoption.mjs"
+    },
+    "manufacturingOs": {
+      "repository": "asxeed-codex/asxeed-manufacturing-os",
+      "approvedTask": "P0-T01C",
+      "commit": "49d74b915f7b0095b6b79202f29e474367049dba",
+      "role": "manufacturing-domain-consumer",
+      "adoptionMethod": "stable-reference-manifest",
+      "adoptionManifestPath": "docs/governance/architecture-adoption-manifest.json",
+      "adoptionDocumentPath": "docs/governance/ASXEED_ARCHITECTURE_ADOPTION.md",
+      "verifierPath": "scripts/verify-architecture-adoption.mjs"
+    }
+  },
+  "versions": {
+    "architectureFreezeVersion": "1.1",
+    "architectureClarificationVersion": "1.1-clarification-001",
+    "technologyBaselineVersion": "1.0",
+    "masterImplementationPlanVersion": "1.2",
+    "adoTaskGraphVersion": "1.2",
+    "sprintExecutionPlanVersion": "1.0",
+    "systemResponsibilityBoundariesVersion": "1.0",
+    "developmentReadinessReportVersion": "1.0",
+    "phase0CodexPackVersion": "1.3"
+  },
+  "authorityHierarchy": [
+    "Architecture Freeze v1.1",
+    "Architecture Freeze v1.1 Clarification 001",
+    "Adopted ADR-001 through ADR-024",
+    "Technology Stack v1.0",
+    "Technology Version Matrix v1.0",
+    "Technology Selection Rationale v1.0",
+    "Deferred Technology v1.0",
+    "Master Implementation Plan v1.2",
+    "ADO Task Graph v1.2 Markdown and JSON",
+    "Sprint Execution Plan v1.0",
+    "System Responsibility Boundaries v1.0",
+    "Development Readiness Report v1.0",
+    "Phase 0 Architecture Adoption Codex Pack v1.3"
+  ],
+  "documents": [
+    {
+      "name": "ASXEED_Architecture_Freeze_v1.1.md",
+      "canonicalPath": "docs/architecture/ASXEED_Architecture_Freeze_v1.1.md",
+      "version": "1.1",
+      "sha256": "b58e7d1cd6fd3225f3d554ac01e5a97104094dc760a34f00f6ff3e61209977c0"
+    },
+    {
+      "name": "ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md",
+      "canonicalPath": "docs/architecture/ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md",
+      "version": "1.1-clarification-001",
+      "sha256": "f5dbf974697c294c69ae18f1151935b9b1b5de3909197fd506be155a64497b9b"
+    },
+    {
+      "name": "TECHNOLOGY_STACK.md",
+      "canonicalPath": "docs/architecture/TECHNOLOGY_STACK.md",
+      "version": "1.0",
+      "sha256": "705350a735a25d2e35bbbee0e61c54181bb9b44da8da9c708ec215e35b06b3d6"
+    },
+    {
+      "name": "TECHNOLOGY_VERSION_MATRIX.md",
+      "canonicalPath": "docs/architecture/TECHNOLOGY_VERSION_MATRIX.md",
+      "version": "1.0",
+      "sha256": "c1501cb75dd1bf3bb84b5a4862dd3a04cad980e0fed5783fa667ef63c5e550f5"
+    },
+    {
+      "name": "TECHNOLOGY_SELECTION_RATIONALE.md",
+      "canonicalPath": "docs/architecture/TECHNOLOGY_SELECTION_RATIONALE.md",
+      "version": "1.0",
+      "sha256": "d816d14ad92109d989911f6c5f21492437b2c9a86ae52e16e5fd8ccdebde9fd4"
+    },
+    {
+      "name": "DEFERRED_TECHNOLOGY.md",
+      "canonicalPath": "docs/architecture/DEFERRED_TECHNOLOGY.md",
+      "version": "1.0",
+      "sha256": "c843bc9b4090e819b754596d4025582ed84ac013e8bcf5795f74755aff166000"
+    },
+    {
+      "name": "MASTER_IMPLEMENTATION_PLAN_v1.2.md",
+      "canonicalPath": "docs/plans/MASTER_IMPLEMENTATION_PLAN_v1.2.md",
+      "version": "1.2",
+      "sha256": "78e38828d22004f09885f9c44945cfb7b829edf7b4ff26b89d49999f306c943d"
+    },
+    {
+      "name": "ADO_TASK_GRAPH_v1.2.md",
+      "canonicalPath": "docs/plans/ADO_TASK_GRAPH_v1.2.md",
+      "version": "1.2",
+      "sha256": "b4e20cfa5390fad479eacc1080bc2f3e04d36ae0b204338b5485695b67ee32ff"
+    },
+    {
+      "name": "ADO_TASK_GRAPH_v1.2.json",
+      "canonicalPath": "docs/plans/ADO_TASK_GRAPH_v1.2.json",
+      "version": "1.2",
+      "sha256": "34efcebdf71abf12bfc91977d012604c7d83b9d719de7f4fb3a45ad70943634d"
+    },
+    {
+      "name": "SPRINT_EXECUTION_PLAN_v1.0.md",
+      "canonicalPath": "docs/plans/SPRINT_EXECUTION_PLAN_v1.0.md",
+      "version": "1.0",
+      "sha256": "47fa1df550585aef386291a17e15220687678cee8f6524f38f31a9c3c8275d46"
+    },
+    {
+      "name": "SYSTEM_RESPONSIBILITY_BOUNDARIES_v1.0.md",
+      "canonicalPath": "docs/architecture/SYSTEM_RESPONSIBILITY_BOUNDARIES_v1.0.md",
+      "version": "1.0",
+      "sha256": "42d4c6e79882027cff9b51aa4c23d3df65f38954dccba43cb1b7b77137f4915f"
+    },
+    {
+      "name": "ASXEED_DEVELOPMENT_READINESS_REPORT_v1.0.md",
+      "canonicalPath": "docs/reports/ASXEED_DEVELOPMENT_READINESS_REPORT_v1.0.md",
+      "version": "1.0",
+      "sha256": "8113ca6bcc822aca0e4fd2932dea0b9dc839dd13166cf469c9c05f90b833f308"
+    },
+    {
+      "name": "PHASE_00_ARCHITECTURE_ADOPTION_CODEX_PACK_v1.3.md",
+      "canonicalPath": "docs/plans/PHASE_00_ARCHITECTURE_ADOPTION_CODEX_PACK_v1.3.md",
+      "version": "1.3",
+      "sha256": "e7fee87054c203bdd0e94cb8b86022ae7001e873383af6b0890fd1087d230af2"
+    }
+  ],
+  "expectedConsumerManifestPaths": {
+    "ado": "docs/governance/architecture-adoption-manifest.json",
+    "manufacturingOs": "docs/governance/architecture-adoption-manifest.json"
+  },
+  "expectedVerifierPaths": {
+    "platformContracts": "scripts/verify-architecture-adoption.mjs",
+    "ado": "scripts/verify-architecture-adoption.mjs",
+    "manufacturingOs": "scripts/verify-architecture-adoption.mjs"
+  },
+  "verificationState": "checkpoint-review-required",
+  "successorTasks": {
+    "P0-T02": "not-started"
+  }
+}

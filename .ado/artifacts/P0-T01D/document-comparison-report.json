@@ -1,0 +1,27 @@
+{
+  "taskId": "P0-T01D",
+  "status": "pass",
+  "canonicalCommit": "4cd5fcd4ffe64371ce5a51372459cd225a6176f7",
+  "documents": [
+    { "name": "ASXEED_Architecture_Freeze_v1.1.md", "path": "docs/architecture/ASXEED_Architecture_Freeze_v1.1.md", "version": "1.1", "sha256": "b58e7d1cd6fd3225f3d554ac01e5a97104094dc760a34f00f6ff3e61209977c0", "canonicalBytes": "match", "ado": "match", "manufacturingOs": "match" },
+    { "name": "ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md", "path": "docs/architecture/ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md", "version": "1.1-clarification-001", "sha256": "f5dbf974697c294c69ae18f1151935b9b1b5de3909197fd506be155a64497b9b", "canonicalBytes": "match", "ado": "match", "manufacturingOs": "match" },
+    { "name": "TECHNOLOGY_STACK.md", "path": "docs/architecture/TECHNOLOGY_STACK.md", "version": "1.0", "sha256": "705350a735a25d2e35bbbee0e61c54181bb9b44da8da9c708ec215e35b06b3d6", "canonicalBytes": "match", "ado": "match", "manufacturingOs": "match" },
+    { "name": "TECHNOLOGY_VERSION_MATRIX.md", "path": "docs/architecture/TECHNOLOGY_VERSION_MATRIX.md", "version": "1.0", "sha256": "c1501cb75dd1bf3bb84b5a4862dd3a04cad980e0fed5783fa667ef63c5e550f5", "canonicalBytes": "match", "ado": "match", "manufacturingOs": "match" },
+    { "name": "TECHNOLOGY_SELECTION_RATIONALE.md", "path": "docs/architecture/TECHNOLOGY_SELECTION_RATIONALE.md", "version": "1.0", "sha256": "d816d14ad92109d989911f6c5f21492437b2c9a86ae52e16e5fd8ccdebde9fd4", "canonicalBytes": "match", "ado": "match", "manufacturingOs": "match" },
+    { "name": "DEFERRED_TECHNOLOGY.md", "path": "docs/architecture/DEFERRED_TECHNOLOGY.md", "version": "1.0", "sha256": "c843bc9b4090e819b754596d4025582ed84ac013e8bcf5795f74755aff166000", "canonicalBytes": "match", "ado": "match", "manufacturingOs": "match" },
+    { "name": "MASTER_IMPLEMENTATION_PLAN_v1.2.md", "path": "docs/plans/MASTER_IMPLEMENTATION_PLAN_v1.2.md", "version": "1.2", "sha256": "78e38828d22004f09885f9c44945cfb7b829edf7b4ff26b89d49999f306c943d", "canonicalBytes": "match", "ado": "match", "manufacturingOs": "match" },
+    { "name": "ADO_TASK_GRAPH_v1.2.md", "path": "docs/plans/ADO_TASK_GRAPH_v1.2.md", "version": "1.2", "sha256": "b4e20cfa5390fad479eacc1080bc2f3e04d36ae0b204338b5485695b67ee32ff", "canonicalBytes": "match", "ado": "match", "manufacturingOs": "match" },
+    { "name": "ADO_TASK_GRAPH_v1.2.json", "path": "docs/plans/ADO_TASK_GRAPH_v1.2.json", "version": "1.2", "sha256": "34efcebdf71abf12bfc91977d012604c7d83b9d719de7f4fb3a45ad70943634d", "canonicalBytes": "match", "ado": "match", "manufacturingOs": "match" },
+    { "name": "SPRINT_EXECUTION_PLAN_v1.0.md", "path": "docs/plans/SPRINT_EXECUTION_PLAN_v1.0.md", "version": "1.0", "sha256": "47fa1df550585aef386291a17e15220687678cee8f6524f38f31a9c3c8275d46", "canonicalBytes": "match", "ado": "match", "manufacturingOs": "match" },
+    { "name": "SYSTEM_RESPONSIBILITY_BOUNDARIES_v1.0.md", "path": "docs/architecture/SYSTEM_RESPONSIBILITY_BOUNDARIES_v1.0.md", "version": "1.0", "sha256": "42d4c6e79882027cff9b51aa4c23d3df65f38954dccba43cb1b7b77137f4915f", "canonicalBytes": "match", "ado": "match", "manufacturingOs": "match" },
+    { "name": "ASXEED_DEVELOPMENT_READINESS_REPORT_v1.0.md", "path": "docs/reports/ASXEED_DEVELOPMENT_READINESS_REPORT_v1.0.md", "version": "1.0", "sha256": "8113ca6bcc822aca0e4fd2932dea0b9dc839dd13166cf469c9c05f90b833f308", "canonicalBytes": "match", "ado": "match", "manufacturingOs": "match" },
+    { "name": "PHASE_00_ARCHITECTURE_ADOPTION_CODEX_PACK_v1.3.md", "path": "docs/plans/PHASE_00_ARCHITECTURE_ADOPTION_CODEX_PACK_v1.3.md", "version": "1.3", "sha256": "e7fee87054c203bdd0e94cb8b86022ae7001e873383af6b0890fd1087d230af2", "canonicalBytes": "match", "ado": "match", "manufacturingOs": "match" }
+  ],
+  "summary": {
+    "expected": 13,
+    "canonicalByteHashesMatched": 13,
+    "adoNamesPathsVersionsHashesMatched": 13,
+    "manufacturingOsNamesPathsVersionsHashesMatched": 13,
+    "mismatches": 0
+  }
+}

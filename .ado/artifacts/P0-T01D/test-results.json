@@ -1,0 +1,95 @@
+{
+  "taskId": "P0-T01D",
+  "overall": "pass",
+  "runs": [
+    {
+      "name": "existing-platform-contracts-verifier",
+      "command": "node scripts/verify-architecture-adoption.mjs",
+      "status": "pass",
+      "canonicalDocuments": 13,
+      "taskGraph": {
+        "taskCount": 103,
+        "uniqueTaskIds": 103,
+        "missingDependencyReferences": 0,
+        "dependencyCycles": 0,
+        "sprintDependencyOrderViolations": 0
+      },
+      "markdownRelativeLinks": "pass"
+    },
+    {
+      "name": "cross-repository-verifier",
+      "command": "node scripts/verify-cross-repository-architecture-adoption.mjs",
+      "status": "pass",
+      "approvedCommits": 3,
+      "canonicalDocuments": 13,
+      "approvedVerifierExecutions": {
+        "platformContracts": "pass",
+        "ado": "pass",
+        "manufacturingOs": "pass"
+      }
+    },
+    {
+      "name": "focused-cross-repository-tests",
+      "command": "node --test test/crossRepositoryArchitectureAdoption.test.js",
+      "status": "pass",
+      "tests": 13,
+      "passed": 13,
+      "failed": 0,
+      "coverage": [
+        "valid three-repository verification",
+        "wrong ADO merge commit",
+        "wrong Manufacturing OS merge commit",
+        "wrong canonical commit",
+        "mismatched canonical document hash",
+        "mismatched authority hierarchy",
+        "ADO claiming Manufacturing OS ownership",
+        "Manufacturing OS missing Product DSL protection",
+        "mutable or unversioned authority reference",
+        "missing repository",
+        "missing approved commit",
+        "dirty unrelated Manufacturing OS working-tree isolation"
+      ]
+    },
+    {
+      "name": "all-deterministic-platform-contracts-tests",
+      "command": "node --test",
+      "status": "pass",
+      "tests": 13,
+      "passed": 13,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "name": "json-parsing",
+      "command": "node <parse every tracked JSON file>",
+      "status": "pass",
+      "parsedFiles": 23
+    },
+    {
+      "name": "markdown-relative-links",
+      "command": "node scripts/verify-architecture-adoption.mjs",
+      "status": "pass"
+    },
+    {
+      "name": "diff-hygiene",
+      "command": "git diff --check",
+      "status": "pass"
+    },
+    {
+      "name": "canonical-scope-preservation",
+      "command": "git diff --name-only 4cd5fcd4ffe64371ce5a51372459cd225a6176f7",
+      "status": "pass",
+      "canonicalArchitectureOrPlanFilesChanged": 0,
+      "adoModified": false,
+      "manufacturingOsModified": false
+    }
+  ],
+  "failures": [],
+  "environment": {
+    "localNode": "25.9.0",
+    "approvedApplicationBaselineNode": "24.18.0",
+    "externalNodeDependencies": false
+  }
+}
