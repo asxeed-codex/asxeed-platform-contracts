@@ -1,0 +1,30 @@
+{
+  "taskId": "P0-T02A",
+  "strategy": "Revert only the P0-T02A Platform Contracts commits in reverse order after human review.",
+  "steps": [
+    "Create a dedicated rollback task branch from the then-current protected base.",
+    "Identify every commit belonging only to P0-T02A.",
+    "Use git revert in reverse commit order; do not reset, force-push main, rewrite approved history, or delete protected branches.",
+    "Run the canonical verifier, cross-repository verifier when relevant, governance verifier, focused tests, complete test suite, all-JSON parsing, Markdown relative-link validation, and git diff --check.",
+    "Confirm canonical Architecture Freeze, Clarification, ADR, Technology Baseline, Master Plan, Task Graph, Sprint Plan, and P0-T01 evidence remain unchanged.",
+    "Open a Draft rollback PR and obtain human checkpoint approval before merge."
+  ],
+  "removes": [
+    "Platform Contracts AGENTS.md governance created by P0-T02A",
+    "P0-T02A machine-readable governance profile",
+    "P0-T02A verifier and tests",
+    "P0-T02A README navigation",
+    "P0-T02A evidence"
+  ],
+  "preserves": [
+    "all P0-T01 adoption and cross-repository verification records",
+    "all canonical Architecture Freeze and adopted ADR representations",
+    "all Technology Baseline records",
+    "all canonical implementation plans and task graphs",
+    "ADO repository content",
+    "Manufacturing OS repository content"
+  ],
+  "consumerRepositoryRollbackRequired": false,
+  "destructiveResetRequired": false,
+  "humanApprovalRequired": true
+}

@@ -1,0 +1,98 @@
+{
+  "taskId": "P0-T02A",
+  "baseCommit": "c1bfd76b07b5cc98ffb4dc45f177f5027352fce2",
+  "fileCount": 15,
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "change": "added",
+      "purpose": "Govern every agent working in Platform Contracts."
+    },
+    {
+      "path": "README.md",
+      "change": "modified",
+      "purpose": "Add minimal root navigation to agent governance, profile, and verifier."
+    },
+    {
+      "path": "docs/README.md",
+      "change": "modified",
+      "purpose": "Add minimal governance-index navigation."
+    },
+    {
+      "path": "docs/architecture/platform-contracts-agents-governance.json",
+      "change": "added",
+      "purpose": "Record deterministic P0-T02A identity, authority, ownership, stop, validation, evidence, and successor state."
+    },
+    {
+      "path": "scripts/verify-platform-contracts-agents-governance.mjs",
+      "change": "added",
+      "purpose": "Fail closed on missing, reordered, weakened, mutable, or conflicting Platform Contracts governance."
+    },
+    {
+      "path": "test/platformContractsAgentsGovernance.test.js",
+      "change": "added",
+      "purpose": "Test valid governance and required negative tamper cases deterministically."
+    },
+    {
+      "path": ".ado/artifacts/P0-T02A/implementation-summary.json",
+      "change": "added",
+      "purpose": "Summarize implementation, impact, state, and checkpoint."
+    },
+    {
+      "path": ".ado/artifacts/P0-T02A/commands-executed.json",
+      "change": "added",
+      "purpose": "Record commands actually executed and their outcomes."
+    },
+    {
+      "path": ".ado/artifacts/P0-T02A/changed-files.json",
+      "change": "added",
+      "purpose": "Inventory the complete scoped patch."
+    },
+    {
+      "path": ".ado/artifacts/P0-T02A/test-results.json",
+      "change": "added",
+      "purpose": "Record verifier, test, JSON, link, diff, and scope results."
+    },
+    {
+      "path": ".ado/artifacts/P0-T02A/risk-report.json",
+      "change": "added",
+      "purpose": "Record task and residual risks with mitigations."
+    },
+    {
+      "path": ".ado/artifacts/P0-T02A/rollback-plan.json",
+      "change": "added",
+      "purpose": "Define a non-destructive scoped revert."
+    },
+    {
+      "path": ".ado/artifacts/P0-T02A/agents-governance-report.json",
+      "change": "added",
+      "purpose": "Record deterministic agent-governance verification."
+    },
+    {
+      "path": ".ado/artifacts/P0-T02A/authority-reference-report.json",
+      "change": "added",
+      "purpose": "Record canonical authority and ADR derivation."
+    },
+    {
+      "path": ".ado/artifacts/P0-T02A/scope-preservation-report.json",
+      "change": "added",
+      "purpose": "Record protected documents, consumers, P0-T01 evidence, and successor scope preservation."
+    }
+  ],
+  "explicitlyPreserved": [
+    "docs/architecture/ASXEED_Architecture_Freeze_v1.1.md",
+    "docs/architecture/ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md",
+    "docs/architecture/TECHNOLOGY_STACK.md",
+    "docs/architecture/TECHNOLOGY_VERSION_MATRIX.md",
+    "docs/architecture/TECHNOLOGY_SELECTION_RATIONALE.md",
+    "docs/architecture/DEFERRED_TECHNOLOGY.md",
+    "docs/plans/MASTER_IMPLEMENTATION_PLAN_v1.2.md",
+    "docs/plans/ADO_TASK_GRAPH_v1.2.md",
+    "docs/plans/ADO_TASK_GRAPH_v1.2.json",
+    "docs/plans/SPRINT_EXECUTION_PLAN_v1.0.md",
+    ".ado/artifacts/P0-T01A/",
+    ".ado/artifacts/P0-T01D/",
+    "/Users/soushitakeda/Desktop/ado",
+    "/Users/soushitakeda/Desktop/asxeed-manufacturing-os"
+  ]
+}

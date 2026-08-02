@@ -1,0 +1,41 @@
+{
+  "taskId": "P0-T02A",
+  "taskRiskLevel": "high",
+  "residualRiskLevel": "low",
+  "architectureConflict": false,
+  "breakingContractChange": false,
+  "risks": [
+    {
+      "id": "R1",
+      "level": "medium",
+      "description": "Prose governance can drift or be weakened without an obvious runtime failure.",
+      "mitigation": "The machine-readable profile and dependency-free verifier validate required sections, semantic clauses, exact authority order, ownership, stop conditions, human authority, confidentiality, and conflicting statements."
+    },
+    {
+      "id": "R2",
+      "level": "medium",
+      "description": "Platform Contracts governance could be misread as authority to implement P0-T02B, P0-T02C, P0-T02D, or P0-T03.",
+      "mitigation": "AGENTS.md, the profile, verifier, tests, and scope evidence explicitly keep all four successor tasks not-started."
+    },
+    {
+      "id": "R3",
+      "level": "low",
+      "description": "The local Node.js runtime is 25.9.0 rather than the frozen application baseline 24.18.0.",
+      "mitigation": "The new verifier uses only stable Node.js built-ins and no external packages; validation should be repeated under the pinned runtime when it becomes available."
+    },
+    {
+      "id": "R4",
+      "level": "medium",
+      "description": "A passing governance verifier could be mistaken for merge, architecture, production, package, or manufacturing approval.",
+      "mitigation": "Every governance representation remains checkpoint-review-required and explicitly reserves those decisions for humans."
+    },
+    {
+      "id": "R5",
+      "level": "low",
+      "description": "Manufacturing OS has pre-existing uncommitted and untracked data outside this task's worktree.",
+      "mitigation": "The consumer was inspected read-only, not modified, and cross-repository validation used only pinned committed Git objects and temporary detached clones."
+    }
+  ],
+  "humanCheckpointRequired": true,
+  "releaseAuthorized": false
+}

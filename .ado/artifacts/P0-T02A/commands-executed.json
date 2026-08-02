@@ -1,0 +1,127 @@
+{
+  "taskId": "P0-T02A",
+  "commands": [
+    {
+      "command": "sed -n '1,520p' <attached P0-T02A task specification>",
+      "exitCode": 0,
+      "purpose": "Read the complete controlled sub-task instructions."
+    },
+    {
+      "command": "git status --short --branch; git branch --show-current; git rev-parse HEAD; git remote -v; git worktree list --porcelain",
+      "exitCode": 0,
+      "purpose": "Confirm the clean worktree, required task branch, exact base commit, authorized remote, and worktree layout."
+    },
+    {
+      "command": "gh --version; gh auth status",
+      "exitCode": 0,
+      "purpose": "Confirm the GitHub CLI prerequisite and authenticated publishing session."
+    },
+    {
+      "command": "rg --files; find docs -maxdepth 4 -type f -print; find .ado -maxdepth 4 -type f -print",
+      "exitCode": 0,
+      "purpose": "Inspect existing documents, verifiers, tests, schemas, workflows, and evidence conventions without assuming a greenfield repository."
+    },
+    {
+      "command": "sed and rg inspections of every task-specified architecture, technology, plan, report, manifest, lock, verifier, test, and evidence source",
+      "exitCode": 0,
+      "purpose": "Derive governance values from committed canonical sources, including incorporated ADR-010 and ADR-016 texts."
+    },
+    {
+      "command": "node --check scripts/verify-platform-contracts-agents-governance.mjs",
+      "exitCode": 0,
+      "purpose": "Validate dependency-free verifier syntax."
+    },
+    {
+      "command": "node scripts/verify-architecture-adoption.mjs",
+      "exitCode": 0,
+      "purpose": "Run the existing canonical architecture-adoption verifier."
+    },
+    {
+      "command": "node scripts/verify-cross-repository-architecture-adoption.mjs",
+      "exitCode": 0,
+      "purpose": "Run the required committed-object cross-repository verifier without using consumer working-tree content."
+    },
+    {
+      "command": "node scripts/verify-platform-contracts-agents-governance.mjs",
+      "exitCode": 0,
+      "purpose": "Validate the P0-T02A profile, AGENTS.md clauses, ownership boundaries, stop procedures, authority restrictions, navigation, confidentiality, and all repository Markdown relative links."
+    },
+    {
+      "command": "node --test test/platformContractsAgentsGovernance.test.js",
+      "exitCode": 0,
+      "purpose": "Run the focused valid and fail-closed governance tamper suite."
+    },
+    {
+      "command": "node --test",
+      "exitCode": 0,
+      "purpose": "Run the complete deterministic Platform Contracts test suite."
+    },
+    {
+      "command": "git -C /Users/soushitakeda/Desktop/ado status --short --branch; git -C /Users/soushitakeda/Desktop/asxeed-manufacturing-os status --short --branch",
+      "exitCode": 0,
+      "purpose": "Inspect consumer worktrees read-only and preserve the pre-existing Manufacturing OS dirty state."
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0,
+      "purpose": "Validate patch whitespace hygiene."
+    },
+    {
+      "command": "git diff --name-only c1bfd76b07b5cc98ffb4dc45f177f5027352fce2 -- <protected canonical architecture and plan paths>",
+      "exitCode": 0,
+      "purpose": "Confirm no Architecture Freeze, Clarification, ADR representation, Technology Baseline, Master Plan, Task Graph, or Sprint Plan file changed."
+    },
+    {
+      "command": "node --input-type=module -e '<recursive walk; JSON.parse every repository JSON file>'",
+      "exitCode": 0,
+      "purpose": "Parse all 33 repository JSON files, including every P0-T02A artifact and the governance profile."
+    },
+    {
+      "command": "git status --short; git diff --check; git diff --name-status c1bfd76b07b5cc98ffb4dc45f177f5027352fce2",
+      "exitCode": 0,
+      "purpose": "Inspect the complete visible task scope and confirm patch hygiene against the authorized base before staging."
+    },
+    {
+      "command": "git add <15 explicitly scoped P0-T02A files>",
+      "exitCode": 0,
+      "purpose": "Stage only the reviewed P0-T02A governance, navigation, verifier, tests, and evidence files."
+    },
+    {
+      "command": "git diff --cached --name-status c1bfd76b07b5cc98ffb4dc45f177f5027352fce2; git diff --cached --stat; git diff --cached --check",
+      "exitCode": 0,
+      "purpose": "Confirm the staged patch contains exactly 15 scoped files and no whitespace errors."
+    },
+    {
+      "command": "git commit -m 'P0-T02A add Platform Contracts agent governance'",
+      "exitCode": 0,
+      "purpose": "Create scoped implementation commit 7c9a653ce239eb4856ce3cf180d619b194124e7e."
+    },
+    {
+      "command": "git push -u origin codex/P0-T02A-platform-contracts-agents-governance",
+      "exitCode": 0,
+      "purpose": "Publish the required task branch to the authorized origin remote."
+    },
+    {
+      "command": "GitHub create pull request: head codex/P0-T02A-platform-contracts-agents-governance, base main, draft true",
+      "exitCode": 0,
+      "purpose": "Create Draft PR #3 without merge or auto-merge authority."
+    },
+    {
+      "command": "node scripts/verify-architecture-adoption.mjs; node scripts/verify-cross-repository-architecture-adoption.mjs; node scripts/verify-platform-contracts-agents-governance.mjs",
+      "exitCode": 0,
+      "purpose": "Rerun all three required verifiers after recording the actual Draft PR evidence; each reported pass."
+    },
+    {
+      "command": "node --test test/platformContractsAgentsGovernance.test.js; node --test",
+      "exitCode": 0,
+      "purpose": "Rerun the 15 focused tests and complete 28-test deterministic suite after recording Draft PR evidence; all passed."
+    },
+    {
+      "command": "node --input-type=module -e '<recursive walk; JSON.parse every repository JSON file>'; git diff --check; git diff --name-only c1bfd76b07b5cc98ffb4dc45f177f5027352fce2 -- <protected canonical architecture and plan paths>",
+      "exitCode": 0,
+      "purpose": "Reparse all 33 JSON files, check diff hygiene, and reconfirm protected canonical files remained unchanged after Draft PR evidence finalization."
+    }
+  ],
+  "publishingCommandsRecorded": true,
+  "draftPullRequest": "https://github.com/asxeed-codex/asxeed-platform-contracts/pull/3"
+}

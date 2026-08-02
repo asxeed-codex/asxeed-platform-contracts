@@ -1,0 +1,90 @@
+{
+  "taskId": "P0-T02A",
+  "overall": "pass",
+  "runs": [
+    {
+      "name": "existing-canonical-verifier",
+      "command": "node scripts/verify-architecture-adoption.mjs",
+      "status": "pass",
+      "canonicalDocuments": 13,
+      "markdownRelativeLinks": 37,
+      "taskGraphTasks": 103,
+      "errors": 0
+    },
+    {
+      "name": "cross-repository-verifier",
+      "command": "node scripts/verify-cross-repository-architecture-adoption.mjs",
+      "status": "pass",
+      "approvedCommits": 3,
+      "workingTreeContentUsed": false,
+      "errors": 0
+    },
+    {
+      "name": "platform-contracts-agents-governance-verifier",
+      "command": "node scripts/verify-platform-contracts-agents-governance.mjs",
+      "status": "pass",
+      "markdownRelativeLinks": 52,
+      "errors": 0
+    },
+    {
+      "name": "focused-platform-contracts-agent-governance-tests",
+      "command": "node --test test/platformContractsAgentsGovernance.test.js",
+      "status": "pass",
+      "tests": 15,
+      "passed": 15,
+      "failed": 0
+    },
+    {
+      "name": "complete-deterministic-test-suite",
+      "command": "node --test",
+      "status": "pass",
+      "tests": 28,
+      "passed": 28,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "name": "all-repository-json-parsing",
+      "command": "node --input-type=module -e '<recursive walk; JSON.parse every repository JSON file>'",
+      "status": "pass",
+      "parsedFiles": 33
+    },
+    {
+      "name": "schema-validation",
+      "status": "pass",
+      "method": "The governance verifier performs deterministic structural and semantic validation of the governance JSON; no standalone JSON Schema files exist in this repository."
+    },
+    {
+      "name": "diff-hygiene",
+      "command": "git diff --check",
+      "status": "pass"
+    },
+    {
+      "name": "changed-file-and-protected-scope-inspection",
+      "command": "git status --short; git diff --name-status c1bfd76b07b5cc98ffb4dc45f177f5027352fce2; git diff --name-only c1bfd76b07b5cc98ffb4dc45f177f5027352fce2 -- <protected canonical paths>",
+      "status": "pass",
+      "protectedCanonicalFilesChanged": 0,
+      "consumerRepositoriesModified": false,
+      "successorTasksStarted": 0
+    }
+  ],
+  "environment": {
+    "localNode": "25.9.0",
+    "approvedApplicationBaselineNode": "24.18.0",
+    "externalNodeDependenciesForNewVerifier": false
+  },
+  "finalValidationAfterDraftPrEvidence": {
+    "canonicalVerifier": "pass",
+    "crossRepositoryVerifier": "pass",
+    "agentsGovernanceVerifier": "pass",
+    "focusedTests": "15/15 pass",
+    "completeTestSuite": "28/28 pass",
+    "jsonParsing": "33/33 pass",
+    "markdownRelativeLinks": "52/52 pass",
+    "diffCheck": "pass",
+    "protectedCanonicalFilesChanged": 0
+  },
+  "failures": []
+}
