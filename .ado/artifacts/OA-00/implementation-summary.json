@@ -1,6 +1,6 @@
 {
   "taskId": "OA-00",
-  "status": "validated-awaiting-publication",
+  "status": "implemented",
   "currentState": "checkpoint-review-required",
   "repository": "asxeed-codex/asxeed-platform-contracts",
   "branch": "codex/OA-00-ado-ontology-architecture",
@@ -27,8 +27,10 @@
   "runtimeImplemented": false,
   "sharedRuntimeContractPublished": false,
   "consumerRepositoriesModified": false,
-  "implementationCommit": null,
-  "finalEvidenceHead": null,
-  "prState": "not-created",
+  "implementationCommit": "314ab2720dcc47d3ec28293c56ba3129a10c35e0",
+  "finalEvidenceHead": "reported from Git after the evidence-only commit to avoid a self-referential commit hash",
+  "prState": "draft-open",
+  "prNumber": 4,
+  "prUrl": "https://github.com/asxeed-codex/asxeed-platform-contracts/pull/4",
   "humanCheckpointRequired": true
 }

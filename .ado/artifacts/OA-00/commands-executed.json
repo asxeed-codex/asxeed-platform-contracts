@@ -1,6 +1,6 @@
 {
   "taskId": "OA-00",
-  "status": "complete-pre-publication",
+  "status": "complete-through-draft-pr",
   "commands": [
     {
       "command": "read attached OA-00 request in complete chunks",
@@ -101,7 +101,32 @@
       "command": "git diff --check and protected historical path inspection",
       "exitCode": 0,
       "result": "Pass; no protected historical file or P0 evidence change."
+    },
+    {
+      "command": "git add -A; git diff --cached --name-status/stat/check",
+      "exitCode": 0,
+      "result": "Exactly 43 scoped files staged; cached diff check passed after whitespace normalization."
+    },
+    {
+      "command": "git commit -m OA-00 formalize ADO-embedded Ontology Architecture",
+      "exitCode": 0,
+      "result": "Created implementation commit 314ab2720dcc47d3ec28293c56ba3129a10c35e0."
+    },
+    {
+      "command": "git push -u origin codex/OA-00-ado-ontology-architecture",
+      "exitCode": 0,
+      "result": "Published the required task branch to the authorized origin."
+    },
+    {
+      "command": "gh pr create --draft --base main --head codex/OA-00-ado-ontology-architecture",
+      "exitCode": 0,
+      "result": "Created Draft PR #4: https://github.com/asxeed-codex/asxeed-platform-contracts/pull/4"
+    },
+    {
+      "command": "gh pr view 4 --repo asxeed-codex/asxeed-platform-contracts --json number,url,state,isDraft,headRefName,headRefOid,baseRefName,title",
+      "exitCode": 0,
+      "result": "Confirmed PR #4 open and Draft, targeting main at implementation commit 314ab2720dcc47d3ec28293c56ba3129a10c35e0."
     }
   ],
-  "publicationCommandsRecorded": false
+  "publicationCommandsRecorded": true
 }
