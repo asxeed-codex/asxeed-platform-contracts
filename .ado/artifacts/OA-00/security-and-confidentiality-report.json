@@ -1,0 +1,22 @@
+{
+  "taskId": "OA-00",
+  "status": "architecture-controls-defined",
+  "secretsDetected": false,
+  "confidentialManufacturingContentCopied": false,
+  "productionDataUsed": false,
+  "consumerDirtyContentUsedAsAuthority": false,
+  "controls": [
+    "organization isolation",
+    "namespace authorization",
+    "least privilege",
+    "no public Ontology endpoints",
+    "no secrets in assertions",
+    "Evidence references over source duplication",
+    "approved Azure AI endpoints only",
+    "immutable audit for Critical changes",
+    "no Production Ontology in Development or Codex",
+    "Human Approval for Critical knowledge",
+    "revocation and supersession"
+  ],
+  "runtimeSecurityValidation": "not-applicable-no-runtime-implemented"
+}

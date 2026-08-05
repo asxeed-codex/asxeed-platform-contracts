@@ -1,0 +1,225 @@
+{
+  "taskId": "OA-00",
+  "status": "complete-pre-publication-scope",
+  "baseCommit": "11410e1c4f882f059d75938d1314a5786c2e2a88",
+  "fileCount": 43,
+  "files": [
+    {
+      "path": ".ado/artifacts/OA-00/adr-compatibility-report.json",
+      "change": "added",
+      "purpose": "Record truthful OA-00 implementation, validation, risk, rollback, boundary, consumer, security, and checkpoint evidence."
+    },
+    {
+      "path": ".ado/artifacts/OA-00/architecture-decision-report.json",
+      "change": "added",
+      "purpose": "Record truthful OA-00 implementation, validation, risk, rollback, boundary, consumer, security, and checkpoint evidence."
+    },
+    {
+      "path": ".ado/artifacts/OA-00/changed-files.json",
+      "change": "added",
+      "purpose": "Record truthful OA-00 implementation, validation, risk, rollback, boundary, consumer, security, and checkpoint evidence."
+    },
+    {
+      "path": ".ado/artifacts/OA-00/commands-executed.json",
+      "change": "added",
+      "purpose": "Record truthful OA-00 implementation, validation, risk, rollback, boundary, consumer, security, and checkpoint evidence."
+    },
+    {
+      "path": ".ado/artifacts/OA-00/consumer-state-report.json",
+      "change": "added",
+      "purpose": "Record truthful OA-00 implementation, validation, risk, rollback, boundary, consumer, security, and checkpoint evidence."
+    },
+    {
+      "path": ".ado/artifacts/OA-00/historical-preservation-report.json",
+      "change": "added",
+      "purpose": "Record truthful OA-00 implementation, validation, risk, rollback, boundary, consumer, security, and checkpoint evidence."
+    },
+    {
+      "path": ".ado/artifacts/OA-00/human-checkpoint-report.json",
+      "change": "added",
+      "purpose": "Record truthful OA-00 implementation, validation, risk, rollback, boundary, consumer, security, and checkpoint evidence."
+    },
+    {
+      "path": ".ado/artifacts/OA-00/implementation-summary.json",
+      "change": "added",
+      "purpose": "Record truthful OA-00 implementation, validation, risk, rollback, boundary, consumer, security, and checkpoint evidence."
+    },
+    {
+      "path": ".ado/artifacts/OA-00/ontology-model-report.json",
+      "change": "added",
+      "purpose": "Record truthful OA-00 implementation, validation, risk, rollback, boundary, consumer, security, and checkpoint evidence."
+    },
+    {
+      "path": ".ado/artifacts/OA-00/pr26-transition-report.json",
+      "change": "added",
+      "purpose": "Record truthful OA-00 implementation, validation, risk, rollback, boundary, consumer, security, and checkpoint evidence."
+    },
+    {
+      "path": ".ado/artifacts/OA-00/responsibility-boundary-report.json",
+      "change": "added",
+      "purpose": "Record truthful OA-00 implementation, validation, risk, rollback, boundary, consumer, security, and checkpoint evidence."
+    },
+    {
+      "path": ".ado/artifacts/OA-00/risk-report.json",
+      "change": "added",
+      "purpose": "Record truthful OA-00 implementation, validation, risk, rollback, boundary, consumer, security, and checkpoint evidence."
+    },
+    {
+      "path": ".ado/artifacts/OA-00/rollback-plan.json",
+      "change": "added",
+      "purpose": "Record truthful OA-00 implementation, validation, risk, rollback, boundary, consumer, security, and checkpoint evidence."
+    },
+    {
+      "path": ".ado/artifacts/OA-00/security-and-confidentiality-report.json",
+      "change": "added",
+      "purpose": "Record truthful OA-00 implementation, validation, risk, rollback, boundary, consumer, security, and checkpoint evidence."
+    },
+    {
+      "path": ".ado/artifacts/OA-00/task-graph-report.json",
+      "change": "added",
+      "purpose": "Record truthful OA-00 implementation, validation, risk, rollback, boundary, consumer, security, and checkpoint evidence."
+    },
+    {
+      "path": ".ado/artifacts/OA-00/test-results.json",
+      "change": "added",
+      "purpose": "Record truthful OA-00 implementation, validation, risk, rollback, boundary, consumer, security, and checkpoint evidence."
+    },
+    {
+      "path": "docs/architecture/ADO_ONTOLOGY_ARCHITECTURE_DECISION_REPORT_v1.0.md",
+      "change": "added",
+      "purpose": "Record alternatives, selected direction, risks, constraints, and adoption condition."
+    },
+    {
+      "path": "docs/architecture/adrs/ADR-025_ONTOLOGY_CORE_EMBEDDED_IN_ADO.md",
+      "change": "added",
+      "purpose": "Record a canonical proposed Ontology architecture decision pending human adoption."
+    },
+    {
+      "path": "docs/architecture/adrs/ADR-026_ADO_AS_ONTOLOGY_BUILDER_AND_KNOWLEDGE_ORCHESTRATOR.md",
+      "change": "added",
+      "purpose": "Record a canonical proposed Ontology architecture decision pending human adoption."
+    },
+    {
+      "path": "docs/architecture/adrs/ADR-027_DOMAIN_ONTOLOGY_OWNERSHIP_AND_APPROVAL_BOUNDARIES.md",
+      "change": "added",
+      "purpose": "Record a canonical proposed Ontology architecture decision pending human adoption."
+    },
+    {
+      "path": "docs/architecture/adrs/ADR-028_PUE_ONTOLOGY_DSL_ARCHITECTURE.md",
+      "change": "added",
+      "purpose": "Record a canonical proposed Ontology architecture decision pending human adoption."
+    },
+    {
+      "path": "docs/architecture/adrs/ADR-029_DSL_AS_VERSIONED_EXECUTION_ARTIFACT.md",
+      "change": "added",
+      "purpose": "Record a canonical proposed Ontology architecture decision pending human adoption."
+    },
+    {
+      "path": "docs/architecture/adrs/ADR-030_SHARED_KNOWLEDGE_GRAPH_NAMESPACE_AND_ACCESS_CONTROL.md",
+      "change": "added",
+      "purpose": "Record a canonical proposed Ontology architecture decision pending human adoption."
+    },
+    {
+      "path": "docs/architecture/ASXEED_Architecture_Freeze_v1.2.md",
+      "change": "added",
+      "purpose": "Define the proposed v1.2 integrated Architecture Freeze."
+    },
+    {
+      "path": "docs/architecture/ONTOLOGY_ARCHITECTURE_COMPATIBILITY_MATRIX_v1.0.md",
+      "change": "added",
+      "purpose": "Evaluate compatibility of ADR-001 through ADR-024."
+    },
+    {
+      "path": "docs/architecture/ONTOLOGY_CORE_CONCEPTUAL_MODEL_v0.1.md",
+      "change": "added",
+      "purpose": "Define the domain-neutral Ontology conceptual model."
+    },
+    {
+      "path": "docs/architecture/ONTOLOGY_MIGRATION_STRATEGY_v1.0.md",
+      "change": "added",
+      "purpose": "Define staged, dual-read, fail-closed migration."
+    },
+    {
+      "path": "docs/architecture/ONTOLOGY_ROLLBACK_STRATEGY_v1.0.md",
+      "change": "added",
+      "purpose": "Define non-destructive rollback by subsystem."
+    },
+    {
+      "path": "docs/architecture/ontology-architecture-manifest-v1.0.json",
+      "change": "added",
+      "purpose": "Pin OA-00 documents, versions, hashes, predecessors, consumers, and status."
+    },
+    {
+      "path": "docs/architecture/platform-contracts-agents-governance.json",
+      "change": "modified",
+      "purpose": "Revise live Platform Contracts governance for OA-00 while preserving P0-T02A origin."
+    },
+    {
+      "path": "docs/architecture/SYSTEM_RESPONSIBILITY_BOUNDARIES_v1.1.md",
+      "change": "added",
+      "purpose": "Define v1.2 ownership, namespace, integration, and authority boundaries."
+    },
+    {
+      "path": "docs/plans/ADO_TASK_GRAPH_v1.3.json",
+      "change": "added",
+      "purpose": "Preserve 103 IDs and add exactly 12 dependency-valid OA tasks."
+    },
+    {
+      "path": "docs/plans/ADO_TASK_GRAPH_v1.3.md",
+      "change": "added",
+      "purpose": "Preserve 103 IDs and add exactly 12 dependency-valid OA tasks."
+    },
+    {
+      "path": "docs/plans/MASTER_IMPLEMENTATION_PLAN_v1.3.md",
+      "change": "added",
+      "purpose": "Insert Ontology architecture and migration before preserved implementation tracks."
+    },
+    {
+      "path": "docs/plans/P0_T02C_ONTOLOGY_TRANSITION_PLAN_v1.0.md",
+      "change": "added",
+      "purpose": "Plan the later PR #26 Ontology transition without modifying it."
+    },
+    {
+      "path": "docs/plans/SPRINT_EXECUTION_PLAN_v1.1.md",
+      "change": "added",
+      "purpose": "Define Ontology and preserved successor sprint ordering."
+    },
+    {
+      "path": "docs/README.md",
+      "change": "modified",
+      "purpose": "Add minimal OA-00 architecture and verifier navigation."
+    },
+    {
+      "path": "AGENTS.md",
+      "change": "modified",
+      "purpose": "OA-00 scoped governance or deterministic validation update."
+    },
+    {
+      "path": "README.md",
+      "change": "modified",
+      "purpose": "Add minimal OA-00 architecture and verifier navigation."
+    },
+    {
+      "path": "scripts/verify-ontology-architecture.mjs",
+      "change": "added",
+      "purpose": "Fail closed on OA-00 architecture, graph, history, navigation, JSON, links, and hashes."
+    },
+    {
+      "path": "scripts/verify-platform-contracts-agents-governance.mjs",
+      "change": "modified",
+      "purpose": "Revise live Platform Contracts governance for OA-00 while preserving P0-T02A origin."
+    },
+    {
+      "path": "test/ontologyArchitecture.test.js",
+      "change": "added",
+      "purpose": "Exercise required valid and negative Ontology architecture cases."
+    },
+    {
+      "path": "test/platformContractsAgentsGovernance.test.js",
+      "change": "modified",
+      "purpose": "OA-00 scoped governance or deterministic validation update."
+    }
+  ],
+  "consumerRepositoriesModified": false,
+  "protectedHistoricalFilesModified": false
+}

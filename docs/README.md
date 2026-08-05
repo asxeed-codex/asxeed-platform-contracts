@@ -1,22 +1,32 @@
 # Governance index
 
-This repository is the canonical Phase 0 source for shared ASXEED architecture governance. Adopted documents are copied without substantive changes from the immutable P0-T01A inputs and are pinned by [the adoption manifest](architecture/adoption-manifest.json).
+This repository is the canonical source for shared ASXEED architecture governance. The v1.1 authorities remain immutable and pinned by [the historical adoption manifest](architecture/adoption-manifest.json). The proposed OA-00 v1.2 package becomes effective only after human checkpoint review and merge.
 
-## Authority hierarchy
+## Proposed v1.2 authority hierarchy after human merge
 
-1. [Architecture Freeze v1.1](architecture/ASXEED_Architecture_Freeze_v1.1.md)
-2. [Architecture Freeze v1.1 Clarification 001](architecture/ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md)
-3. ADR-001 through ADR-024, incorporated into the Architecture Freeze
-4. [Technology Stack v1.0](architecture/TECHNOLOGY_STACK.md)
-5. [Technology Version Matrix v1.0](architecture/TECHNOLOGY_VERSION_MATRIX.md)
-6. [Technology Selection Rationale v1.0](architecture/TECHNOLOGY_SELECTION_RATIONALE.md)
-7. [Deferred Technology v1.0](architecture/DEFERRED_TECHNOLOGY.md)
-8. [Master Implementation Plan v1.2](plans/MASTER_IMPLEMENTATION_PLAN_v1.2.md)
-9. [ADO Task Graph v1.2 (Markdown)](plans/ADO_TASK_GRAPH_v1.2.md) and [ADO Task Graph v1.2 (JSON)](plans/ADO_TASK_GRAPH_v1.2.json)
-10. [Sprint Execution Plan v1.0](plans/SPRINT_EXECUTION_PLAN_v1.0.md)
-11. [System Responsibility Boundaries v1.0](architecture/SYSTEM_RESPONSIBILITY_BOUNDARIES_v1.0.md)
-12. [Development Readiness Report v1.0](reports/ASXEED_DEVELOPMENT_READINESS_REPORT_v1.0.md)
-13. [Phase 0 Architecture Adoption Codex Pack v1.3](plans/PHASE_00_ARCHITECTURE_ADOPTION_CODEX_PACK_v1.3.md)
+1. [Architecture Freeze v1.2](architecture/ASXEED_Architecture_Freeze_v1.2.md)
+2. ADR-001 through ADR-030; canonical proposed files: [ADR-025](architecture/adrs/ADR-025_ONTOLOGY_CORE_EMBEDDED_IN_ADO.md), [ADR-026](architecture/adrs/ADR-026_ADO_AS_ONTOLOGY_BUILDER_AND_KNOWLEDGE_ORCHESTRATOR.md), [ADR-027](architecture/adrs/ADR-027_DOMAIN_ONTOLOGY_OWNERSHIP_AND_APPROVAL_BOUNDARIES.md), [ADR-028](architecture/adrs/ADR-028_PUE_ONTOLOGY_DSL_ARCHITECTURE.md), [ADR-029](architecture/adrs/ADR-029_DSL_AS_VERSIONED_EXECUTION_ARTIFACT.md), and [ADR-030](architecture/adrs/ADR-030_SHARED_KNOWLEDGE_GRAPH_NAMESPACE_AND_ACCESS_CONTROL.md)
+3. [Technology Stack v1.0](architecture/TECHNOLOGY_STACK.md)
+4. [Technology Version Matrix v1.0](architecture/TECHNOLOGY_VERSION_MATRIX.md)
+5. [Technology Selection Rationale v1.0](architecture/TECHNOLOGY_SELECTION_RATIONALE.md)
+6. [Deferred Technology v1.0](architecture/DEFERRED_TECHNOLOGY.md)
+7. [Master Implementation Plan v1.3](plans/MASTER_IMPLEMENTATION_PLAN_v1.3.md)
+8. [ADO Task Graph v1.3 (Markdown)](plans/ADO_TASK_GRAPH_v1.3.md) and [JSON](plans/ADO_TASK_GRAPH_v1.3.json)
+9. [Sprint Execution Plan v1.1](plans/SPRINT_EXECUTION_PLAN_v1.1.md)
+10. [System Responsibility Boundaries v1.1](architecture/SYSTEM_RESPONSIBILITY_BOUNDARIES_v1.1.md)
+11. [Ontology Core Conceptual Model v0.1](architecture/ONTOLOGY_CORE_CONCEPTUAL_MODEL_v0.1.md)
+12. [Ontology Architecture Compatibility Matrix v1.0](architecture/ONTOLOGY_ARCHITECTURE_COMPATIBILITY_MATRIX_v1.0.md)
+13. [Ontology Migration Strategy v1.0](architecture/ONTOLOGY_MIGRATION_STRATEGY_v1.0.md)
+14. [Ontology Rollback Strategy v1.0](architecture/ONTOLOGY_ROLLBACK_STRATEGY_v1.0.md)
+
+Before OA-00 human merge, [Architecture Freeze v1.1](architecture/ASXEED_Architecture_Freeze_v1.1.md), [Clarification 001](architecture/ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md), and ADR-001 through ADR-024 remain the highest formally adopted authority.
+
+## OA-00 architecture package
+
+- [Architecture decision report](architecture/ADO_ONTOLOGY_ARCHITECTURE_DECISION_REPORT_v1.0.md)
+- [P0-T02C / PR #26 transition plan](plans/P0_T02C_ONTOLOGY_TRANSITION_PLAN_v1.0.md)
+- [Ontology architecture manifest](architecture/ontology-architecture-manifest-v1.0.json)
+- [Ontology architecture verifier](../scripts/verify-ontology-architecture.mjs)
 
 ## Repository governance
 

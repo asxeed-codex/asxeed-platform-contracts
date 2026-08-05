@@ -1,0 +1,19 @@
+{
+  "taskId": "OA-00",
+  "status": "separated",
+  "platformContracts": "domain-neutral Ontology contracts and governance only",
+  "ado": "Knowledge Core runtime, Ontology Builder, Company/Development/Agent Ontologies, Plan DSL, and agent/development orchestration",
+  "manufacturingOs": "Manufacturing Ontology Pack, semantic validation, Criticality, approval surfaces, Product DSL Generator, deterministic execution, artifacts, and release",
+  "orderEngine": "customer, order, quantity, price, and invoice source of truth",
+  "humanExclusive": [
+    "Architecture and ADR adoption",
+    "Critical manufacturing knowledge",
+    "required Product DSL approval",
+    "manufacturing release/start",
+    "production release",
+    "merge",
+    "authority exceptions"
+  ],
+  "directCrossDomainDatabaseAccess": "prohibited",
+  "authorityEscalation": "prohibited"
+}

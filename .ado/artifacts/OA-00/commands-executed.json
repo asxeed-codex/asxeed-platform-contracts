@@ -1,0 +1,132 @@
+{
+  "taskId": "OA-00",
+  "status": "complete-through-draft-pr",
+  "commands": [
+    {
+      "command": "read attached OA-00 request in complete chunks",
+      "exitCode": 0,
+      "result": "Complete controlled task and output contract read."
+    },
+    {
+      "command": "git status, branch, HEAD, remote, and history inspection",
+      "exitCode": 0,
+      "result": "Clean required branch at exact authorized base."
+    },
+    {
+      "command": "mandatory architecture, technology, plan, graph, governance, verifier, test, evidence, and consumer committed-file inspection",
+      "exitCode": 0,
+      "result": "Applicable authorities and repository conventions inspected."
+    },
+    {
+      "command": "node inspection of ADO_TASK_GRAPH_v1.2.json",
+      "exitCode": 0,
+      "result": "Committed predecessor task count is exactly 103."
+    },
+    {
+      "command": "gh --version; gh auth status",
+      "exitCode": 0,
+      "result": "GitHub CLI 2.97.0 authenticated."
+    },
+    {
+      "command": "read-only ADO and Manufacturing OS HEAD/status/committed-file inspection; gh pr view 26",
+      "exitCode": 0,
+      "result": "All required commits available; PR #26 open Draft at required head; Manufacturing main dirty fingerprint recorded."
+    },
+    {
+      "command": "apply_patch invocations for 43 scoped OA-00 files",
+      "exitCode": 0,
+      "result": "Architecture, plans, governance, verifiers, tests, navigation, manifest, and evidence created or updated."
+    },
+    {
+      "command": "node inline Task Graph v1.3 validation",
+      "exitCode": 0,
+      "result": "103 old + 12 OA = 115; zero missing references, cycles, missing sprints, or sprint-order violations."
+    },
+    {
+      "command": "node --check scripts/verify-platform-contracts-agents-governance.mjs; node --check scripts/verify-ontology-architecture.mjs",
+      "exitCode": 0,
+      "result": "Syntax pass."
+    },
+    {
+      "command": "node scripts/verify-architecture-adoption.mjs",
+      "exitCode": 0,
+      "result": "Pass; 13 historical documents and 103-task v1.2 graph remain valid."
+    },
+    {
+      "command": "node scripts/verify-cross-repository-architecture-adoption.mjs",
+      "exitCode": 0,
+      "result": "Pass using committed objects and detached temporary clones; consumer working trees ignored."
+    },
+    {
+      "command": "node scripts/verify-platform-contracts-agents-governance.mjs",
+      "exitCode": 0,
+      "result": "Pass; 107 Markdown relative links checked."
+    },
+    {
+      "command": "node scripts/verify-ontology-architecture.mjs",
+      "exitCode": 0,
+      "result": "Pass; 43 required files, 18 manifest documents, 51 JSON files, 84 document links, and 115 tasks validated."
+    },
+    {
+      "command": "node --test test/platformContractsAgentsGovernance.test.js",
+      "exitCode": 0,
+      "result": "20/20 pass."
+    },
+    {
+      "command": "node --test test/ontologyArchitecture.test.js",
+      "exitCode": 0,
+      "result": "30/30 pass."
+    },
+    {
+      "command": "node --test",
+      "exitCode": 0,
+      "result": "63/63 Platform Contracts tests pass."
+    },
+    {
+      "command": "ADO node scripts/verify-architecture-adoption.mjs; node scripts/verify-ado-agents-governance.mjs; npm test",
+      "exitCode": 0,
+      "result": "Both ADO verifiers pass; 155/155 ADO tests pass; working tree remains clean."
+    },
+    {
+      "command": "read-only final Manufacturing OS HEAD/fingerprint/P0-T02C status and gh pr view 26",
+      "exitCode": 0,
+      "result": "Main fingerprint unchanged; P0-T02C clean at required head; PR #26 still open Draft and unchanged."
+    },
+    {
+      "command": "parse every repository JSON file",
+      "exitCode": 0,
+      "result": "51/51 parse."
+    },
+    {
+      "command": "git diff --check and protected historical path inspection",
+      "exitCode": 0,
+      "result": "Pass; no protected historical file or P0 evidence change."
+    },
+    {
+      "command": "git add -A; git diff --cached --name-status/stat/check",
+      "exitCode": 0,
+      "result": "Exactly 43 scoped files staged; cached diff check passed after whitespace normalization."
+    },
+    {
+      "command": "git commit -m OA-00 formalize ADO-embedded Ontology Architecture",
+      "exitCode": 0,
+      "result": "Created implementation commit 314ab2720dcc47d3ec28293c56ba3129a10c35e0."
+    },
+    {
+      "command": "git push -u origin codex/OA-00-ado-ontology-architecture",
+      "exitCode": 0,
+      "result": "Published the required task branch to the authorized origin."
+    },
+    {
+      "command": "gh pr create --draft --base main --head codex/OA-00-ado-ontology-architecture",
+      "exitCode": 0,
+      "result": "Created Draft PR #4: https://github.com/asxeed-codex/asxeed-platform-contracts/pull/4"
+    },
+    {
+      "command": "gh pr view 4 --repo asxeed-codex/asxeed-platform-contracts --json number,url,state,isDraft,headRefName,headRefOid,baseRefName,title",
+      "exitCode": 0,
+      "result": "Confirmed PR #4 open and Draft, targeting main at implementation commit 314ab2720dcc47d3ec28293c56ba3129a10c35e0."
+    }
+  ],
+  "publicationCommandsRecorded": true
+}

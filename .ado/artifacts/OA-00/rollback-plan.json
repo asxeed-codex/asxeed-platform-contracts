@@ -1,0 +1,15 @@
+{
+  "taskId": "OA-00",
+  "strategy": "Use a scoped git revert before adoption or a new superseding Architecture package after adoption; never rewrite or delete historical authorities.",
+  "steps": [
+    "Create a dedicated rollback task branch from the then-current protected base.",
+    "Revert OA-00 commits in reverse order if OA-00 has not been adopted, without force-push or history rewrite.",
+    "If v1.2 has been adopted, create a new human-directed Architecture version that supersedes it rather than editing adopted files in place.",
+    "Re-run canonical, cross-repository, governance, Ontology, JSON, Markdown, hash, graph, diff, and consumer checks.",
+    "Preserve v1.1, v1.2, ADRs, approvals, evidence, task graphs, manifests, and all P0 evidence as immutable history.",
+    "Open a Draft rollback PR and stop for human checkpoint."
+  ],
+  "consumerRuntimeRollbackRequired": false,
+  "destructiveResetRequired": false,
+  "humanApprovalRequired": true
+}

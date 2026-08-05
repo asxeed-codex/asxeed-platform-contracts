@@ -1,0 +1,124 @@
+{
+  "taskId": "OA-00",
+  "overall": "pass",
+  "runs": [
+    {
+      "name": "canonical-architecture-adoption-verifier",
+      "command": "node scripts/verify-architecture-adoption.mjs",
+      "status": "pass",
+      "historicalDocuments": 13,
+      "taskGraphTasks": 103,
+      "errors": 0
+    },
+    {
+      "name": "cross-repository-adoption-verifier",
+      "command": "node scripts/verify-cross-repository-architecture-adoption.mjs",
+      "status": "pass",
+      "workingTreeContentUsed": false,
+      "errors": 0
+    },
+    {
+      "name": "Platform-Contracts-governance-verifier",
+      "command": "node scripts/verify-platform-contracts-agents-governance.mjs",
+      "status": "pass",
+      "markdownRelativeLinks": 107,
+      "errors": 0
+    },
+    {
+      "name": "Ontology-architecture-verifier",
+      "command": "node scripts/verify-ontology-architecture.mjs",
+      "status": "pass",
+      "requiredFiles": 43,
+      "manifestDocuments": 18,
+      "jsonFiles": 51,
+      "markdownLinks": 84,
+      "taskCount": 115,
+      "errors": 0
+    },
+    {
+      "name": "focused-governance-tests",
+      "command": "node --test test/platformContractsAgentsGovernance.test.js",
+      "status": "pass",
+      "tests": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    {
+      "name": "focused-Ontology-tests",
+      "command": "node --test test/ontologyArchitecture.test.js",
+      "status": "pass",
+      "tests": 30,
+      "passed": 30,
+      "failed": 0
+    },
+    {
+      "name": "complete-Platform-Contracts-suite",
+      "command": "node --test",
+      "status": "pass",
+      "tests": 63,
+      "passed": 63,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "name": "all-repository-JSON",
+      "status": "pass",
+      "parsedFiles": 51
+    },
+    {
+      "name": "manifest-SHA-256",
+      "status": "pass",
+      "documents": 18,
+      "mismatches": 0
+    },
+    {
+      "name": "Task-Graph-v1.3",
+      "status": "pass",
+      "oldTaskIds": 103,
+      "oaTaskIds": 12,
+      "total": 115,
+      "missingDependencies": 0,
+      "cycles": 0,
+      "sprintOrderViolations": 0
+    },
+    {
+      "name": "diff-and-historical-scope",
+      "status": "pass",
+      "diffCheck": "pass",
+      "protectedHistoricalFilesChanged": 0,
+      "p0EvidenceChanged": 0
+    },
+    {
+      "name": "ADO-read-only-validation",
+      "status": "pass",
+      "head": "c47cd0f39ea47f81bdd77292c2023095c0ad8e51",
+      "architectureVerifier": "pass",
+      "governanceVerifier": "pass",
+      "tests": "155/155 pass",
+      "workingTreeAfter": "clean"
+    },
+    {
+      "name": "Manufacturing-OS-read-only-validation",
+      "status": "pass",
+      "mainHead": "49d74b915f7b0095b6b79202f29e474367049dba",
+      "dirtyFingerprintUnchanged": true,
+      "p0T02cHead": "0b16ac6f0408b4fd19b6b171413647fa8476df31",
+      "p0T02cClean": true,
+      "pr26": "open-draft-unchanged"
+    }
+  ],
+  "publication": {
+    "implementationCommit": "314ab2720dcc47d3ec28293c56ba3129a10c35e0",
+    "branchPush": "pass",
+    "draftPr": "https://github.com/asxeed-codex/asxeed-platform-contracts/pull/4",
+    "draftPrState": "open-draft"
+  },
+  "environment": {
+    "localNode": "v25.9.0",
+    "approvedApplicationBaselineNode": "24.18.0",
+    "newRuntimeDependencies": false
+  },
+  "failures": []
+}

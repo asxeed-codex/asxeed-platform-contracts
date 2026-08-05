@@ -1,0 +1,178 @@
+{
+  "packageId": "asxeed-ado-ontology-architecture",
+  "packageVersion": "1.0",
+  "architectureVersion": "1.2",
+  "taskId": "OA-00",
+  "branch": "codex/OA-00-ado-ontology-architecture",
+  "baseCommit": "11410e1c4f882f059d75938d1314a5786c2e2a88",
+  "humanDirection": "approved-in-principle",
+  "adoptionCondition": "human-checkpoint-review-and-merge",
+  "formallyAdopted": false,
+  "merged": false,
+  "documents": [
+    {
+      "name": "Architecture Freeze",
+      "path": "docs/architecture/ASXEED_Architecture_Freeze_v1.2.md",
+      "version": "1.2",
+      "sha256": "b6d5ba4c272d183f88578fc9f9dbb558a30af1e84d8dc4392d6a84aa50b9a9ed"
+    },
+    {
+      "name": "ADR-025",
+      "path": "docs/architecture/adrs/ADR-025_ONTOLOGY_CORE_EMBEDDED_IN_ADO.md",
+      "version": "025",
+      "sha256": "041a3ba7f6fea0a54f5c0a6cd6563635f651e696c77056459fbc1e575703b6d9"
+    },
+    {
+      "name": "ADR-026",
+      "path": "docs/architecture/adrs/ADR-026_ADO_AS_ONTOLOGY_BUILDER_AND_KNOWLEDGE_ORCHESTRATOR.md",
+      "version": "026",
+      "sha256": "7560b5b105934b46c70beffc569b2a7342eca070ba1307d1ff226f3ba1b1ce87"
+    },
+    {
+      "name": "ADR-027",
+      "path": "docs/architecture/adrs/ADR-027_DOMAIN_ONTOLOGY_OWNERSHIP_AND_APPROVAL_BOUNDARIES.md",
+      "version": "027",
+      "sha256": "682ba470a28c6130c570cbf989fc70ecbe3f995ada5c6445ec6d027f1f60b1f7"
+    },
+    {
+      "name": "ADR-028",
+      "path": "docs/architecture/adrs/ADR-028_PUE_ONTOLOGY_DSL_ARCHITECTURE.md",
+      "version": "028",
+      "sha256": "336216b0d4521f3f570174b2396013093dece2af024365fc8f6ad81f7289f9a4"
+    },
+    {
+      "name": "ADR-029",
+      "path": "docs/architecture/adrs/ADR-029_DSL_AS_VERSIONED_EXECUTION_ARTIFACT.md",
+      "version": "029",
+      "sha256": "3641f51180743b09b46e9dcd6d40008db2af62093093d94756a96a021cbe49f4"
+    },
+    {
+      "name": "ADR-030",
+      "path": "docs/architecture/adrs/ADR-030_SHARED_KNOWLEDGE_GRAPH_NAMESPACE_AND_ACCESS_CONTROL.md",
+      "version": "030",
+      "sha256": "20f1933c0eec62ed6d175e8dd32d23de16e54687e452880f541c81a74238f5ac"
+    },
+    {
+      "name": "System Responsibility Boundaries",
+      "path": "docs/architecture/SYSTEM_RESPONSIBILITY_BOUNDARIES_v1.1.md",
+      "version": "1.1",
+      "sha256": "cd2beedc650686d1f02312c8573e51bad8bb0a8bccaa549593d06611756605d2"
+    },
+    {
+      "name": "Ontology Core Conceptual Model",
+      "path": "docs/architecture/ONTOLOGY_CORE_CONCEPTUAL_MODEL_v0.1.md",
+      "version": "0.1",
+      "sha256": "8de9088685088f699b215d869845f966c2b48ba31bdfff820221845022a1beed"
+    },
+    {
+      "name": "Architecture Decision Report",
+      "path": "docs/architecture/ADO_ONTOLOGY_ARCHITECTURE_DECISION_REPORT_v1.0.md",
+      "version": "1.0",
+      "sha256": "fde74041eff114ced9724e98d483843e581c2aa42889df7efea3ef74f4f5de17"
+    },
+    {
+      "name": "Compatibility Matrix",
+      "path": "docs/architecture/ONTOLOGY_ARCHITECTURE_COMPATIBILITY_MATRIX_v1.0.md",
+      "version": "1.0",
+      "sha256": "d9d35ace33d8a688468ca3790372749feec763c9cb61639106a11b119d5746ee"
+    },
+    {
+      "name": "Migration Strategy",
+      "path": "docs/architecture/ONTOLOGY_MIGRATION_STRATEGY_v1.0.md",
+      "version": "1.0",
+      "sha256": "c4c1c9e86f62f59828d26faf9cd830a9b304885da5b0c8adb5472eae6def5fe3"
+    },
+    {
+      "name": "Rollback Strategy",
+      "path": "docs/architecture/ONTOLOGY_ROLLBACK_STRATEGY_v1.0.md",
+      "version": "1.0",
+      "sha256": "8289ed98ebae2c72d01cadafa89baac181c35a36dc4ffceea7348b98be1f6405"
+    },
+    {
+      "name": "P0-T02C Ontology Transition Plan",
+      "path": "docs/plans/P0_T02C_ONTOLOGY_TRANSITION_PLAN_v1.0.md",
+      "version": "1.0",
+      "sha256": "04e214e6e32e2e54cfcc766bc0648e56f5bc3c38a094e797d51d0e49f093c121"
+    },
+    {
+      "name": "Master Implementation Plan",
+      "path": "docs/plans/MASTER_IMPLEMENTATION_PLAN_v1.3.md",
+      "version": "1.3",
+      "sha256": "a146679d8bbf33f955890ede73d76919e79f77cffe0638cd4bfeb486da3e06be"
+    },
+    {
+      "name": "ADO Task Graph Markdown",
+      "path": "docs/plans/ADO_TASK_GRAPH_v1.3.md",
+      "version": "1.3",
+      "sha256": "6d4481a74421f763a60b52c3663404e1cd861d6f2a209bab462d2bbc4d854799"
+    },
+    {
+      "name": "ADO Task Graph JSON",
+      "path": "docs/plans/ADO_TASK_GRAPH_v1.3.json",
+      "version": "1.3",
+      "sha256": "083429b0e540c7f91734545bc59d8339b9892f7a0abc059defbd9b2b82bc78d0"
+    },
+    {
+      "name": "Sprint Execution Plan",
+      "path": "docs/plans/SPRINT_EXECUTION_PLAN_v1.1.md",
+      "version": "1.1",
+      "sha256": "afff44a5b86e00be99e1b57e199b1ecf2cca0ba700ae3f8d81da8a1dbe7de81a"
+    }
+  ],
+  "predecessorCommits": {
+    "platformContracts": "11410e1c4f882f059d75938d1314a5786c2e2a88",
+    "ado": "c47cd0f39ea47f81bdd77292c2023095c0ad8e51",
+    "manufacturingOsMain": "49d74b915f7b0095b6b79202f29e474367049dba",
+    "manufacturingOsP0T02c": "0b16ac6f0408b4fd19b6b171413647fa8476df31"
+  },
+  "consumerStates": {
+    "ado": {
+      "task": "P0-T02B",
+      "state": "completed",
+      "commit": "c47cd0f39ea47f81bdd77292c2023095c0ad8e51",
+      "modifiedByOa00": false
+    },
+    "manufacturingOs": {
+      "task": "P0-T02C",
+      "state": "checkpoint-review-required",
+      "commit": "0b16ac6f0408b4fd19b6b171413647fa8476df31",
+      "modifiedByOa00": false
+    }
+  },
+  "newAdrIds": [
+    "ADR-025",
+    "ADR-026",
+    "ADR-027",
+    "ADR-028",
+    "ADR-029",
+    "ADR-030"
+  ],
+  "taskGraphVersion": "1.3",
+  "taskCount": 115,
+  "migrationStatus": "planned-not-started",
+  "pr26State": {
+    "repository": "asxeed-codex/asxeed-manufacturing-os",
+    "number": 26,
+    "state": "open",
+    "draft": true,
+    "headCommit": "0b16ac6f0408b4fd19b6b171413647fa8476df31",
+    "unchangedByOa00": true,
+    "transitionTask": "OA-00B"
+  },
+  "successorState": {
+    "P0-T02D": "blocked-by-ontology-architecture-migration",
+    "P0-T03": "not-started",
+    "OA-00A": "not-started",
+    "OA-00B": "not-started",
+    "OA-00C": "not-started",
+    "OA-01": "not-started",
+    "OA-02": "not-started",
+    "OA-03": "not-started",
+    "OA-04": "not-started",
+    "OA-05": "not-started",
+    "OA-06": "not-started",
+    "OA-07": "not-started",
+    "OA-GATE": "not-started"
+  },
+  "humanCheckpointRequired": true
+}

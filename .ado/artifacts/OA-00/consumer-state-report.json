@@ -1,0 +1,40 @@
+{
+  "taskId": "OA-00",
+  "status": "pass",
+  "ado": {
+    "requiredHead": "c47cd0f39ea47f81bdd77292c2023095c0ad8e51",
+    "observedHead": "c47cd0f39ea47f81bdd77292c2023095c0ad8e51",
+    "workingTreeBefore": "clean",
+    "architectureAdoptionVerifier": "pass",
+    "governanceVerifier": "pass",
+    "npmTest": {
+      "status": "pass",
+      "tests": 155,
+      "passed": 155,
+      "failed": 0
+    },
+    "workingTreeAfter": "clean",
+    "modifiedByOa00": false
+  },
+  "manufacturingOsMain": {
+    "requiredHead": "49d74b915f7b0095b6b79202f29e474367049dba",
+    "observedHead": "49d74b915f7b0095b6b79202f29e474367049dba",
+    "preExistingDirtyFingerprintSha256": "6c7e9b958645490a2563a9d12989671d1c1d85a1c2f27d8dcf7d73523f0b170a",
+    "finalDirtyFingerprintSha256": "6c7e9b958645490a2563a9d12989671d1c1d85a1c2f27d8dcf7d73523f0b170a",
+    "workingTreeContentUsedAsAuthority": false,
+    "modifiedByOa00": false
+  },
+  "manufacturingOsP0T02c": {
+    "requiredHead": "0b16ac6f0408b4fd19b6b171413647fa8476df31",
+    "observedHead": "0b16ac6f0408b4fd19b6b171413647fa8476df31",
+    "workingTree": "clean",
+    "modifiedByOa00": false
+  },
+  "pr26": {
+    "number": 26,
+    "state": "open",
+    "draft": true,
+    "head": "0b16ac6f0408b4fd19b6b171413647fa8476df31",
+    "modifiedByOa00": false
+  }
+}

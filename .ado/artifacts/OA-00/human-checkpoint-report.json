@@ -1,0 +1,15 @@
+{
+  "taskId": "OA-00",
+  "humanDirection": "approved-in-principle",
+  "formalArchitectureAdoption": "pending",
+  "humanCheckpointRequired": true,
+  "humanCheckpointCompleted": false,
+  "mergeCompleted": false,
+  "agentApprovalClaimed": false,
+  "architectureFreezeV12Effective": false,
+  "successorTasksAuthorized": false,
+  "draftPrNumber": 4,
+  "draftPrUrl": "https://github.com/asxeed-codex/asxeed-platform-contracts/pull/4",
+  "draftPrState": "open-draft",
+  "nextAction": "Human checkpoint review of Draft PR #4; only a human may merge and formally adopt Architecture Freeze v1.2 and ADR-025 through ADR-030."
+}

@@ -6,228 +6,168 @@ const { spawnSync } = require("node:child_process");
 const { test } = require("node:test");
 
 const repositoryRoot = path.resolve(__dirname, "..");
-const verifierPath = path.join(
-  repositoryRoot,
-  "scripts",
-  "verify-platform-contracts-agents-governance.mjs",
-);
+const verifierPath = path.join(repositoryRoot, "scripts", "verify-platform-contracts-agents-governance.mjs");
 
 function createFixture(t) {
-  const root = fs.mkdtempSync(
-    path.join(os.tmpdir(), "p0-t02a-agents-governance-"),
-  );
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "oa00-platform-governance-"));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
-
-  fs.copyFileSync(
-    path.join(repositoryRoot, "AGENTS.md"),
-    path.join(root, "AGENTS.md"),
-  );
-  fs.copyFileSync(
-    path.join(repositoryRoot, "README.md"),
-    path.join(root, "README.md"),
-  );
-  fs.cpSync(path.join(repositoryRoot, "docs"), path.join(root, "docs"), {
-    recursive: true,
-  });
-  fs.cpSync(path.join(repositoryRoot, "scripts"), path.join(root, "scripts"), {
-    recursive: true,
-  });
+  fs.copyFileSync(path.join(repositoryRoot, "AGENTS.md"), path.join(root, "AGENTS.md"));
+  fs.copyFileSync(path.join(repositoryRoot, "README.md"), path.join(root, "README.md"));
+  fs.cpSync(path.join(repositoryRoot, "docs"), path.join(root, "docs"), { recursive: true });
+  fs.cpSync(path.join(repositoryRoot, "scripts"), path.join(root, "scripts"), { recursive: true });
   return root;
 }
 
 function runVerifier(root) {
-  const result = spawnSync(process.execPath, [verifierPath, "--root", root], {
-    cwd: repositoryRoot,
-    encoding: "utf8",
-    maxBuffer: 8 * 1024 * 1024,
-  });
-  assert.notEqual(
-    result.stdout,
-    "",
-    `verifier emitted no report\nstderr:\n${result.stderr}`,
-  );
+  const result = spawnSync(process.execPath, [verifierPath, "--root", root], { cwd: repositoryRoot, encoding: "utf8", maxBuffer: 16 * 1024 * 1024 });
+  assert.notEqual(result.stdout, "", `verifier emitted no report\nstderr:\n${result.stderr}`);
   return { result, report: JSON.parse(result.stdout) };
 }
 
 function profilePath(root) {
-  return path.join(
-    root,
-    "docs",
-    "architecture",
-    "platform-contracts-agents-governance.json",
-  );
+  return path.join(root, "docs", "architecture", "platform-contracts-agents-governance.json");
 }
 
 function mutateProfile(root, mutate) {
-  const filePath = profilePath(root);
-  const profile = JSON.parse(fs.readFileSync(filePath, "utf8"));
-  mutate(profile);
-  fs.writeFileSync(filePath, `${JSON.stringify(profile, null, 2)}\n`);
+  const target = profilePath(root);
+  const value = JSON.parse(fs.readFileSync(target, "utf8"));
+  mutate(value);
+  fs.writeFileSync(target, `${JSON.stringify(value, null, 2)}\n`);
 }
 
-function mutateAgents(root, mutate) {
-  const filePath = path.join(root, "AGENTS.md");
-  const original = fs.readFileSync(filePath, "utf8");
-  const changed = mutate(original);
-  assert.notEqual(changed, original, "test mutation did not change AGENTS.md");
-  fs.writeFileSync(filePath, changed);
+function mutateAgents(root, from, to) {
+  const target = path.join(root, "AGENTS.md");
+  const value = fs.readFileSync(target, "utf8");
+  assert.ok(value.includes(from), `fixture clause not found: ${from}`);
+  fs.writeFileSync(target, value.replace(from, to));
 }
 
-function assertFailedCheck(execution, checkName) {
+function assertFailed(execution, checkName) {
   assert.notEqual(execution.result.status, 0, execution.result.stderr);
   assert.equal(execution.report.status, "fail");
-  assert.ok(
-    execution.report.errors.some((error) => error.check === checkName),
-    JSON.stringify(execution.report, null, 2),
-  );
+  assert.ok(execution.report.errors.some((error) => error.check === checkName), JSON.stringify(execution.report, null, 2));
 }
 
-test("valid Platform Contracts agent governance passes", (t) => {
+test("valid OA-00 Platform Contracts governance passes", (t) => {
   const execution = runVerifier(createFixture(t));
-  assert.equal(
-    execution.result.status,
-    0,
-    `${execution.result.stdout}\n${execution.result.stderr}`,
-  );
+  assert.equal(execution.result.status, 0, `${execution.result.stdout}\n${execution.result.stderr}`);
   assert.equal(execution.report.status, "pass");
-  assert.equal(execution.report.taskId, "P0-T02A");
+  assert.equal(execution.report.taskId, "OA-00");
+  assert.equal(execution.report.governanceOrigin, "P0-T02A");
   assert.equal(execution.report.currentState, "checkpoint-review-required");
 });
 
-test("missing ADR requirement fails closed", (t) => {
+test("P0-T02A governance origin mutation fails closed", (t) => {
   const root = createFixture(t);
-  mutateProfile(root, (profile) => profile.requiredAdrReferences.shift());
-  assertFailedCheck(runVerifier(root), "adrRequirements");
+  mutateProfile(root, (profile) => { profile.governanceOrigin.taskId = "REMOVED"; });
+  assertFailed(runVerifier(root), "governanceOrigin");
 });
 
-test("incorrect authority order fails closed", (t) => {
+test("missing ADR reference fails closed", (t) => {
   const root = createFixture(t);
-  mutateProfile(root, (profile) => {
-    [profile.authorityHierarchy[0], profile.authorityHierarchy[1]] = [
-      profile.authorityHierarchy[1],
-      profile.authorityHierarchy[0],
-    ];
-  });
-  assertFailedCheck(runVerifier(root), "authorityHierarchy");
+  mutateProfile(root, (profile) => { profile.requiredAdrReferences.splice(24, 1); });
+  assertFailed(runVerifier(root), "adrRequirements");
 });
 
-test("missing NEEDS_DESIGN_DECISION procedure fails closed", (t) => {
+test("false Architecture merge state fails closed", (t) => {
   const root = createFixture(t);
-  mutateAgents(root, (content) =>
-    content.replaceAll("NEEDS_DESIGN_DECISION", "DESIGN_PROCEDURE_REMOVED"),
-  );
-  assertFailedCheck(runVerifier(root), "stopConditions");
+  mutateProfile(root, (profile) => { profile.architectureStatus.merged = true; });
+  assertFailed(runVerifier(root), "architectureStatus");
+});
+
+test("incorrect post-merge authority order fails closed", (t) => {
+  const root = createFixture(t);
+  mutateProfile(root, (profile) => { profile.authorityActivation.afterOa00HumanMerge[0] = "Architecture Freeze v1.1"; });
+  assertFailed(runVerifier(root), "authorityActivation");
+});
+
+test("separate Knowledge OS authorization fails closed", (t) => {
+  const root = createFixture(t);
+  mutateProfile(root, (profile) => { profile.ontologyOwnershipBoundaries.noSeparateKnowledgeOs = false; });
+  assertFailed(runVerifier(root), "ontologyOwnership");
+});
+
+test("ADO Knowledge Core ownership removal fails closed", (t) => {
+  const root = createFixture(t);
+  mutateProfile(root, (profile) => { profile.ontologyOwnershipBoundaries.adoOwns.shift(); });
+  assertFailed(runVerifier(root), "ontologyOwnership");
+});
+
+test("Manufacturing Ontology ownership removal fails closed", (t) => {
+  const root = createFixture(t);
+  mutateProfile(root, (profile) => { profile.ontologyOwnershipBoundaries.manufacturingOsOwns.shift(); });
+  assertFailed(runVerifier(root), "ontologyOwnership");
+});
+
+test("AI approval escalation fails closed", (t) => {
+  const root = createFixture(t);
+  mutateProfile(root, (profile) => { profile.ontologyOwnershipBoundaries.judgeResultIsHumanApproval = true; });
+  assertFailed(runVerifier(root), "humanAuthority");
+});
+
+test("premature Graph Database approval fails closed", (t) => {
+  const root = createFixture(t);
+  mutateProfile(root, (profile) => { profile.storagePolicy.newGraphDatabaseApproved = true; });
+  assertFailed(runVerifier(root), "storagePolicy");
+});
+
+test("Platform Contracts runtime ownership fails closed", (t) => {
+  const root = createFixture(t);
+  mutateProfile(root, (profile) => { profile.ownedResponsibilities.push("Knowledge Core runtime"); });
+  assertFailed(runVerifier(root), "ownershipBoundaries");
+});
+
+test("missing domain-neutrality fails closed", (t) => {
+  const root = createFixture(t);
+  mutateProfile(root, (profile) => { profile.dependencyPolicy.domainNeutral = false; });
+  assertFailed(runVerifier(root), "domainNeutrality");
+});
+
+test("PR #26 transition control mutation fails closed", (t) => {
+  const root = createFixture(t);
+  mutateProfile(root, (profile) => { profile.pr26TransitionControl.requiredStateDuringOa00 = "merged"; });
+  assertFailed(runVerifier(root), "pr26Control");
+});
+
+test("successor task start fails closed", (t) => {
+  const root = createFixture(t);
+  mutateProfile(root, (profile) => { profile.successorTasks["OA-01"] = "in-progress"; });
+  assertFailed(runVerifier(root), "successorScope");
+});
+
+test("missing human checkpoint fails closed", (t) => {
+  const root = createFixture(t);
+  mutateProfile(root, (profile) => { profile.humanCheckpointRequired = false; });
+  assertFailed(runVerifier(root), "humanCheckpoint");
 });
 
 test("missing main merge prohibition fails closed", (t) => {
   const root = createFixture(t);
-  mutateAgents(root, (content) =>
-    content.replace(
-      "Agents must not merge into main.",
-      "The main merge rule was removed for this fixture.",
-    ),
-  );
-  assertFailedCheck(runVerifier(root), "gitAuthority");
+  mutateAgents(root, "Agents must not merge into main.", "Main merge prohibition removed.");
+  assertFailed(runVerifier(root), "gitAuthority");
 });
 
-test("missing production prohibition fails closed", (t) => {
+test("missing production and publication prohibition fails closed", (t) => {
   const root = createFixture(t);
-  mutateAgents(root, (content) =>
-    content.replace(
-      "Agents must not deploy to production, publish packages, approve a production release, approve Architecture Freeze or ADR changes, approve manufacturing knowledge, or approve manufacturing release.",
-      "The production and release authority rule was removed for this fixture.",
-    ),
-  );
-  assertFailedCheck(runVerifier(root), "releaseAuthority");
-});
-
-test("Platform Contracts claiming ADO ownership fails closed", (t) => {
-  const root = createFixture(t);
-  mutateProfile(root, (profile) => {
-    profile.ownedResponsibilities.push("ADO runtime orchestration");
-  });
-  assertFailedCheck(runVerifier(root), "ownershipBoundaries");
-});
-
-test("Platform Contracts claiming Manufacturing OS ownership fails closed", (t) => {
-  const root = createFixture(t);
-  mutateProfile(root, (profile) => {
-    profile.ownedResponsibilities.push(
-      "Manufacturing OS Product DSL and manufacturing calculations",
-    );
-  });
-  assertFailedCheck(runVerifier(root), "ownershipBoundaries");
-});
-
-test("missing domain-neutrality rule fails closed", (t) => {
-  const root = createFixture(t);
-  mutateProfile(root, (profile) => {
-    profile.dependencyPolicy.domainNeutral = false;
-  });
-  assertFailedCheck(runVerifier(root), "domainNeutrality");
-});
-
-test("mutable authority reference fails closed", (t) => {
-  const root = createFixture(t);
-  mutateProfile(root, (profile) => {
-    profile.authorityHierarchy[0].references[0] =
-      "https://github.com/asxeed-codex/asxeed-platform-contracts/blob/main/docs/architecture/ASXEED_Architecture_Freeze_v1.1.md";
-  });
-  const execution = runVerifier(root);
-  assertFailedCheck(execution, "immutableReferences");
-  assert.ok(
-    execution.report.errors.some(
-      (error) => error.check === "authorityHierarchy",
-    ),
-  );
-});
-
-test("false successor-task start fails closed", (t) => {
-  const root = createFixture(t);
-  mutateProfile(root, (profile) => {
-    profile.successorTasks["P0-T02D"] = "in-progress";
-  });
-  assertFailedCheck(runVerifier(root), "successorScope");
-});
-
-test("missing human checkpoint requirement fails closed", (t) => {
-  const root = createFixture(t);
-  mutateProfile(root, (profile) => {
-    profile.humanCheckpointRequired = false;
-  });
-  assertFailedCheck(runVerifier(root), "humanCheckpoint");
-});
-
-test("missing confidentiality rule fails closed", (t) => {
-  const root = createFixture(t);
-  mutateAgents(root, (content) =>
-    content.replace(
-      "No secrets are permitted in files, prompts, logs, fixtures, artifacts, commits, or PR descriptions.",
-      "The secret-handling rule was removed for this fixture.",
-    ),
-  );
-  assertFailedCheck(runVerifier(root), "securityAndConfidentiality");
+  mutateAgents(root, "Agents must not deploy to production, publish packages", "Agents may deploy to production and publish packages");
+  assertFailed(runVerifier(root), "releaseAuthority");
 });
 
 test("BLOCKED_EXTERNAL cannot replace architecture escalation", (t) => {
   const root = createFixture(t);
-  mutateProfile(root, (profile) => {
-    profile.requiredStopConditions.blockedExternalForArchitectureDecisions =
-      true;
-  });
-  assertFailedCheck(runVerifier(root), "stopConditions");
+  mutateProfile(root, (profile) => { profile.requiredStopConditions.blockedExternalForArchitectureDecisions = true; });
+  assertFailed(runVerifier(root), "stopConditions");
 });
 
-test("missing README navigation fails closed", (t) => {
+test("missing confidentiality clause fails closed", (t) => {
   const root = createFixture(t);
-  const readmePath = path.join(root, "README.md");
-  const content = fs.readFileSync(readmePath, "utf8");
-  fs.writeFileSync(
-    readmePath,
-    content.replace(
-      "[deterministic governance verifier](scripts/verify-platform-contracts-agents-governance.mjs)",
-      "governance verifier navigation removed",
-    ),
-  );
-  assertFailedCheck(runVerifier(root), "readmeNavigation");
+  mutateAgents(root, "No secrets are permitted in files, prompts, logs, fixtures, artifacts, commits, or PR descriptions.", "Secret rule removed.");
+  assertFailed(runVerifier(root), "securityAndConfidentiality");
+});
+
+test("missing README governance navigation fails closed", (t) => {
+  const root = createFixture(t);
+  const target = path.join(root, "README.md");
+  fs.writeFileSync(target, fs.readFileSync(target, "utf8").replace("scripts/verify-platform-contracts-agents-governance.mjs", "missing-governance-verifier"));
+  assertFailed(runVerifier(root), "readmeNavigation");
 });

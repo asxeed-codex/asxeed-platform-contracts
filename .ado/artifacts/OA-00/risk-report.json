@@ -1,0 +1,35 @@
+{
+  "taskId": "OA-00",
+  "taskRiskLevel": "critical",
+  "residualRiskLevel": "high-pending-human-review",
+  "risks": [
+    {
+      "id": "OA-R1",
+      "risk": "ADO Knowledge Core runtime ownership could be misread as manufacturing semantic or approval ownership.",
+      "mitigation": "ADR-027, boundary matrices, governance, verifier, and negative tests separate runtime, domain, and human authority."
+    },
+    {
+      "id": "OA-R2",
+      "risk": "Product DSL source-of-truth migration could break existing consumers or invalidate history.",
+      "mitigation": "Immutable old DSL, additive provenance, dual-read, versioned adapters, equivalence gates, and no destructive migration."
+    },
+    {
+      "id": "OA-R3",
+      "risk": "A graph database could be introduced before evidence, tenancy, security, and rollback are understood.",
+      "mitigation": "PostgreSQL/Blob remains mandatory and graph persistence requires workload evidence plus a new ADR."
+    },
+    {
+      "id": "OA-R4",
+      "risk": "AI confidence or Judge output could be represented as protected human approval.",
+      "mitigation": "Independent state fields, human-bound approval evidence, fail-closed tests, and explicit authority prohibitions."
+    },
+    {
+      "id": "OA-R5",
+      "risk": "The architecture package is broad and can drift internally.",
+      "mitigation": "Canonical ADR files, a compatibility matrix, manifest hashes, dependency-free verifiers, mutation tests, and human checkpoint review."
+    }
+  ],
+  "architectureConflictDetected": false,
+  "runtimeOrDataMigrationAuthorized": false,
+  "humanCheckpointRequired": true
+}
