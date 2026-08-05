@@ -20,31 +20,38 @@ Agents may analyze, propose, implement scoped changes, test, commit and push a t
 
 ## Mandatory authority order
 
-Apply these authorities in the exact order shown:
+Architecture authority has an explicit adoption-state boundary:
 
-1. [Architecture Freeze v1.1](docs/architecture/ASXEED_Architecture_Freeze_v1.1.md)
-2. [Architecture Freeze v1.1 Clarification 001](docs/architecture/ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md)
-3. Adopted ADR-001 through ADR-024, incorporated into the Architecture Freeze
-4. [Technology Stack v1.0](docs/architecture/TECHNOLOGY_STACK.md)
-5. [Technology Version Matrix v1.0](docs/architecture/TECHNOLOGY_VERSION_MATRIX.md)
-6. [Technology Selection Rationale v1.0](docs/architecture/TECHNOLOGY_SELECTION_RATIONALE.md)
-7. [Deferred Technology v1.0](docs/architecture/DEFERRED_TECHNOLOGY.md)
-8. [Master Implementation Plan v1.2](docs/plans/MASTER_IMPLEMENTATION_PLAN_v1.2.md)
-9. [ADO Task Graph v1.2 Markdown](docs/plans/ADO_TASK_GRAPH_v1.2.md) and [JSON](docs/plans/ADO_TASK_GRAPH_v1.2.json)
-10. [Sprint Execution Plan v1.0](docs/plans/SPRINT_EXECUTION_PLAN_v1.0.md)
-11. [System Responsibility Boundaries v1.0](docs/architecture/SYSTEM_RESPONSIBILITY_BOUNDARIES_v1.0.md)
-12. [Development Readiness Report v1.0](docs/reports/ASXEED_DEVELOPMENT_READINESS_REPORT_v1.0.md)
-13. [Phase 0 Architecture Adoption Codex Pack v1.3](docs/plans/PHASE_00_ARCHITECTURE_ADOPTION_CODEX_PACK_v1.3.md)
-14. Repository-specific task instructions and current implementation
+- **Before OA-00 human merge:** [Architecture Freeze v1.1](docs/architecture/ASXEED_Architecture_Freeze_v1.1.md), [Clarification 001](docs/architecture/ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md), and adopted ADR-001 through ADR-024 remain the highest formally adopted authority. The OA-00 package is a human-directed proposal and must not be represented as merged or adopted.
+- **After OA-00 human merge:** [Architecture Freeze v1.2](docs/architecture/ASXEED_Architecture_Freeze_v1.2.md) becomes the highest authority for new development; ADR-001 through ADR-030 are adopted under it. v1.1 and Clarification 001 remain immutable historical authorities.
 
-Lower authorities cannot silently override higher authorities. The [adoption manifest](docs/architecture/adoption-manifest.json) and [cross-repository lock](docs/architecture/cross-repository-adoption-lock.json) are deterministic records of adopted authorities; they do not redefine them.
+After formal OA-00 adoption, apply these authorities in the exact order shown:
+
+1. [Architecture Freeze v1.2](docs/architecture/ASXEED_Architecture_Freeze_v1.2.md)
+2. Adopted ADR-001 through ADR-030: ADR-001 through ADR-024 are preserved by v1.2, and canonical ADR-025 through ADR-030 are under [docs/architecture/adrs](docs/architecture/adrs)
+3. [Technology Stack v1.0](docs/architecture/TECHNOLOGY_STACK.md)
+4. [Technology Version Matrix v1.0](docs/architecture/TECHNOLOGY_VERSION_MATRIX.md)
+5. [Technology Selection Rationale v1.0](docs/architecture/TECHNOLOGY_SELECTION_RATIONALE.md)
+6. [Deferred Technology v1.0](docs/architecture/DEFERRED_TECHNOLOGY.md)
+7. [Master Implementation Plan v1.3](docs/plans/MASTER_IMPLEMENTATION_PLAN_v1.3.md)
+8. [ADO Task Graph v1.3 Markdown](docs/plans/ADO_TASK_GRAPH_v1.3.md) and [JSON](docs/plans/ADO_TASK_GRAPH_v1.3.json)
+9. [Sprint Execution Plan v1.1](docs/plans/SPRINT_EXECUTION_PLAN_v1.1.md)
+10. [System Responsibility Boundaries v1.1](docs/architecture/SYSTEM_RESPONSIBILITY_BOUNDARIES_v1.1.md)
+11. [Ontology Core Conceptual Model v0.1](docs/architecture/ONTOLOGY_CORE_CONCEPTUAL_MODEL_v0.1.md)
+12. [Ontology Architecture Compatibility Matrix v1.0](docs/architecture/ONTOLOGY_ARCHITECTURE_COMPATIBILITY_MATRIX_v1.0.md)
+13. [Ontology Migration Strategy v1.0](docs/architecture/ONTOLOGY_MIGRATION_STRATEGY_v1.0.md)
+14. [Ontology Rollback Strategy v1.0](docs/architecture/ONTOLOGY_ROLLBACK_STRATEGY_v1.0.md)
+15. Unchanged [Development Readiness Report v1.0](docs/reports/ASXEED_DEVELOPMENT_READINESS_REPORT_v1.0.md) and [Phase 0 Architecture Adoption Codex Pack v1.3](docs/plans/PHASE_00_ARCHITECTURE_ADOPTION_CODEX_PACK_v1.3.md), interpreted through v1.2
+16. Repository-specific task instructions and current implementation
+
+Lower authorities cannot silently override higher authorities. The historical [adoption manifest](docs/architecture/adoption-manifest.json) and [cross-repository lock](docs/architecture/cross-repository-adoption-lock.json) remain deterministic v1.1 records and do not redefine or automatically adopt v1.2. The [Ontology architecture manifest](docs/architecture/ontology-architecture-manifest-v1.0.json) records the proposed OA-00 package and its hashes; it is not human approval.
 
 ## Files to read before work
 
 Before changing files, read:
 
 1. this `AGENTS.md`;
-2. the relevant Architecture Freeze sections and Clarification 001;
+2. the relevant formally adopted Architecture Freeze and, for OA migration work, the proposed v1.2 package and historical v1.1/Clarification 001;
 3. every ADR referenced by the task, using the adopted texts incorporated in the Architecture Freeze;
 4. Technology Stack and Technology Version Matrix when technology is affected;
 5. System Responsibility Boundaries when ownership is affected;
@@ -56,9 +63,11 @@ Do not assume this is a greenfield repository. Inspect branch, base commit, remo
 
 ## ADR requirement
 
-Every architecture-affecting task must identify all applicable ADR IDs, confirm the proposed change is compatible with them, and record those ADR references in completion evidence. If no approved ADR supports a required material architecture decision, stop with `NEEDS_DESIGN_DECISION`; do not invent, approve, reinterpret, amend, or supersede architecture. Creating or approving a new ADR is outside ordinary implementation authority.
+Every architecture-affecting task must identify all applicable ADR IDs, confirm the proposed change is compatible with them, and record those ADR references in completion evidence. If no approved ADR supports a required material architecture decision, stop with `NEEDS_DESIGN_DECISION`; do not invent, approve, reinterpret, amend, or supersede architecture. Creating or approving a new ADR is outside ordinary implementation authority. An explicitly human-directed Architecture change task may draft a proposed ADR package, but only human checkpoint review and merge can adopt it.
 
 P0-T02A requires `ADR-010` and `ADR-016`.
+
+OA-00 evaluates ADR-001 through ADR-024 and proposes ADR-025 through ADR-030. Their branch status is proposed, not adopted.
 
 ## Scope discipline
 
@@ -84,6 +93,8 @@ Platform Contracts owns only:
 - canonical responsibility-boundary definitions; and
 - canonical version and hash records.
 
+Under Architecture Freeze v1.2, domain-neutral shared contract definitions include Entity, Relationship, Assertion, Evidence, Conflict, Rule representation, Namespace, Snapshot, Version, Approval-envelope, ExternalReference, DSL provenance, and Ontology API/event contracts. This contract ownership does not include operational knowledge or consumer runtime behavior.
+
 Platform Contracts must remain domain-neutral. It must not own or contain:
 
 - ADO runtime orchestration;
@@ -97,8 +108,16 @@ Platform Contracts must remain domain-neutral. It must not own or contain:
 - repository-specific application behavior;
 - direct application-database ownership; or
 - production deployment ownership.
+- operational Ontology knowledge, company data, or manufacturing product knowledge;
+- Ontology query, traversal, snapshot-generation, or approval-routing runtime;
+- the ADO Knowledge Core or Ontology Builder implementation; or
+- the Manufacturing Ontology Pack, manufacturing semantic validation, or Product DSL Generator.
 
 Shared contracts must not import ADO internal packages or Manufacturing OS internal packages and must not depend on either consumer's source tree. Consumers may depend only on versioned Platform Contracts packages or artifacts. No shared contract may rely on an unversioned branch, mutable URL, or latest-only reference. Cross-domain interaction must use approved versioned APIs, messages, events, artifacts, or platform-contract packages. Direct cross-domain database access is prohibited.
+
+ADO owns the Knowledge Core runtime and Ontology Builder orchestration. Manufacturing OS owns the Manufacturing Ontology Pack, manufacturing validation, Criticality and approval policy, Product DSL Generator, deterministic Rule Engine, manufacturing artifacts, and manufacturing release. The Order Engine retains customer, order, quantity, price, and invoice authority. One Knowledge Core does not authorize unrestricted cross-domain writes.
+
+No separate Knowledge OS or Ontology OS is authorized. No new Graph Database is approved by OA-00; initial implementation must remain compatible with the approved PostgreSQL and Blob architecture, and graph semantics must remain persistence-independent.
 
 Do not copy secrets or real confidential production data into contracts, prompts, fixtures, logs, artifacts, commits, or PR descriptions. A shared contract must never become a route for application internals, application-domain behavior, operational data, or credentials.
 
@@ -147,7 +166,7 @@ Stop and return `NEEDS_DESIGN_DECISION` when:
 - responsibility ownership is ambiguous;
 - no approved ADR supports a material architecture decision;
 - a breaking shared-contract change is required without an approved migration;
-- completion requires changing the Architecture Freeze or an adopted ADR;
+- ordinary implementation completion requires changing the Architecture Freeze or an adopted ADR without an explicitly authorized Architecture change package;
 - completion requires weakening a security, compatibility, governance, or failure rule;
 - completion would require ADO or Manufacturing OS domain logic in Platform Contracts; or
 - repository reality materially contradicts the approved architecture.
@@ -203,15 +222,17 @@ Report every unavailable check honestly. Required verification fails closed if i
 
 An agent completes its authorized execution only after scoped implementation, deterministic validation, commit, push, and Draft PR creation. It then stops. The task remains `checkpoint-review-required` until a human reviews and merges it. A passing verifier or Judge report is evidence, not approval.
 
-## P0-T02A controlled scope
+## Governance origin and OA-00 controlled scope
 
-- Task: `P0-T02A`, controlled sub-task of canonical task `P0-T02`.
-- Required branch: `codex/P0-T02A-platform-contracts-agents-governance`.
-- Authorized base commit: `c1bfd76b07b5cc98ffb4dc45f177f5027352fce2`.
-- P0-T02A creates Platform Contracts governance only.
-- P0-T02B ADO `AGENTS.md` remains `not-started`.
-- P0-T02C Manufacturing OS `AGENTS.md` remains `not-started`.
-- P0-T02D cross-repository governance verification remains `not-started`.
-- P0-T03 and all later tasks remain `not-started`.
+- P0-T02A remains the origin of Platform Contracts agent governance and its evidence under `.ado/artifacts/P0-T02A/` is immutable.
+- OA-00 is the current Architecture-governance revision.
+- Task: `OA-00`, ADO Embedded Ontology Architecture Gate.
+- Required branch: `codex/OA-00-ado-ontology-architecture`.
+- Authorized base commit: `11410e1c4f882f059d75938d1314a5786c2e2a88`.
+- Risk is critical and human approval is a mandatory checkpoint.
+- Human direction is approved in principle; Architecture Freeze v1.2 and ADR-025 through ADR-030 become formally adopted only after human review and merge.
+- P0-T02A and P0-T02B are completed. P0-T02C remains `checkpoint-review-required` on Manufacturing OS Draft PR #26.
+- P0-T02D is blocked by Ontology Architecture migration. P0-T03 and the previous large plan must not continue.
+- OA-00A, OA-00B, OA-00C, OA-01, OA-02, OA-03, OA-04, OA-05, OA-06, OA-07, and OA-GATE remain `not-started`.
 
-Do not modify ADO or Manufacturing OS, do not create their `AGENTS.md` files, and do not begin P0-T02B, P0-T02C, P0-T02D, P0-T03, or any later task.
+OA-00 changes Platform Contracts architecture/governance, plans, verification, tests, navigation, and evidence only. It must not implement Ontology runtime, schema, data, generator, engine, consumer, dependency, cloud, deployment, or package-publication changes. It must not modify ADO, Manufacturing OS, or PR #26. Agents still must not merge, enable auto-merge, publish packages, deploy, or fabricate human approval.

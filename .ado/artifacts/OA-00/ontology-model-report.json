@@ -1,0 +1,34 @@
+{
+  "taskId": "OA-00",
+  "modelVersion": "0.1",
+  "status": "conceptual-only",
+  "concepts": [
+    "Entity",
+    "Relationship",
+    "Assertion",
+    "Evidence",
+    "Conflict",
+    "Rule",
+    "Namespace",
+    "Version",
+    "Snapshot",
+    "Approval",
+    "ExternalReference",
+    "Provenance",
+    "ValidityPeriod",
+    "Criticality",
+    "OrganizationScope"
+  ],
+  "requiredNamespaces": [
+    "shared.*",
+    "document.*",
+    "company.*",
+    "development.*",
+    "agent.*",
+    "manufacturing.*",
+    "external-reference.*"
+  ],
+  "persistenceSelected": false,
+  "runtimeImplemented": false,
+  "examples": "synthetic-non-confidential"
+}

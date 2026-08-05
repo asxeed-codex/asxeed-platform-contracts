@@ -1,0 +1,12 @@
+{
+  "taskId": "OA-00",
+  "humanDirection": "approved-in-principle",
+  "formalArchitectureAdoption": "pending",
+  "humanCheckpointRequired": true,
+  "humanCheckpointCompleted": false,
+  "mergeCompleted": false,
+  "agentApprovalClaimed": false,
+  "architectureFreezeV12Effective": false,
+  "successorTasksAuthorized": false,
+  "nextAction": "Complete deterministic validation, publish a Draft PR, and await human review and merge."
+}

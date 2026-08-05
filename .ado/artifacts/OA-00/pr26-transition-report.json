@@ -1,0 +1,13 @@
+{
+  "taskId": "OA-00",
+  "repository": "asxeed-codex/asxeed-manufacturing-os",
+  "pullRequest": 26,
+  "url": "https://github.com/asxeed-codex/asxeed-manufacturing-os/pull/26",
+  "observedState": "open",
+  "observedDraft": true,
+  "observedHead": "0b16ac6f0408b4fd19b6b171413647fa8476df31",
+  "modifiedByOa00": false,
+  "transitionTask": "OA-00B",
+  "transitionStarted": false,
+  "status": "transition-controlled"
+}

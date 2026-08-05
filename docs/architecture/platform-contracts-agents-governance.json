@@ -1,120 +1,102 @@
 {
-  "schemaVersion": "1.0",
+  "schemaVersion": "1.1",
   "repository": "asxeed-codex/asxeed-platform-contracts",
-  "taskId": "P0-T02A",
-  "canonicalTaskId": "P0-T02",
-  "branch": "codex/P0-T02A-platform-contracts-agents-governance",
-  "baseCommit": "c1bfd76b07b5cc98ffb4dc45f177f5027352fce2",
-  "riskLevel": "high",
-  "humanApproval": "checkpoint",
+  "governanceOrigin": {
+    "taskId": "P0-T02A",
+    "mergeCommit": "11410e1c4f882f059d75938d1314a5786c2e2a88",
+    "evidencePath": ".ado/artifacts/P0-T02A/",
+    "preservation": "immutable"
+  },
+  "currentRevision": {
+    "taskId": "OA-00",
+    "title": "ADO Embedded Ontology Architecture Gate",
+    "branch": "codex/OA-00-ado-ontology-architecture",
+    "baseCommit": "11410e1c4f882f059d75938d1314a5786c2e2a88",
+    "riskLevel": "critical",
+    "humanApproval": "mandatory-checkpoint",
+    "state": "checkpoint-review-required"
+  },
+  "architectureStatus": {
+    "humanDirection": "approved-in-principle",
+    "formalAdoption": "pending-human-checkpoint-review-and-merge",
+    "agentApproval": false,
+    "merged": false
+  },
+  "authorityActivation": {
+    "beforeOa00HumanMerge": [
+      "Architecture Freeze v1.1",
+      "Architecture Freeze v1.1 Clarification 001",
+      "Adopted ADR-001 through ADR-024",
+      "Technology Baseline v1.0",
+      "historical v1.2 plans and boundaries as lower authorities"
+    ],
+    "afterOa00HumanMerge": [
+      "Architecture Freeze v1.2",
+      "Adopted ADR-001 through ADR-030",
+      "Technology Stack v1.0",
+      "Technology Version Matrix v1.0",
+      "Technology Selection Rationale v1.0",
+      "Deferred Technology v1.0",
+      "Master Implementation Plan v1.3",
+      "ADO Task Graph v1.3 Markdown and JSON",
+      "Sprint Execution Plan v1.1",
+      "System Responsibility Boundaries v1.1",
+      "Ontology Core Conceptual Model v0.1",
+      "Ontology Architecture Compatibility Matrix v1.0",
+      "Ontology Migration Strategy v1.0",
+      "Ontology Rollback Strategy v1.0",
+      "unchanged historical readiness and Phase 0 documents interpreted through v1.2",
+      "repository-specific task instructions and current implementation"
+    ],
+    "v11HistoricalAuthority": "immutable",
+    "historicalManifests": "v1.1-records-not-v1.2-adoption"
+  },
   "requiredAdrReferences": [
+    "ADR-001",
+    "ADR-002",
+    "ADR-003",
+    "ADR-004",
+    "ADR-005",
+    "ADR-006",
+    "ADR-007",
+    "ADR-008",
+    "ADR-009",
     "ADR-010",
-    "ADR-016"
+    "ADR-011",
+    "ADR-012",
+    "ADR-013",
+    "ADR-014",
+    "ADR-015",
+    "ADR-016",
+    "ADR-017",
+    "ADR-018",
+    "ADR-019",
+    "ADR-020",
+    "ADR-021",
+    "ADR-022",
+    "ADR-023",
+    "ADR-024",
+    "ADR-025",
+    "ADR-026",
+    "ADR-027",
+    "ADR-028",
+    "ADR-029",
+    "ADR-030"
   ],
-  "authorityHierarchy": [
-    {
-      "precedence": 1,
-      "authority": "Architecture Freeze v1.1",
-      "references": [
-        "docs/architecture/ASXEED_Architecture_Freeze_v1.1.md"
-      ]
-    },
-    {
-      "precedence": 2,
-      "authority": "Architecture Freeze v1.1 Clarification 001",
-      "references": [
-        "docs/architecture/ARCHITECTURE_FREEZE_v1.1_CLARIFICATION_001.md"
-      ]
-    },
-    {
-      "precedence": 3,
-      "authority": "Adopted ADR-001 through ADR-024",
-      "references": [
-        "docs/architecture/ASXEED_Architecture_Freeze_v1.1.md"
-      ]
-    },
-    {
-      "precedence": 4,
-      "authority": "Technology Stack v1.0",
-      "references": [
-        "docs/architecture/TECHNOLOGY_STACK.md"
-      ]
-    },
-    {
-      "precedence": 5,
-      "authority": "Technology Version Matrix v1.0",
-      "references": [
-        "docs/architecture/TECHNOLOGY_VERSION_MATRIX.md"
-      ]
-    },
-    {
-      "precedence": 6,
-      "authority": "Technology Selection Rationale v1.0",
-      "references": [
-        "docs/architecture/TECHNOLOGY_SELECTION_RATIONALE.md"
-      ]
-    },
-    {
-      "precedence": 7,
-      "authority": "Deferred Technology v1.0",
-      "references": [
-        "docs/architecture/DEFERRED_TECHNOLOGY.md"
-      ]
-    },
-    {
-      "precedence": 8,
-      "authority": "Master Implementation Plan v1.2",
-      "references": [
-        "docs/plans/MASTER_IMPLEMENTATION_PLAN_v1.2.md"
-      ]
-    },
-    {
-      "precedence": 9,
-      "authority": "ADO Task Graph v1.2 Markdown and JSON",
-      "references": [
-        "docs/plans/ADO_TASK_GRAPH_v1.2.md",
-        "docs/plans/ADO_TASK_GRAPH_v1.2.json"
-      ]
-    },
-    {
-      "precedence": 10,
-      "authority": "Sprint Execution Plan v1.0",
-      "references": [
-        "docs/plans/SPRINT_EXECUTION_PLAN_v1.0.md"
-      ]
-    },
-    {
-      "precedence": 11,
-      "authority": "System Responsibility Boundaries v1.0",
-      "references": [
-        "docs/architecture/SYSTEM_RESPONSIBILITY_BOUNDARIES_v1.0.md"
-      ]
-    },
-    {
-      "precedence": 12,
-      "authority": "Development Readiness Report v1.0",
-      "references": [
-        "docs/reports/ASXEED_DEVELOPMENT_READINESS_REPORT_v1.0.md"
-      ]
-    },
-    {
-      "precedence": 13,
-      "authority": "Phase 0 Architecture Adoption Codex Pack v1.3",
-      "references": [
-        "docs/plans/PHASE_00_ARCHITECTURE_ADOPTION_CODEX_PACK_v1.3.md"
-      ]
-    },
-    {
-      "precedence": 14,
-      "authority": "Repository-specific task instructions and current implementation",
-      "references": []
-    }
+  "proposedAdrIds": [
+    "ADR-025",
+    "ADR-026",
+    "ADR-027",
+    "ADR-028",
+    "ADR-029",
+    "ADR-030"
   ],
   "ownedResponsibilities": [
     "canonical Architecture governance records",
     "Architecture Freeze and adopted ADR representations",
     "Technology Baseline records",
     "domain-neutral shared contract definitions",
+    "domain-neutral Ontology concept and provenance contracts",
     "versioned schemas and compatibility contracts",
     "shared event, message, API, artifact, and approval-envelope contracts",
     "cross-repository contract verification",
@@ -122,18 +104,66 @@
     "canonical version and hash records"
   ],
   "prohibitedResponsibilities": [
-    "ADO runtime orchestration",
-    "ADO Goal, Plan, Task, Agent, Judge, Fix Loop, or approval-inbox runtime state",
-    "Codex execution coordination",
-    "Manufacturing OS Product DSL content",
-    "Product DSL product definitions or product-name-specific behavior",
-    "manufacturing rules or calculations",
-    "Evidence, Candidate, Conflict, Product Instance, parts, geometry, drawings, 3D, BOM, or manufacturing release packages",
+    "operational Ontology knowledge or a shared operational database",
+    "company data or manufacturing product knowledge",
+    "ADO Knowledge Core or Ontology Builder runtime behavior",
+    "ADO Goal, Plan, Task, Agent, Judge, Fix Loop, approval-inbox, or Codex runtime state",
+    "Ontology query, traversal, snapshot generation, or approval routing",
+    "Manufacturing Ontology Pack or manufacturing semantic validation",
+    "Product DSL content or Product DSL Generator behavior",
+    "manufacturing rules, calculations, Product Instance, parts, geometry, drawings, 3D, BOM, or release packages",
     "customer, order, quantity, price, invoice, payroll, inventory, or project operational data",
     "repository-specific application behavior",
     "direct application-database ownership",
     "production deployment ownership"
   ],
+  "ontologyOwnershipBoundaries": {
+    "adoOwns": [
+      "Knowledge Core runtime",
+      "Ontology Builder orchestration",
+      "Company Ontology",
+      "Development Ontology",
+      "Agent Ontology",
+      "Plan DSL generation",
+      "knowledge-to-task and agent-context orchestration"
+    ],
+    "manufacturingOsOwns": [
+      "Manufacturing Ontology Pack",
+      "manufacturing semantic validation and Criticality",
+      "manufacturing approval requirements and surfaces",
+      "Product DSL Generator",
+      "deterministic Rule Engine",
+      "manufacturing artifacts and release"
+    ],
+    "orderEngineOwns": [
+      "customer",
+      "order",
+      "quantity",
+      "price",
+      "invoice"
+    ],
+    "humanExclusive": [
+      "Architecture Freeze and ADR adoption",
+      "Critical manufacturing-knowledge approval",
+      "required Product DSL approval",
+      "manufacturing release and start approval",
+      "production release",
+      "merge",
+      "authority-boundary exceptions"
+    ],
+    "noSeparateKnowledgeOs": true,
+    "confidenceIsApproval": false,
+    "judgeResultIsHumanApproval": false
+  },
+  "storagePolicy": {
+    "approvedInitialPersistence": [
+      "Azure Database for PostgreSQL Flexible Server",
+      "Azure Blob Storage"
+    ],
+    "graphSemanticsPersistenceIndependent": true,
+    "newGraphDatabaseApproved": false,
+    "dedicatedGraphDatabase": "deferred-until-workload-security-tenancy-migration-rollback-evidence-and-new-adr"
+  },
   "dependencyPolicy": {
     "domainNeutral": true,
     "adoInternalImports": "prohibited",
@@ -160,26 +190,42 @@
       "Architecture Judge result when available",
       "human checkpoint approval"
     ],
-    "breakingChanges": "fail-closed-until-approved"
+    "breakingChanges": "fail-closed-until-approved",
+    "oa00RuntimeContractChange": "none"
+  },
+  "pr26TransitionControl": {
+    "repository": "asxeed-codex/asxeed-manufacturing-os",
+    "pullRequest": 26,
+    "requiredStateDuringOa00": "open-draft-unchanged",
+    "transitionTask": "OA-00B",
+    "mustNot": [
+      "merge",
+      "close",
+      "retarget",
+      "update",
+      "modify"
+    ]
   },
   "requiredStopConditions": {
     "NEEDS_DESIGN_DECISION": [
-      "authoritative documents conflict",
+      "authoritative documents conflict beyond the explicit human OA-00 direction",
       "responsibility ownership is ambiguous",
-      "no approved ADR supports a material architecture decision",
-      "a breaking shared-contract change is required without an approved migration",
-      "task completion requires changing Architecture Freeze or an adopted ADR",
-      "task completion requires weakening a security, compatibility, governance, or failure rule",
-      "task completion would require ADO or Manufacturing OS domain logic in Platform Contracts",
-      "repository reality materially contradicts the approved architecture"
+      "preserving ADR-001 through ADR-024 is impossible",
+      "existing 103 Task IDs cannot be preserved",
+      "ADO and Manufacturing ownership cannot be separated safely",
+      "a new Graph Database is required for coherence",
+      "Product DSL compatibility cannot be maintained through versioned migration",
+      "human manufacturing authority cannot be preserved",
+      "task completion requires consumer runtime changes",
+      "historical Architecture files require destructive editing",
+      "a new unapproved technology decision is required"
     ],
     "BLOCKED_EXTERNAL": [
-      "required repository is unavailable",
-      "required commit is unavailable",
-      "required credential is unavailable",
-      "required service is unavailable",
-      "required package registry is unavailable",
-      "required external resource is unavailable"
+      "required repository or commit is unavailable",
+      "active worktree is not on the declared base",
+      "GitHub access prevents Draft PR creation",
+      "required read-only verifier cannot run",
+      "PR #26 state cannot be verified"
     ],
     "blockedExternalForArchitectureDecisions": false
   },
@@ -197,50 +243,73 @@
     "approve production release",
     "approve Architecture Freeze or ADR changes",
     "approve manufacturing knowledge",
-    "approve manufacturing release"
+    "approve Product DSL where human approval is required",
+    "approve manufacturing release or manufacturing start",
+    "represent AI output as human approval"
   ],
   "requiredValidation": [
     "existing canonical verifier",
-    "cross-repository verifier when relevant",
+    "cross-repository verifier",
+    "Platform Contracts agent-governance verifier",
+    "Ontology architecture verifier",
     "focused tests",
     "complete deterministic test suite",
-    "JSON and schema validation",
+    "all tracked JSON parsing",
     "Markdown relative-link validation",
+    "manifest SHA-256 validation",
+    "task graph dependency, cycle, and sprint-order validation",
     "git diff --check",
     "changed-file scope inspection",
-    "protected canonical document preservation inspection"
+    "protected historical document and evidence preservation",
+    "read-only consumer and PR #26 validation"
   ],
   "requiredCompletionEvidence": [
     "task ID",
     "branch",
     "base commit",
+    "implementation commit and final evidence HEAD",
     "changed files",
     "commands executed",
-    "test results",
-    "verifier results",
-    "ADR references",
+    "test and verifier results",
+    "ADR compatibility",
     "responsibility-boundary impact",
-    "contract compatibility impact",
-    "risks",
+    "contract compatibility and migration impact",
+    "security and confidentiality impact",
+    "risks and unresolved questions",
     "rollback plan",
-    "confirmation of unchanged protected areas",
-    "PR state",
+    "unchanged protected areas",
+    "consumer and PR #26 state",
+    "Draft PR state",
     "human checkpoint requirement",
     "honest reporting of checks not run"
   ],
   "securityAndConfidentiality": [
     "no secrets in files, prompts, logs, fixtures, artifacts, commits, or PR descriptions",
-    "no confidential specification content unless explicitly approved and redacted",
-    "no credentials in shared contracts",
+    "no confidential specification content unless explicitly approved, minimized, and redacted",
+    "Evidence references rather than unnecessary source copying",
+    "no credentials in shared contracts or Ontology assertions",
     "no production customer or order data in tests",
-    "no destructive commands against unrelated or dirty working trees",
-    "preserve uncommitted data unless the task explicitly owns it"
+    "no Production Ontology data in Development or Codex",
+    "approved Azure AI endpoints only for protected source processing",
+    "organization isolation and namespace authorization",
+    "immutable audit events for Critical changes",
+    "preserve uncommitted data and other worktrees",
+    "no destructive commands against unrelated or dirty working trees"
   ],
   "successorTasks": {
-    "P0-T02B": "not-started",
-    "P0-T02C": "not-started",
-    "P0-T02D": "not-started",
-    "P0-T03": "not-started"
+    "P0-T02D": "blocked-by-ontology-architecture-migration",
+    "P0-T03": "not-started",
+    "OA-00A": "not-started",
+    "OA-00B": "not-started",
+    "OA-00C": "not-started",
+    "OA-01": "not-started",
+    "OA-02": "not-started",
+    "OA-03": "not-started",
+    "OA-04": "not-started",
+    "OA-05": "not-started",
+    "OA-06": "not-started",
+    "OA-07": "not-started",
+    "OA-GATE": "not-started"
   },
   "humanCheckpointRequired": true,
   "currentState": "checkpoint-review-required"

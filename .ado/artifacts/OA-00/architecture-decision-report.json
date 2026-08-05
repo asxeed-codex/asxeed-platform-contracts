@@ -1,0 +1,16 @@
+{
+  "taskId": "OA-00",
+  "status": "proposed-pending-human-merge",
+  "selected": "ADO-embedded Ontology with ADO Knowledge Core and Ontology Builder",
+  "rejected": [
+    "separate Knowledge OS",
+    "separate Ontology OS",
+    "Manufacturing OS as shared company knowledge runtime",
+    "Product DSL as persistent knowledge source of truth"
+  ],
+  "platformContractsRole": "domain-neutral contracts and canonical governance",
+  "manufacturingOsRole": "Manufacturing Ontology Pack, validation, protected approval, Product DSL Generator, deterministic execution, and release",
+  "storageDecision": "PostgreSQL and Blob compatible; no Graph Database approved",
+  "runtimeImplemented": false,
+  "humanCheckpointRequired": true
+}
