@@ -8,7 +8,7 @@
     "ontologyArchitectureVerifier": "pass",
     "focusedTests": {"passed": 44, "failed": 0},
     "fullTests": {"passed": 107, "failed": 0},
-    "liveOa00cVerifier": "pending Draft PR identity"
+    "liveOa00cVerifier": "pass-pre-merge"
   },
   "ado": {
     "commit": "53dfe785de99425e22add7ab3e300ba9d3d75c1d",

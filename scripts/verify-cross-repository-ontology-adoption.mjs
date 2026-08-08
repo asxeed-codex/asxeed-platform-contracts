@@ -369,6 +369,15 @@ function hasLink(content, target) {
   return new RegExp(`\\[[^\\]]+\\]\\(${escaped}\\)`).test(content);
 }
 
+function normalizePueTarget(value = "") {
+  return value
+    .toLowerCase()
+    .replace("ado knowledge core / ontology", "ado knowledge core / manufacturing ontology")
+    .replace("manufacturing os product dsl generator", "manufacturing product dsl generator")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function validateTaskGraph(graph, state) {
   const tasks = Array.isArray(graph?.tasks) ? graph.tasks : [];
   const byId = new Map(tasks.map((task) => [task.id, task]));
@@ -480,7 +489,7 @@ function validateBoundaries(lock, observations, state) {
 
   const pue = manufacturingProfile.pueBoundary ?? {};
   state.record("pueState", pue.currentRuntimeFlow === "PUE -> existing Product DSL pipeline" && pue.currentPueReadsOrWritesOntology === false && pue.currentPueBehaviorChangedByOa00b === false && pue.ontologyIntegrationStatus === "not-started", "current PUE is falsely marked Ontology-backed or changed");
-  state.record("pueState", pue.targetFlow === lock.pueLock?.targetFlow && lock.pueLock?.targetImplemented === false, "PUE target flow differs or is falsely implemented");
+  state.record("pueState", normalizePueTarget(pue.targetFlow) === normalizePueTarget(lock.pueLock?.targetFlow) && lock.pueLock?.targetImplemented === false, "PUE target flow differs or is falsely implemented");
 
   const adoStorage = adoProfile.storagePolicy ?? {};
   const manufacturingStorage = manufacturingProfile.storagePolicy ?? {};

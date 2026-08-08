@@ -1,11 +1,12 @@
 {
   "taskId": "OA-00C",
   "status": "pass",
-  "observedGate": "pre-publication",
+  "observedGate": "pre-merge-open-draft-pr-5",
   "oa01": "blocked-until-exact-human-oa00c-merge",
   "oa02AndLater": "dependency-blocked",
   "p0T02D": "blocked-by-ontology-architecture-migration",
   "p0T03": "not-started",
   "postMergeBehavior": "The same verifier derives a human merged state from Git/GitHub, validates ancestry and squash-tree equivalence, and reports OA-01 eligible/ready without a source edit.",
+  "postMergeFixture": "pass",
   "successorWorkStarted": false
 }

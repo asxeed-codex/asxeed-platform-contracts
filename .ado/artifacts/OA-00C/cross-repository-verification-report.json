@@ -1,6 +1,6 @@
 {
   "taskId": "OA-00C",
-  "status": "phase-one-pass-live-gate-pending",
+  "status": "pass",
   "architectureVersion": "1.2",
   "repositoriesVerified": 3,
   "exactCommitLocks": "pass",
@@ -28,6 +28,17 @@
   "integrationConflicts": 0,
   "consumerVerifiers": "pass",
   "deterministicTests": "pass",
-  "liveOa00cGate": "pending Draft PR creation in phase two",
+  "liveOa00cGate": {
+    "status": "pass",
+    "lifecycle": "pre-merge",
+    "pullRequestNumber": 5,
+    "pullRequestState": "OPEN",
+    "isDraft": true,
+    "autoMerge": false,
+    "oa00c": "checkpoint-review-required",
+    "oa01": "blocked",
+    "oa02AndLater": "blocked"
+  },
+  "postMergeFixture": "pass-without-source-change",
   "humanApprovalClaimed": false
 }

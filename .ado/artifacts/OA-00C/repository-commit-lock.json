@@ -5,7 +5,7 @@
     "platformContracts": {
       "repository": "asxeed-codex/asxeed-platform-contracts",
       "commit": "a6445ec5a7fa2e27dabcd49bc494da4b0a5c6672",
-      "worktreeState": "task branch is a clean-descendant candidate during implementation"
+      "worktreeState": "OA-00C task branch descends from the exact adopted commit"
     },
     "ado": {
       "repository": "asxeed-codex/ado",
@@ -20,5 +20,6 @@
   },
   "allCommitsAvailable": true,
   "immutableSourceDrift": 0,
-  "sourceHashesMatch": true
+  "sourceHashesMatch": true,
+  "liveVerifierResult": "pass"
 }

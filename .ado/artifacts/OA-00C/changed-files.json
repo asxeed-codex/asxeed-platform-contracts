@@ -1,13 +1,14 @@
 {
   "taskId": "OA-00C",
-  "status": "phase-one-scope",
+  "status": "final-draft-pr-scope",
   "baseCommit": "a6445ec5a7fa2e27dabcd49bc494da4b0a5c6672",
-  "fileCount": 26,
+  "fileCount": 27,
   "files": [
     "README.md",
     "docs/README.md",
     "docs/architecture/CROSS_REPOSITORY_ARCHITECTURE_V1_2_VERIFICATION.md",
     "docs/architecture/cross-repository-v1.2-adoption-lock.json",
+    "docs/architecture/oa-00c-gate-metadata.json",
     "scripts/verify-cross-repository-ontology-adoption.mjs",
     "test/crossRepositoryOntologyAdoption.test.js",
     ".ado/artifacts/OA-00C/implementation-summary.json",

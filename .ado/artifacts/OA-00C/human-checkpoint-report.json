@@ -8,6 +8,12 @@
   "autoMergeAllowed": false,
   "agentApprovalClaimed": false,
   "oa01Authorized": false,
-  "draftPr": "created in publication phase two",
-  "nextAction": "Create one Draft PR, pin its stable identity, validate the live pre-merge gate, and stop for human checkpoint review and merge."
+  "draftPr": {
+    "number": 5,
+    "url": "https://github.com/asxeed-codex/asxeed-platform-contracts/pull/5",
+    "state": "OPEN",
+    "isDraft": true,
+    "autoMerge": false
+  },
+  "nextAction": "A human must review Draft PR #5 and perform the final merge; OA-01 remains blocked until the verifier observes that exact human merge."
 }

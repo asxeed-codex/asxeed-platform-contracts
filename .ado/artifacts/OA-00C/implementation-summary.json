@@ -1,7 +1,7 @@
 {
   "taskId": "OA-00C",
   "title": "Cross-repository Architecture v1.2 Verification",
-  "status": "implementation-validated-pre-publication",
+  "status": "implemented-through-draft-pr",
   "currentState": "checkpoint-review-required",
   "repository": "asxeed-codex/asxeed-platform-contracts",
   "branch": "codex/OA-00C-cross-repository-v1-2-verification",
@@ -12,9 +12,17 @@
   "architectureResult": "consistent",
   "runtimeImplemented": false,
   "consumerRepositoriesModified": false,
-  "implementationCommit": "recorded after the phase-one commit",
+  "implementationCommit": "c345bfb3b3d73400d8ef6599928a97346582355f",
   "finalEvidenceHead": "reported from Git after the evidence commit to avoid a self-referential commit hash",
-  "draftPr": "created in publication phase two",
+  "draftPr": {
+    "number": 5,
+    "url": "https://github.com/asxeed-codex/asxeed-platform-contracts/pull/5",
+    "state": "OPEN",
+    "isDraft": true,
+    "baseBranch": "main",
+    "headBranch": "codex/OA-00C-cross-repository-v1-2-verification",
+    "autoMerge": false
+  },
   "humanCheckpointRequired": true,
   "humanCheckpointCompleted": false
 }

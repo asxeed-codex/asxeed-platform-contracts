@@ -168,7 +168,7 @@ Focused mutation tests cover exact commits, missing objects, ancestry, committed
 
 ## 13. Successor gate
 
-The stable `docs/architecture/oa-00c-gate-metadata.json` record stores only the OA-00C PR identity and policy. The verifier queries Git and GitHub for lifecycle truth:
+The stable [OA-00C gate metadata](oa-00c-gate-metadata.json) record stores only the OA-00C PR identity and policy. The verifier queries Git and GitHub for lifecycle truth:
 
 - While the pinned PR is open and Draft, OA-01 remains blocked.
 - After that same PR is human-reviewed and squash-merged without auto-merge, the verifier requires the current Platform Contracts HEAD to be the merge commit or a descendant and the PR-head tree to equal the squash-merge tree.
