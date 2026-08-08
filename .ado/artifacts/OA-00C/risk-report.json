@@ -1,0 +1,26 @@
+{
+  "taskId": "OA-00C",
+  "overallRisk": "critical",
+  "status": "controlled-pending-human-checkpoint",
+  "risks": [
+    {
+      "risk": "Human review and exact squash-merge provenance are not yet complete.",
+      "mitigation": "Keep the single PR Draft, prohibit auto-merge, fail closed on unexpected PR identity or lifecycle, and keep OA-01 blocked."
+    },
+    {
+      "risk": "Local Node is v25.9.0 while the future canonical target is Node 24.18.0.",
+      "mitigation": "Record as a non-blocking governance-only validation variance and standardize before OA-01; do not change the toolchain in OA-00C."
+    },
+    {
+      "risk": "Live GitHub metadata is an external dependency for lifecycle truth.",
+      "mitigation": "Pin stable PR identity in repository metadata, query live state, and fail closed when GitHub data is unavailable or inconsistent."
+    },
+    {
+      "risk": "Consumer adoption sources could drift after their pinned commits.",
+      "mitigation": "Verify commit ancestry plus committed and uncommitted protected-source drift and exact hashes."
+    }
+  ],
+  "newTechnologyIntroduced": false,
+  "graphDatabaseIntroduced": false,
+  "runtimeChangeIntroduced": false
+}

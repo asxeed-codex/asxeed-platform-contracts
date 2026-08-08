@@ -1,0 +1,11 @@
+{
+  "taskId": "OA-00C",
+  "status": "pass",
+  "conflicts": 0,
+  "platformContracts": "Owns domain-neutral Architecture, ADR, Ontology, provenance, API/event, compatibility, migration, and governance contracts; owns no operational Ontology or consumer runtime/data.",
+  "ado": "Owns AI Company OS, Knowledge Core runtime responsibility, Ontology Builder and lifecycle orchestration, company/development/agent Ontologies, reasoning, approval routing, Plan DSL generation, and Codex coordination.",
+  "manufacturingOs": "Owns the Manufacturing Ontology Pack and semantic validation, manufacturing approval policy and surfaces, Product DSL Generator and Product Instance, deterministic Rule Engine, manufacturing models/artifacts, and manufacturing release.",
+  "orderEngine": "Retains customer, order, quantity, price, invoice, and inventory operational authority.",
+  "separateKnowledgeOsAuthorized": false,
+  "platformDomainNeutral": true
+}

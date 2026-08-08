@@ -1,0 +1,13 @@
+{
+  "taskId": "OA-00C",
+  "status": "checkpoint-review-required",
+  "riskLevel": "critical",
+  "humanCheckpointRequired": true,
+  "humanCheckpointCompleted": false,
+  "mergeCompleted": false,
+  "autoMergeAllowed": false,
+  "agentApprovalClaimed": false,
+  "oa01Authorized": false,
+  "draftPr": "created in publication phase two",
+  "nextAction": "Create one Draft PR, pin its stable identity, validate the live pre-merge gate, and stop for human checkpoint review and merge."
+}

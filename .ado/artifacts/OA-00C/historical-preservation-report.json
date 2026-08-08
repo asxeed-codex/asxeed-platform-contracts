@@ -1,0 +1,12 @@
+{
+  "taskId": "OA-00C",
+  "status": "pass",
+  "platformOa00EvidenceTree": "f81d9766557caa23e0c80b8bb09caf77bd96b4b88fd7991ca8e8075b5f42d28f",
+  "adoOa00aEvidenceTree": "c493226d20b74f034e51e3e9dc2c21c18023e9dd8ae9c42fc11e79fdb24d2495",
+  "manufacturingOa00bEvidenceTree": "06b60cb5841248e35370c1013928be13a96b0f3d4430909e0f0d5025034218f7",
+  "manufacturingPostmergeFixEvidenceTree": "a706ae6c00642034c144bd93b23c3920761a32d2b1ae64af3f4a482c2c601472",
+  "historicalV11Verifier": "pass",
+  "protectedCanonicalFilesChanged": [],
+  "historicalStatusFieldsRewritten": false,
+  "taskGraphV14Created": false
+}

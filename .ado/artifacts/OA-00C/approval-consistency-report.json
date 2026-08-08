@@ -1,0 +1,18 @@
+{
+  "taskId": "OA-00C",
+  "status": "pass",
+  "conflicts": 0,
+  "humanExclusiveAuthorities": [
+    "Architecture and ADR adoption",
+    "authority-boundary exceptions",
+    "Critical manufacturing knowledge approval",
+    "required Product DSL approval",
+    "manufacturing release",
+    "manufacturing-start approval where required",
+    "production release",
+    "final merge"
+  ],
+  "machineOutputsAreEvidenceOnly": true,
+  "architectureMergeImpliesManufacturingApproval": false,
+  "humanApprovalPreserved": true
+}

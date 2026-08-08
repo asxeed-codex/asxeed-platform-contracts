@@ -40,4 +40,10 @@ Before OA-00 human merge, [Architecture Freeze v1.1](architecture/ASXEED_Archite
 - [P0-T01D cross-repository verification report](reports/P0_T01D_CROSS_REPOSITORY_VERIFICATION.md)
 - [Cross-repository adoption verifier](../scripts/verify-cross-repository-architecture-adoption.mjs)
 
+## OA-00C cross-repository Architecture v1.2 gate
+
+- [Cross-repository Architecture v1.2 verification](architecture/CROSS_REPOSITORY_ARCHITECTURE_V1_2_VERIFICATION.md)
+- [Cross-repository v1.2 adoption lock](architecture/cross-repository-v1.2-adoption-lock.json)
+- [Cross-repository Ontology adoption verifier](../scripts/verify-cross-repository-ontology-adoption.mjs)
+
 ADO and Manufacturing OS must consume versioned platform-contract packages or adopt synchronized document copies pinned to the exact versions and SHA-256 values in the manifest. Unversioned URLs and imports of another repository's internal domain packages are prohibited.

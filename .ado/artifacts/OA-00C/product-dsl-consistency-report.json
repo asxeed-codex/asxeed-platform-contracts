@@ -1,0 +1,12 @@
+{
+  "taskId": "OA-00C",
+  "status": "pass",
+  "persistentKnowledgeTruth": false,
+  "executionArtifact": "immutable-versioned",
+  "futureSource": "Approved Ontology Snapshot",
+  "generatorOwner": "Manufacturing OS",
+  "legacyReadableAndImmutable": true,
+  "futureProvenanceImposedOnLegacyDsl": false,
+  "migration": "additive-dual-read-reversible-human-gated",
+  "conflicts": 0
+}
