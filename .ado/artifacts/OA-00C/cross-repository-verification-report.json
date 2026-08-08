@@ -40,5 +40,31 @@
     "oa02AndLater": "blocked"
   },
   "postMergeFixture": "pass-without-source-change",
+  "exactSquashHistory": {
+    "status": "pass",
+    "frozenAuthorizedBase": "a6445ec5a7fa2e27dabcd49bc494da4b0a5c6672",
+    "preMergeBaseOid": "verified-live",
+    "validPostMergeFixture": "pass",
+    "validFixtureModelsMultiplePrCommits": true,
+    "mergeParentCount": 1,
+    "soleMergeParent": "exact-authorized-base",
+    "commitsFromAuthorizedBaseToMerge": 1,
+    "prHeadAncestorOfMerge": false,
+    "prHeadMergeTreeEquivalent": true,
+    "normalTwoParentMerge": "rejected",
+    "wrongSoleParent": "rejected",
+    "multipleCommitsFromBase": "rejected",
+    "prHeadAncestorOfMergeAttempt": "rejected",
+    "treeMismatch": "rejected",
+    "invalidMergeOa01State": "blocked"
+  },
+  "focusedTests": {
+    "passed": 50,
+    "failed": 0
+  },
+  "fullPlatformTests": {
+    "passed": 113,
+    "failed": 0
+  },
   "humanApprovalClaimed": false
 }

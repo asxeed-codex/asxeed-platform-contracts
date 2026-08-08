@@ -231,16 +231,30 @@ function collectPr(repository, number, fixturePath = null) {
     return parsed.error ? { collectionError: parsed.error } : parsed.value;
   }
   const fields = "number,state,isDraft,baseRefName,headRefName,headRefOid,headRepository,autoMergeRequest,mergedAt,mergedBy,mergeCommit,url,title";
-  const view = run("gh", ["pr", "view", String(number), "--repo", repository, "--json", fields]);
+  let baseOidSource = "gh-pr-view";
+  let view = run("gh", ["pr", "view", String(number), "--repo", repository, "--json", `${fields},baseRefOid`]);
+  if (view.status !== 0 && /unknown json field.*baserefoid/i.test(stderrText(view))) {
+    view = run("gh", ["pr", "view", String(number), "--repo", repository, "--json", fields]);
+    baseOidSource = null;
+  }
   if (view.status !== 0) return { collectionError: stderrText(view) || `unable to inspect PR #${number}` };
   const parsed = parseJsonText(view.stdout, `${repository} PR #${number}`);
   if (parsed.error) return { collectionError: parsed.error };
+  if (typeof parsed.value.baseRefOid !== "string" || parsed.value.baseRefOid.length === 0) {
+    const baseOid = run("gh", ["api", `repos/${repository}/pulls/${number}`, "--jq", ".base.sha"]);
+    if (baseOid.status !== 0 || baseOid.stdout.trim().length === 0) {
+      return { ...parsed.value, collectionError: stderrText(baseOid) || "unable to prove the PR base OID" };
+    }
+    parsed.value.baseRefOid = baseOid.stdout.trim();
+    baseOidSource = "github-rest-api";
+  }
   const timeline = run("gh", ["api", `repos/${repository}/issues/${number}/timeline?per_page=100`]);
   if (timeline.status !== 0) return { ...parsed.value, collectionError: stderrText(timeline) || "unable to inspect PR timeline" };
   const events = parseJsonText(timeline.stdout, `${repository} PR #${number} timeline`);
   if (events.error || !Array.isArray(events.value)) return { ...parsed.value, collectionError: events.error ?? "PR timeline is not an array" };
   return {
     ...parsed.value,
+    baseOidSource,
     autoMergeWasEnabled: events.value.some((event) => event?.event === "auto_merge_enabled"),
   };
 }
@@ -261,6 +275,31 @@ function enrichPrTrees(pr, root, repository) {
     headTreeOid: pr.headTreeOid ?? resolveCommitTree(root, repository, pr.headRefOid),
     mergeTreeOid: pr.mergeTreeOid ?? resolveCommitTree(root, repository, mergeOid),
   };
+}
+
+function commitParents(root, oid) {
+  if (!oid) return null;
+  const result = runGit(root, ["show", "-s", "--format=%P", oid]);
+  if (result.status !== 0) return null;
+  const output = result.stdout.trim();
+  return output.length === 0 ? [] : output.split(/\s+/);
+}
+
+function commitCount(root, base, head) {
+  if (!base || !head) return null;
+  const result = runGit(root, ["rev-list", "--count", `${base}..${head}`]);
+  if (result.status !== 0 || !/^\d+$/.test(result.stdout.trim())) return null;
+  return Number.parseInt(result.stdout.trim(), 10);
+}
+
+function ancestorState(root, ancestor, descendant) {
+  if (!ancestor || !descendant) return null;
+  if (runGit(root, ["cat-file", "-e", `${ancestor}^{commit}`]).status !== 0) return null;
+  if (runGit(root, ["cat-file", "-e", `${descendant}^{commit}`]).status !== 0) return null;
+  const result = runGit(root, ["merge-base", "--is-ancestor", ancestor, descendant]);
+  if (result.status === 0) return true;
+  if (result.status === 1) return false;
+  return null;
 }
 
 function fingerprintOriginalCheckout(root) {
@@ -306,13 +345,26 @@ export function collectObservations({
     manufacturingOs: enrichPrTrees(collectPr(EXPECTED.repositories.manufacturingOs.repository, lock.adoptionProvenance.manufacturingOs.pullRequest), repositoryRoots.manufacturingOs, EXPECTED.repositories.manufacturingOs.repository),
   };
 
+  const platformRoot = repositoryRoots.platformContracts;
+  const authorizedBase = gateMetadata.authorizedBaseCommit;
+  const prHeadOid = gatePr?.headRefOid ?? null;
+  const mergeOid = gatePr?.mergeCommit?.oid ?? null;
+  const prHeadExists = prHeadOid ? runGit(platformRoot, ["cat-file", "-e", `${prHeadOid}^{commit}`]).status === 0 : false;
+  const mergeCommitExists = mergeOid ? runGit(platformRoot, ["cat-file", "-e", `${mergeOid}^{commit}`]).status === 0 : false;
+  const mergeParentOids = mergeCommitExists ? commitParents(platformRoot, mergeOid) : null;
   const gateGit = {
-    prHeadExists: gatePr?.headRefOid ? runGit(repositoryRoots.platformContracts, ["cat-file", "-e", `${gatePr.headRefOid}^{commit}`]).status === 0 : false,
-    prHeadDescendsFromBase: gatePr?.headRefOid ? runGit(repositoryRoots.platformContracts, ["merge-base", "--is-ancestor", gateMetadata.authorizedBaseCommit, gatePr.headRefOid]).status === 0 : false,
-    prHeadAncestorOfCurrent: gatePr?.headRefOid && repositories.platformContracts.head ? runGit(repositoryRoots.platformContracts, ["merge-base", "--is-ancestor", gatePr.headRefOid, repositories.platformContracts.head]).status === 0 : false,
-    mergeCommitExists: gatePr?.mergeCommit?.oid ? runGit(repositoryRoots.platformContracts, ["cat-file", "-e", `${gatePr.mergeCommit.oid}^{commit}`]).status === 0 : false,
-    mergeDescendsFromBase: gatePr?.mergeCommit?.oid ? runGit(repositoryRoots.platformContracts, ["merge-base", "--is-ancestor", gateMetadata.authorizedBaseCommit, gatePr.mergeCommit.oid]).status === 0 : false,
-    mergeAncestorOfCurrent: gatePr?.mergeCommit?.oid && repositories.platformContracts.head ? runGit(repositoryRoots.platformContracts, ["merge-base", "--is-ancestor", gatePr.mergeCommit.oid, repositories.platformContracts.head]).status === 0 : false,
+    prBaseMatchesAuthorizedBase: gatePr?.baseRefOid === authorizedBase,
+    prHeadExists,
+    prHeadDescendsFromBase: prHeadOid ? ancestorState(platformRoot, authorizedBase, prHeadOid) === true : false,
+    prHeadAncestorOfCurrent: prHeadOid && repositories.platformContracts.head ? ancestorState(platformRoot, prHeadOid, repositories.platformContracts.head) === true : false,
+    prCommitCountFromBase: prHeadExists ? commitCount(platformRoot, authorizedBase, prHeadOid) : null,
+    mergeCommitExists,
+    mergeDescendsFromBase: mergeOid ? ancestorState(platformRoot, authorizedBase, mergeOid) === true : false,
+    mergeAncestorOfCurrent: mergeOid && repositories.platformContracts.head ? ancestorState(platformRoot, mergeOid, repositories.platformContracts.head) === true : false,
+    mergeParentOids,
+    mergeParentCount: Array.isArray(mergeParentOids) ? mergeParentOids.length : null,
+    mergeCommitCountFromBase: mergeCommitExists ? commitCount(platformRoot, authorizedBase, mergeOid) : null,
+    prHeadAncestorOfMerge: prHeadExists && mergeCommitExists ? ancestorState(platformRoot, prHeadOid, mergeOid) : null,
   };
 
   return {
@@ -533,18 +585,25 @@ function validateGateLifecycle(gateMetadata, observations, state) {
 
   const postMerge = pr.state === "MERGED";
   if (!postMerge) {
+    state.record("frozenBase", pr.baseRefOid === gateMetadata.authorizedBaseCommit && git.prBaseMatchesAuthorizedBase === true, "OA-00C PR base OID must remain the exact frozen authorized base before merge");
     state.record("preMergeGate", pr.state === "OPEN" && pr.isDraft === true && pr.mergedAt === null && pr.mergeCommit === null, "pre-merge OA-00C PR must be open, Draft, and unmerged");
     state.record("preMergeGate", git.prHeadExists === true && git.prHeadDescendsFromBase === true && git.prHeadAncestorOfCurrent === true, "pre-merge local HEAD must be the PR head or a clean descendant of it and the authorized base");
   } else {
     state.record("postMergeGate", pr.isDraft === false && typeof pr.mergedAt === "string" && typeof pr.mergeCommit?.oid === "string", "post-merge OA-00C metadata is incomplete");
     state.record("postMergeGate", pr.mergedBy?.is_bot === false && typeof pr.mergedBy?.login === "string" && pr.mergedBy.login.length > 0, "post-merge OA-00C merger must be a non-bot GitHub user");
     state.record("postMergeGate", git.mergeCommitExists === true && git.mergeDescendsFromBase === true && git.mergeAncestorOfCurrent === true, "post-merge current HEAD must be the merge commit or its descendant from the authorized base");
+    state.record("squashHistory", git.mergeParentCount === 1 && sameJson(git.mergeParentOids, [gateMetadata.authorizedBaseCommit]) && git.mergeCommitCountFromBase === 1, "OA-00C squash merge must have the frozen authorized base as its sole parent and be exactly one commit beyond it");
+    state.record("prHeadAncestry", git.prHeadExists === true && git.prHeadAncestorOfMerge === false, "the multi-commit OA-00C PR head must not be an ancestor of its squash merge commit");
     state.record("squashTree", typeof pr.headTreeOid === "string" && pr.headTreeOid === pr.mergeTreeOid, "OA-00C PR head tree must equal the squash merge tree");
+    state.detail("squashHistory", "observed", { parentCount: git.mergeParentCount ?? null, parentOids: git.mergeParentOids ?? null, commitsFromAuthorizedBase: git.mergeCommitCountFromBase ?? null });
+    state.detail("prHeadAncestry", "observedAncestor", git.prHeadAncestorOfMerge ?? null);
   }
-  const successor = postMerge ? { oa00c: "formally-adopted", oa01: "eligible-ready", oa02AndLater: "dependency-blocked" } : { oa00c: "checkpoint-review-required", oa01: "blocked", oa02AndLater: "blocked" };
+  const validPostMerge = postMerge && state.errors.length === 0;
+  const successor = validPostMerge ? { oa00c: "formally-adopted", oa01: "eligible-ready", oa02AndLater: "dependency-blocked" } : { oa00c: "checkpoint-review-required", oa01: "blocked", oa02AndLater: "blocked" };
   state.detail("successorGate", "lifecycle", postMerge ? "post-merge" : "pre-merge");
   state.detail("successorGate", "derivedState", successor);
-  return { postMerge, successor };
+  state.detail("successorGate", "exactMergeProvenanceValid", validPostMerge);
+  return { postMerge, validPostMerge, successor };
 }
 
 export function verifyCrossRepositoryOntologyAdoption({ lock, gateMetadata, observations }) {

@@ -35,5 +35,25 @@
   "protectedFilesChanged": [],
   "consumerFilesChanged": [],
   "runtimeFilesChanged": [],
-  "dependencyFilesChanged": []
+  "dependencyFilesChanged": [],
+  "latestAmendment": {
+    "purpose": "Close the final OA-00C exact-squash post-merge provenance gap.",
+    "baseHead": "f5df8a483637e4964d705dacb46ac2e2c50853e2",
+    "fileCount": 9,
+    "files": [
+      "scripts/verify-cross-repository-ontology-adoption.mjs",
+      "test/crossRepositoryOntologyAdoption.test.js",
+      ".ado/artifacts/OA-00C/implementation-summary.json",
+      ".ado/artifacts/OA-00C/commands-executed.json",
+      ".ado/artifacts/OA-00C/changed-files.json",
+      ".ado/artifacts/OA-00C/cross-repository-verification-report.json",
+      ".ado/artifacts/OA-00C/successor-gate-report.json",
+      ".ado/artifacts/OA-00C/risk-report.json",
+      ".ado/artifacts/OA-00C/human-checkpoint-report.json"
+    ],
+    "protectedFilesChanged": [],
+    "runtimeFilesChanged": [],
+    "dependencyFilesChanged": [],
+    "consumerFilesChanged": []
+  }
 }

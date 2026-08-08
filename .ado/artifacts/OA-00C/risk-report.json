@@ -18,6 +18,10 @@
     {
       "risk": "Consumer adoption sources could drift after their pinned commits.",
       "mitigation": "Verify commit ancestry plus committed and uncommitted protected-source drift and exact hashes."
+    },
+    {
+      "risk": "The frozen main base could advance before the human merge, preventing the squash commit from having the authorized base as its sole parent.",
+      "mitigation": "Fail closed on base OID drift, parent-count or parent-OID mismatch, and base-to-merge commit count other than one; require human review instead of weakening provenance."
     }
   ],
   "newTechnologyIntroduced": false,

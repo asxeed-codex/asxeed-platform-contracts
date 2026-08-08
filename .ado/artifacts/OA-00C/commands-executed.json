@@ -96,6 +96,46 @@
       "command": "final complete Platform verifier and test suite",
       "exitCode": 0,
       "result": "Five Platform verifiers passed; focused tests 44/44 and full tests 107/107 passed; 73 JSON files, 34 Markdown files, and 94 relative links validated."
+    },
+    {
+      "command": "read the complete OA-00C exact-squash provenance correction request; verify branch, HEAD, remote, PR #5, GitHub authentication, consumer checkouts, and original-checkout fingerprint",
+      "exitCode": 0,
+      "result": "Clean exact branch at f5df8a483637e4964d705dacb46ac2e2c50853e2; PR #5 OPEN/Draft/CLEAN at the frozen base OID with no auto-merge; consumers clean at pinned commits; original fingerprint unchanged."
+    },
+    {
+      "command": "inspect applicable Architecture Freeze, ADR-010/013/015/016/025/027/029/030, responsibility boundaries, plans, Task Graph, Sprint Plan, verifier, tests, gate metadata, static lock, and current OA-00C evidence",
+      "exitCode": 0,
+      "result": "The correction is compatible with the adopted architecture and strengthens the existing critical human gate without changing Architecture or contract semantics."
+    },
+    {
+      "command": "apply_patch scripts/verify-cross-repository-ontology-adoption.mjs and test/crossRepositoryOntologyAdoption.test.js",
+      "exitCode": 0,
+      "result": "Added frozen-base OID evidence, exact one-parent/one-commit squash history, PR-head non-ancestry, fail-closed successor derivation, and six deterministic regression cases."
+    },
+    {
+      "command": "node --check scripts/verify-cross-repository-ontology-adoption.mjs; node --test test/crossRepositoryOntologyAdoption.test.js; node scripts/verify-cross-repository-ontology-adoption.mjs",
+      "exitCode": 0,
+      "result": "Syntax passed; focused tests passed 50/50; the live pre-merge PR #5 gate passed and kept OA-01 blocked."
+    },
+    {
+      "command": "ADO: three required verifiers; npm test; node --test",
+      "exitCode": 0,
+      "result": "All three ADO verifiers passed; npm test and direct node --test each passed 200/200; checkout remained clean."
+    },
+    {
+      "command": "Manufacturing OS: npm run build; three required verifiers; npm test; node --test",
+      "exitCode": 0,
+      "result": "Build and all three verifiers passed; npm test and direct node --test each passed 133/133 with approved ignored test-output access; checkout remained clean."
+    },
+    {
+      "command": "complete Platform verifier and test suite after exact-squash correction",
+      "exitCode": 0,
+      "result": "All five Platform verifiers passed; focused tests passed 50/50; full Platform tests passed 113/113."
+    },
+    {
+      "command": "parse every tracked JSON file; validate every Markdown relative link; git diff --check; protected-file and changed-scope inspection",
+      "exitCode": 0,
+      "result": "73 JSON files parsed; all 34 Markdown files and 94 relative links validated; diff and nine-file amendment scope passed; protected Architecture, ADR, plan, lock, metadata, historical evidence, runtime, dependency, and consumer areas remained unchanged."
     }
   ],
   "publicationCommandsRecorded": true

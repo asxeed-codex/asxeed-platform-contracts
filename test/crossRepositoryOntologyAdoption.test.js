@@ -137,6 +137,7 @@ function baseline() {
     state: "OPEN",
     isDraft: true,
     baseRefName: "main",
+    baseRefOid: gateMetadata.authorizedBaseCommit,
     headRefName: gateMetadata.headBranch,
     headRefOid: "1".repeat(40),
     headRepository: { nameWithOwner: gateMetadata.repository },
@@ -178,7 +179,20 @@ function baseline() {
       verifierResults,
       adoptionPrs: { platformContracts: adoptionPr("platformContracts"), ado: adoptionPr("ado"), manufacturingOs: adoptionPr("manufacturingOs") },
       gatePr,
-      gateGit: { prHeadExists: true, prHeadDescendsFromBase: true, prHeadAncestorOfCurrent: true, mergeCommitExists: false, mergeDescendsFromBase: false, mergeAncestorOfCurrent: false },
+      gateGit: {
+        prBaseMatchesAuthorizedBase: true,
+        prHeadExists: true,
+        prHeadDescendsFromBase: true,
+        prHeadAncestorOfCurrent: true,
+        prCommitCountFromBase: 2,
+        mergeCommitExists: false,
+        mergeDescendsFromBase: false,
+        mergeAncestorOfCurrent: false,
+        mergeParentOids: null,
+        mergeParentCount: null,
+        mergeCommitCountFromBase: null,
+        prHeadAncestorOfMerge: null,
+      },
       navigation: {
         rootReadme: "[verification](docs/architecture/CROSS_REPOSITORY_ARCHITECTURE_V1_2_VERIFICATION.md) [lock](docs/architecture/cross-repository-v1.2-adoption-lock.json) [gate](docs/architecture/oa-00c-gate-metadata.json) [verifier](scripts/verify-cross-repository-ontology-adoption.mjs)",
         docsReadme: "[verification](architecture/CROSS_REPOSITORY_ARCHITECTURE_V1_2_VERIFICATION.md) [lock](architecture/cross-repository-v1.2-adoption-lock.json) [gate](architecture/oa-00c-gate-metadata.json) [verifier](../scripts/verify-cross-repository-ontology-adoption.mjs)",
@@ -197,6 +211,8 @@ async function assertFails(fixture, check) {
   const report = await verify(fixture);
   assert.equal(report.status, "fail", JSON.stringify(report, null, 2));
   assert.ok(report.errors.some((error) => error.check === check), JSON.stringify(report, null, 2));
+  assert.equal(report.oa01State, "blocked", JSON.stringify(report, null, 2));
+  return report;
 }
 
 function postMergeFixture() {
@@ -204,7 +220,15 @@ function postMergeFixture() {
   Object.assign(fixture.observations.gatePr, {
     state: "MERGED", isDraft: false, mergedAt: "2026-08-08T10:00:00Z", mergedBy: { login: "human-reviewer", is_bot: false }, mergeCommit: { oid: "3".repeat(40) }, mergeTreeOid: fixture.observations.gatePr.headTreeOid,
   });
-  Object.assign(fixture.observations.gateGit, { mergeCommitExists: true, mergeDescendsFromBase: true, mergeAncestorOfCurrent: true });
+  Object.assign(fixture.observations.gateGit, {
+    mergeCommitExists: true,
+    mergeDescendsFromBase: true,
+    mergeAncestorOfCurrent: true,
+    mergeParentOids: [fixture.gateMetadata.authorizedBaseCommit],
+    mergeParentCount: 1,
+    mergeCommitCountFromBase: 1,
+    prHeadAncestorOfMerge: false,
+  });
   return fixture;
 }
 
@@ -216,11 +240,16 @@ test("valid pre-merge OA-00C gate passes", async () => {
 });
 
 test("valid post-merge OA-00C gate fixture passes without source changes", async () => {
-  const report = await verify(postMergeFixture());
+  const fixture = postMergeFixture();
+  assert.ok(fixture.observations.gateGit.prCommitCountFromBase > 1, "fixture must model the multi-commit PR #5 head");
+  const report = await verify(fixture);
   assert.equal(report.status, "pass", JSON.stringify(report, null, 2));
   assert.equal(report.gateLifecycle, "post-merge");
   assert.equal(report.oa01State, "eligible-ready");
   assert.equal(report.oa02AndLaterState, "dependency-blocked");
+  assert.equal(report.checks.squashHistory.status, "pass");
+  assert.equal(report.checks.prHeadAncestry.status, "pass");
+  assert.equal(report.checks.squashTree.status, "pass");
 });
 
 for (const [name, key] of [["Platform Architecture", "platformContracts"], ["ADO adoption", "ado"], ["Manufacturing adoption", "manufacturingOs"]]) {
@@ -268,7 +297,13 @@ test("auto-merge allowed fails", async () => { const f = baseline(); f.observati
 test("wrong OA-00C PR number fails", async () => { const f = baseline(); f.gateMetadata.pullRequestNumber += 1; await assertFails(f, "gateIdentity"); });
 test("unrelated OA-00C PR fails", async () => { const f = baseline(); f.observations.gatePr.title = "Unrelated change"; await assertFails(f, "gateIdentity"); });
 test("wrong OA-00C base branch fails", async () => { const f = baseline(); f.observations.gatePr.baseRefName = "release"; await assertFails(f, "gateIdentity"); });
+test("pre-merge frozen base OID drift fails", async () => { const f = baseline(); f.observations.gatePr.baseRefOid = "4".repeat(40); f.observations.gateGit.prBaseMatchesAuthorizedBase = false; await assertFails(f, "frozenBase"); });
+test("wrong authorized base fails", async () => { const f = baseline(); f.gateMetadata.authorizedBaseCommit = "4".repeat(40); await assertFails(f, "gateMetadata"); });
 test("post-merge current HEAD not descendant of merge commit fails", async () => { const f = postMergeFixture(); f.observations.gateGit.mergeAncestorOfCurrent = false; await assertFails(f, "postMergeGate"); });
+test("normal two-parent merge commit fails", async () => { const f = postMergeFixture(); f.observations.gateGit.mergeParentOids = [f.gateMetadata.authorizedBaseCommit, f.observations.gatePr.headRefOid]; f.observations.gateGit.mergeParentCount = 2; await assertFails(f, "squashHistory"); });
+test("merge commit whose sole parent is not the authorized base fails", async () => { const f = postMergeFixture(); f.observations.gateGit.mergeParentOids = ["4".repeat(40)]; await assertFails(f, "squashHistory"); });
+test("more than one commit from authorized base to merge fails", async () => { const f = postMergeFixture(); f.observations.gateGit.mergeCommitCountFromBase = 2; await assertFails(f, "squashHistory"); });
+test("PR head being an ancestor of merge commit fails", async () => { const f = postMergeFixture(); f.observations.gateGit.prHeadAncestorOfMerge = true; await assertFails(f, "prHeadAncestry"); });
 test("squash tree mismatch fails", async () => { const f = postMergeFixture(); f.observations.gatePr.mergeTreeOid = "0".repeat(40); await assertFails(f, "squashTree"); });
 test("bot or fabricated human merger fails", async () => { const f = postMergeFixture(); f.observations.gatePr.mergedBy.is_bot = true; await assertFails(f, "postMergeGate"); });
 test("README navigation missing fails", async () => { const f = baseline(); f.observations.navigation.rootReadme = f.observations.navigation.rootReadme.replace("scripts/verify-cross-repository-ontology-adoption.mjs", "missing-verifier"); await assertFails(f, "readmeNavigation"); });

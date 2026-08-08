@@ -6,7 +6,18 @@
   "oa02AndLater": "dependency-blocked",
   "p0T02D": "blocked-by-ontology-architecture-migration",
   "p0T03": "not-started",
-  "postMergeBehavior": "The same verifier derives a human merged state from Git/GitHub, validates ancestry and squash-tree equivalence, and reports OA-01 eligible/ready without a source edit.",
-  "postMergeFixture": "pass",
+  "postMergeBehavior": "The same verifier derives a human merged state from Git/GitHub and reports OA-01 eligible/ready without a source edit only when the exact frozen-base squash history, human merger, no-auto-merge, current-HEAD ancestry, PR-head non-ancestry, and tree-equivalence checks all pass.",
+  "requiredExactSquashShape": {
+    "mergeCommitExists": true,
+    "mergeDescendsFromAuthorizedBase": true,
+    "currentHeadIsMergeOrDescendant": true,
+    "mergeParentCount": 1,
+    "soleParentIsExactAuthorizedBase": true,
+    "commitsFromAuthorizedBaseToMerge": 1,
+    "prHeadIsAncestorOfMerge": false,
+    "prHeadTreeEqualsMergeTree": true
+  },
+  "postMergeFixture": "pass-exact-squash",
+  "invalidPostMergeShape": "OA-01-blocked-human-review-required",
   "successorWorkStarted": false
 }
