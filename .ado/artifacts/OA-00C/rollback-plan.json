@@ -1,0 +1,17 @@
+{
+  "taskId": "OA-00C",
+  "status": "ready",
+  "strategy": "Use a scoped git revert on a dedicated human-reviewed rollback branch; never rewrite adopted Architecture or historical evidence.",
+  "steps": [
+    "Keep OA-01 and later successors blocked while rollback is evaluated.",
+    "Create a dedicated rollback branch from the then-current protected base.",
+    "Revert OA-00C commits in reverse order without force-push or history rewrite.",
+    "Preserve Architecture Freeze v1.1/v1.2, ADR-001 through ADR-030, adoption manifests, task graphs, and all historical evidence.",
+    "Re-run canonical, cross-repository, consumer, JSON, Markdown, diff, scope, and lifecycle validation.",
+    "Open a Draft rollback PR and stop for human checkpoint."
+  ],
+  "consumerRuntimeRollbackRequired": false,
+  "dataMigrationRollbackRequired": false,
+  "destructiveResetRequired": false,
+  "humanApprovalRequired": true
+}

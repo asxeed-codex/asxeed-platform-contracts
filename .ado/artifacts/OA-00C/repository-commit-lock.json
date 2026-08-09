@@ -1,0 +1,25 @@
+{
+  "taskId": "OA-00C",
+  "status": "pass",
+  "repositories": {
+    "platformContracts": {
+      "repository": "asxeed-codex/asxeed-platform-contracts",
+      "commit": "a6445ec5a7fa2e27dabcd49bc494da4b0a5c6672",
+      "worktreeState": "OA-00C task branch descends from the exact adopted commit"
+    },
+    "ado": {
+      "repository": "asxeed-codex/ado",
+      "commit": "53dfe785de99425e22add7ab3e300ba9d3d75c1d",
+      "worktreeState": "exact-clean"
+    },
+    "manufacturingOs": {
+      "repository": "asxeed-codex/asxeed-manufacturing-os",
+      "commit": "c34bb03766683dc5d14b3093c23313312cccbcaf",
+      "worktreeState": "exact-clean"
+    }
+  },
+  "allCommitsAvailable": true,
+  "immutableSourceDrift": 0,
+  "sourceHashesMatch": true,
+  "liveVerifierResult": "pass"
+}

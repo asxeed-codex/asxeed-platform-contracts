@@ -1,0 +1,9 @@
+{
+  "taskId": "OA-00C",
+  "status": "pass",
+  "currentPath": "PUE -> existing Product DSL pipeline",
+  "targetPath": "PUE -> ADO Knowledge Core / Manufacturing Ontology -> Approved Manufacturing Ontology Snapshot -> Manufacturing Product DSL Generator",
+  "targetImplemented": false,
+  "pueModified": false,
+  "conflicts": 0
+}

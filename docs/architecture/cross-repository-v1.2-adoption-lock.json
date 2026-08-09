@@ -1,0 +1,409 @@
+{
+  "lockVersion": "1.0",
+  "taskId": "OA-00C",
+  "architectureVersion": "1.2",
+  "platformContracts": {
+    "repository": "asxeed-codex/asxeed-platform-contracts",
+    "architectureCommit": "a6445ec5a7fa2e27dabcd49bc494da4b0a5c6672",
+    "architectureManifest": {
+      "path": "docs/architecture/ontology-architecture-manifest-v1.0.json",
+      "sha256": "a41523550a4663a171d6d48e09c58ee94a685bcd9524473fca5a67abb7829c5b"
+    },
+    "ontologyVerifier": {
+      "path": "scripts/verify-ontology-architecture.mjs",
+      "sha256": "a32676defe0a034a62850dace16adbf2ab1944abc81fead000abcabac0bb0ae0"
+    }
+  },
+  "ado": {
+    "repository": "asxeed-codex/ado",
+    "adoptionCommit": "53dfe785de99425e22add7ab3e300ba9d3d75c1d",
+    "adoptionDocument": {
+      "path": "docs/governance/ASXEED_ONTOLOGY_ARCHITECTURE_ADOPTION.md",
+      "sha256": "0034cbfdeb8b35444b0d66f9c0c8720926bcd7acbe47ef06d794a0797eea5f76"
+    },
+    "adoptionManifest": {
+      "path": "docs/governance/ontology-architecture-adoption-manifest.json",
+      "sha256": "61df319681b3fd30c974b0df296b57ee32cd7dbd701618031ff941ea2d392d7d"
+    },
+    "governanceProfile": {
+      "path": "docs/governance/ado-agents-governance.json",
+      "sha256": "fc022f584ec13c0dd3c251f153fced6ce18b3a9bad97a00e30e6b980c1aac372"
+    },
+    "verifiers": [
+      {
+        "path": "scripts/verify-architecture-adoption.mjs",
+        "sha256": "77ba75eb009ab5e360db5fc8aa3882047da145fe997684b283076d0e5dec5d49"
+      },
+      {
+        "path": "scripts/verify-ado-agents-governance.mjs",
+        "sha256": "b90ffc4fddf9b9bcae870dba9ca8a2c4900dbd98f155d242c30c54320358977e"
+      },
+      {
+        "path": "scripts/verify-ado-ontology-architecture-adoption.mjs",
+        "sha256": "2b793e288cd32ea802ca78e16f35eebcbf38668f459c50827a8662914a92b53c"
+      }
+    ]
+  },
+  "manufacturingOs": {
+    "repository": "asxeed-codex/asxeed-manufacturing-os",
+    "adoptionCommit": "c34bb03766683dc5d14b3093c23313312cccbcaf",
+    "adoptionDocument": {
+      "path": "docs/governance/ASXEED_ONTOLOGY_ARCHITECTURE_ADOPTION.md",
+      "sha256": "4748c853db1a51de420cc77fee7d179ce2b80118509b2685caafcadaeafb550b"
+    },
+    "adoptionManifest": {
+      "path": "docs/governance/ontology-architecture-adoption-manifest.json",
+      "sha256": "fe8132882c4eb8c9b64ef34a164fb1411a1bc72a664e2a8e8e492a049991cafc"
+    },
+    "mergeReceipt": {
+      "path": "docs/governance/ontology-architecture-merge-receipt.json",
+      "sha256": "2ba6b657ee82d63947c22982259eeba6dfba4ce4e8a9ac8b949c0520c0db9f03"
+    },
+    "governanceProfile": {
+      "path": "docs/governance/manufacturing-os-agents-governance.json",
+      "sha256": "6ff03e046f2ec87fbb0f213dc34277a4d20f4327adac11d557709bfdac18f23c"
+    },
+    "verifiers": [
+      {
+        "path": "scripts/verify-architecture-adoption.mjs",
+        "sha256": "1f9cb3ecb70187c61b1f8944165af4f086e59d56a99e64cdc469d91bd3c27f6b"
+      },
+      {
+        "path": "scripts/verify-manufacturing-os-agents-governance.mjs",
+        "sha256": "c237d4e9a7e32152bd7e796d825f77acb550d6b953d23b50e580602ed179b67a"
+      },
+      {
+        "path": "scripts/verify-manufacturing-os-ontology-architecture-adoption.mjs",
+        "sha256": "aade96fdeafc3f8bc13010ca9fbb81f4384008adbed02ecda92211ec18244380"
+      }
+    ]
+  },
+  "canonicalDocuments": [
+    {
+      "name": "Architecture Freeze",
+      "path": "docs/architecture/ASXEED_Architecture_Freeze_v1.2.md",
+      "version": "1.2",
+      "sha256": "b6d5ba4c272d183f88578fc9f9dbb558a30af1e84d8dc4392d6a84aa50b9a9ed"
+    },
+    {
+      "name": "ADR-025",
+      "path": "docs/architecture/adrs/ADR-025_ONTOLOGY_CORE_EMBEDDED_IN_ADO.md",
+      "version": "025",
+      "sha256": "041a3ba7f6fea0a54f5c0a6cd6563635f651e696c77056459fbc1e575703b6d9"
+    },
+    {
+      "name": "ADR-026",
+      "path": "docs/architecture/adrs/ADR-026_ADO_AS_ONTOLOGY_BUILDER_AND_KNOWLEDGE_ORCHESTRATOR.md",
+      "version": "026",
+      "sha256": "7560b5b105934b46c70beffc569b2a7342eca070ba1307d1ff226f3ba1b1ce87"
+    },
+    {
+      "name": "ADR-027",
+      "path": "docs/architecture/adrs/ADR-027_DOMAIN_ONTOLOGY_OWNERSHIP_AND_APPROVAL_BOUNDARIES.md",
+      "version": "027",
+      "sha256": "682ba470a28c6130c570cbf989fc70ecbe3f995ada5c6445ec6d027f1f60b1f7"
+    },
+    {
+      "name": "ADR-028",
+      "path": "docs/architecture/adrs/ADR-028_PUE_ONTOLOGY_DSL_ARCHITECTURE.md",
+      "version": "028",
+      "sha256": "336216b0d4521f3f570174b2396013093dece2af024365fc8f6ad81f7289f9a4"
+    },
+    {
+      "name": "ADR-029",
+      "path": "docs/architecture/adrs/ADR-029_DSL_AS_VERSIONED_EXECUTION_ARTIFACT.md",
+      "version": "029",
+      "sha256": "3641f51180743b09b46e9dcd6d40008db2af62093093d94756a96a021cbe49f4"
+    },
+    {
+      "name": "ADR-030",
+      "path": "docs/architecture/adrs/ADR-030_SHARED_KNOWLEDGE_GRAPH_NAMESPACE_AND_ACCESS_CONTROL.md",
+      "version": "030",
+      "sha256": "20f1933c0eec62ed6d175e8dd32d23de16e54687e452880f541c81a74238f5ac"
+    },
+    {
+      "name": "System Responsibility Boundaries",
+      "path": "docs/architecture/SYSTEM_RESPONSIBILITY_BOUNDARIES_v1.1.md",
+      "version": "1.1",
+      "sha256": "cd2beedc650686d1f02312c8573e51bad8bb0a8bccaa549593d06611756605d2"
+    },
+    {
+      "name": "Ontology Core Conceptual Model",
+      "path": "docs/architecture/ONTOLOGY_CORE_CONCEPTUAL_MODEL_v0.1.md",
+      "version": "0.1",
+      "sha256": "8de9088685088f699b215d869845f966c2b48ba31bdfff820221845022a1beed"
+    },
+    {
+      "name": "Architecture Decision Report",
+      "path": "docs/architecture/ADO_ONTOLOGY_ARCHITECTURE_DECISION_REPORT_v1.0.md",
+      "version": "1.0",
+      "sha256": "fde74041eff114ced9724e98d483843e581c2aa42889df7efea3ef74f4f5de17"
+    },
+    {
+      "name": "Compatibility Matrix",
+      "path": "docs/architecture/ONTOLOGY_ARCHITECTURE_COMPATIBILITY_MATRIX_v1.0.md",
+      "version": "1.0",
+      "sha256": "d9d35ace33d8a688468ca3790372749feec763c9cb61639106a11b119d5746ee"
+    },
+    {
+      "name": "Migration Strategy",
+      "path": "docs/architecture/ONTOLOGY_MIGRATION_STRATEGY_v1.0.md",
+      "version": "1.0",
+      "sha256": "c4c1c9e86f62f59828d26faf9cd830a9b304885da5b0c8adb5472eae6def5fe3"
+    },
+    {
+      "name": "Rollback Strategy",
+      "path": "docs/architecture/ONTOLOGY_ROLLBACK_STRATEGY_v1.0.md",
+      "version": "1.0",
+      "sha256": "8289ed98ebae2c72d01cadafa89baac181c35a36dc4ffceea7348b98be1f6405"
+    },
+    {
+      "name": "P0-T02C Ontology Transition Plan",
+      "path": "docs/plans/P0_T02C_ONTOLOGY_TRANSITION_PLAN_v1.0.md",
+      "version": "1.0",
+      "sha256": "04e214e6e32e2e54cfcc766bc0648e56f5bc3c38a094e797d51d0e49f093c121"
+    },
+    {
+      "name": "Master Implementation Plan",
+      "path": "docs/plans/MASTER_IMPLEMENTATION_PLAN_v1.3.md",
+      "version": "1.3",
+      "sha256": "a146679d8bbf33f955890ede73d76919e79f77cffe0638cd4bfeb486da3e06be"
+    },
+    {
+      "name": "ADO Task Graph Markdown",
+      "path": "docs/plans/ADO_TASK_GRAPH_v1.3.md",
+      "version": "1.3",
+      "sha256": "6d4481a74421f763a60b52c3663404e1cd861d6f2a209bab462d2bbc4d854799"
+    },
+    {
+      "name": "ADO Task Graph JSON",
+      "path": "docs/plans/ADO_TASK_GRAPH_v1.3.json",
+      "version": "1.3",
+      "sha256": "083429b0e540c7f91734545bc59d8339b9892f7a0abc059defbd9b2b82bc78d0"
+    },
+    {
+      "name": "Sprint Execution Plan",
+      "path": "docs/plans/SPRINT_EXECUTION_PLAN_v1.1.md",
+      "version": "1.1",
+      "sha256": "afff44a5b86e00be99e1b57e199b1ecf2cca0ba700ae3f8d81da8a1dbe7de81a"
+    }
+  ],
+  "authorityHierarchy": [
+    "Architecture Freeze v1.2",
+    "Adopted ADR-001 through ADR-030",
+    "Technology Stack v1.0",
+    "Technology Version Matrix v1.0",
+    "Technology Selection Rationale v1.0",
+    "Deferred Technology v1.0",
+    "Master Implementation Plan v1.3",
+    "ADO Task Graph v1.3 Markdown and JSON",
+    "Sprint Execution Plan v1.1",
+    "System Responsibility Boundaries v1.1",
+    "Ontology Core Conceptual Model v0.1",
+    "Ontology Architecture Compatibility Matrix v1.0",
+    "Ontology Migration Strategy v1.0",
+    "Ontology Rollback Strategy v1.0",
+    "Development Readiness Report v1.0 and Phase 0 Architecture Adoption Codex Pack v1.3, interpreted through v1.2",
+    "Repository-specific AGENTS.md rules, current task instructions, and existing implementation"
+  ],
+  "ownershipLock": {
+    "platformContractsOwns": [
+      "canonical Architecture governance",
+      "domain-neutral Ontology and DSL provenance contracts",
+      "API, event, compatibility, and migration contracts",
+      "deterministic cross-repository verification"
+    ],
+    "platformContractsDoesNotOwn": [
+      "operational Ontology runtime or data",
+      "ADO runtime",
+      "Manufacturing OS runtime or knowledge",
+      "customer or order operational truth"
+    ],
+    "adoOwns": [
+      "AI Company OS",
+      "Knowledge Core runtime",
+      "Ontology Builder orchestration",
+      "Company, Development, and Agent Ontology runtime",
+      "Entity, Relationship, Assertion, Evidence, Provenance, Conflict, Namespace, Version, Snapshot, query, traversal, question, Judge, approval-routing, Goal, Plan, Task, Agent, Fix, Plan DSL, agent-context, and Codex orchestration"
+    ],
+    "adoDoesNotOwn": [
+      "Manufacturing Ontology Pack",
+      "manufacturing semantic approval",
+      "Product DSL Generator",
+      "deterministic manufacturing calculations",
+      "Parts, Geometry, Drawing, 3D, BOM, manufacturing release",
+      "customer, order, quantity, price, invoice, or inventory truth"
+    ],
+    "manufacturingOsOwns": [
+      "Manufacturing Ontology Pack",
+      "manufacturing Entity and Relationship extensions",
+      "manufacturing semantic validation, Criticality, approval policy and surfaces",
+      "Product DSL Generator and Product Instance",
+      "deterministic Rule Engine, typed operators, Decimal and units, dependency and cycle evaluation, true/false/unknown, schema validation, trace, and Fail Closed",
+      "Parts, Geometry, Drawing, 3D, BOM, manufacturing release, manufacturing-start approval, and released packages"
+    ],
+    "orderEngineOwns": [
+      "customer",
+      "order",
+      "quantity",
+      "price",
+      "invoice",
+      "inventory"
+    ]
+  },
+  "humanApprovalLock": {
+    "humanExclusive": [
+      "Architecture and ADR adoption",
+      "authority-boundary exceptions",
+      "Critical manufacturing knowledge approval",
+      "required Product DSL approval",
+      "manufacturing release",
+      "manufacturing-start approval where required",
+      "production release",
+      "final merge"
+    ],
+    "confidenceIsApproval": false,
+    "judgeOutputIsApproval": false,
+    "verifierOutputIsApproval": false,
+    "workflowCompletionIsApproval": false,
+    "snapshotOrDslGenerationIsApproval": false
+  },
+  "namespaceLock": {
+    "families": [
+      "shared.*",
+      "document.*",
+      "company.*",
+      "development.*",
+      "agent.*",
+      "manufacturing.*",
+      "external-reference.*"
+    ],
+    "organizationIdRequired": true,
+    "explicitNamespaceRequired": true,
+    "domainOwnerRequired": true,
+    "readProposalApprovalWriteSeparated": true,
+    "leastPrivilegeRequired": true,
+    "immutableApprovedSnapshots": true,
+    "revocationAndSupersessionRequired": true,
+    "auditTraceRequired": true,
+    "unrestrictedSharedWriteAllowed": false
+  },
+  "storageLock": {
+    "approvedInitialPersistence": [
+      "PostgreSQL",
+      "Blob"
+    ],
+    "graphSemanticsPersistenceIndependent": true,
+    "graphDatabaseApproved": false,
+    "graphDatabaseRequiresFutureAdrAndHumanApproval": true
+  },
+  "productDslLock": {
+    "position": "immutable-versioned-execution-artifact",
+    "persistentKnowledgeTruth": false,
+    "generatorOwner": "Manufacturing OS",
+    "generatedFromFuture": "approved Ontology Snapshot",
+    "legacyImmutableAndReadable": true,
+    "futureProvenance": [
+      "ontologySnapshotId",
+      "ontologyVersion",
+      "ontologyContentHash",
+      "generatorVersion",
+      "evidenceReferences",
+      "ruleReferences",
+      "generatedAt",
+      "approvalState",
+      "contentHash"
+    ],
+    "futureProvenanceRequiredOnLegacyNow": false,
+    "migration": "additive-dual-read-reversible-human-gated"
+  },
+  "ruleLock": {
+    "contentLocation": "Ontology or approved Manufacturing Ontology Pack",
+    "deterministicEvaluatorLocation": "Manufacturing OS code",
+    "currentRuleEngineState": "legacy-pre-Ontology-unchanged",
+    "deterministicEvaluatorPreserved": true,
+    "productNameSpecificEvaluatorCodeAllowed": false
+  },
+  "pueLock": {
+    "currentRuntimeFlow": "PUE -> existing Product DSL pipeline",
+    "targetFlow": "PUE -> ADO Knowledge Core / Manufacturing Ontology -> approved Manufacturing Ontology Snapshot -> Manufacturing OS Product DSL Generator",
+    "currentPueReadsOrWritesOntology": false,
+    "targetImplemented": false
+  },
+  "integrationLock": {
+    "approvedBoundaries": [
+      "versioned APIs",
+      "versioned messages",
+      "versioned events",
+      "versioned artifacts",
+      "versioned Platform Contracts packages"
+    ],
+    "directCrossDomainDatabaseAccess": "prohibited",
+    "consumerInternalImports": "prohibited",
+    "consumerSourceTreeDependencies": "prohibited",
+    "mutableOrLatestOnlyAuthorityReferences": "prohibited"
+  },
+  "prohibitedAuthorityEscalation": {
+    "separateKnowledgeOsAuthorized": false,
+    "separateOntologyOsAuthorized": false,
+    "adoManufacturingSemanticOwnership": false,
+    "adoCriticalManufacturingApproval": false,
+    "platformOperationalOntologyOwnership": false,
+    "manufacturingAdoRuntimeOwnership": false,
+    "generatedArtifactHumanApproval": false
+  },
+  "adoptionProvenance": {
+    "platformContracts": {
+      "pullRequest": 4,
+      "finalHead": "dae464d4b676cdfbee5628997b767c677494b197",
+      "mergeCommit": "a6445ec5a7fa2e27dabcd49bc494da4b0a5c6672",
+      "mergedAt": "2026-08-05T22:06:06Z",
+      "headTree": "2f50f094d5c1dfe44fe880c3f4d015aa34fddca5",
+      "mergeTree": "2f50f094d5c1dfe44fe880c3f4d015aa34fddca5",
+      "humanMergerLogin": "asxeed-codex",
+      "autoMergeUsed": false
+    },
+    "ado": {
+      "pullRequest": 46,
+      "finalHead": "a465694830dd2f88e6898e269238317c55e2d62b",
+      "mergeCommit": "53dfe785de99425e22add7ab3e300ba9d3d75c1d",
+      "mergedAt": "2026-08-06T12:26:15Z",
+      "headTree": "abcd3b4d278a1b730172170dc7580dd366c31d4d",
+      "mergeTree": "abcd3b4d278a1b730172170dc7580dd366c31d4d",
+      "humanMergerLogin": "asxeed-codex",
+      "autoMergeUsed": false
+    },
+    "manufacturingOs": {
+      "pullRequest": 26,
+      "finalHead": "c99af6f0129f498c683c5b738d08610a5ab7f27a",
+      "mergeCommit": "b10cfe233d7323076cc1dec74ad3692b3ec96ad1",
+      "postMergeVerificationCommit": "c34bb03766683dc5d14b3093c23313312cccbcaf",
+      "mergedAt": "2026-08-06T13:30:48Z",
+      "headTree": "869138423d9fa9b1cb1bab3dffc9ede896af7428",
+      "mergeTree": "869138423d9fa9b1cb1bab3dffc9ede896af7428",
+      "humanMergerLogin": "asxeed-codex",
+      "autoMergeUsed": false
+    }
+  },
+  "historicalPreservation": {
+    "platformOa00EvidenceTree": "f81d9766a75212ee1e6f5144cc68134a7c0bd28f",
+    "adoOa00aEvidenceTree": "c4930e9fad0c6d37818b1a72dbd5c8dd19a52495",
+    "manufacturingOa00bEvidenceTree": "06b6d1d317da0b650b70795f974257a07afc618f",
+    "manufacturingPostMergeFixEvidenceTree": "a7061a672ac123051aef1dc48419a0979c451472",
+    "originalManufacturingCheckoutFingerprint": "975f6d14041c11725d9d4937f09b242a4c670deb40c4d909c45f48d51a1e708b"
+  },
+  "successorGatePolicy": {
+    "preMerge": {
+      "oa00c": "human-merge-required",
+      "oa01": "blocked",
+      "oa02AndLater": "blocked"
+    },
+    "postMerge": {
+      "oa00c": "formally-adopted",
+      "oa01": "eligible-ready",
+      "oa02AndLater": "dependency-blocked"
+    },
+    "gateStateSource": "Git and GitHub metadata located by docs/architecture/oa-00c-gate-metadata.json",
+    "sourceEditRequiredForPostMergeTransition": false
+  }
+}

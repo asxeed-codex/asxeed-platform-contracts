@@ -1,0 +1,31 @@
+{
+  "taskId": "OA-00C",
+  "status": "checkpoint-review-required",
+  "riskLevel": "critical",
+  "humanCheckpointRequired": true,
+  "humanCheckpointCompleted": false,
+  "mergeCompleted": false,
+  "autoMergeAllowed": false,
+  "agentApprovalClaimed": false,
+  "oa01Authorized": false,
+  "requiredMergeMethod": "squash",
+  "requiredFrozenBase": "a6445ec5a7fa2e27dabcd49bc494da4b0a5c6672",
+  "requiredPostMergeProof": [
+    "merge commit exists and descends from the authorized base",
+    "current Platform Contracts HEAD is the merge commit or a descendant",
+    "merge commit has exactly one parent",
+    "the sole parent is the exact authorized base",
+    "exactly one commit exists from the authorized base to the merge commit",
+    "the final PR head is not an ancestor of the merge commit",
+    "the final PR-head tree equals the merge-commit tree",
+    "the exact PR/base/head identity, non-bot human merger, mergedAt, and no-auto-merge evidence pass"
+  ],
+  "draftPr": {
+    "number": 5,
+    "url": "https://github.com/asxeed-codex/asxeed-platform-contracts/pull/5",
+    "state": "OPEN",
+    "isDraft": true,
+    "autoMerge": false
+  },
+  "nextAction": "A human must review Draft PR #5 and perform the exact frozen-base squash merge; OA-01 remains blocked until the verifier observes every required Git/GitHub provenance condition."
+}

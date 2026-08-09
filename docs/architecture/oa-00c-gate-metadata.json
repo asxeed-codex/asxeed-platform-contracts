@@ -1,0 +1,12 @@
+{
+  "metadataVersion": "1.0",
+  "taskId": "OA-00C",
+  "repository": "asxeed-codex/asxeed-platform-contracts",
+  "pullRequestNumber": 5,
+  "baseBranch": "main",
+  "headBranch": "codex/OA-00C-cross-repository-v1-2-verification",
+  "authorizedBaseCommit": "a6445ec5a7fa2e27dabcd49bc494da4b0a5c6672",
+  "mergeMethodPolicy": "squash",
+  "humanApprovalRequired": true,
+  "autoMergeAllowed": false
+}

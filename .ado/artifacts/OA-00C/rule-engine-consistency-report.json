@@ -1,0 +1,10 @@
+{
+  "taskId": "OA-00C",
+  "status": "pass",
+  "ruleContentOwner": "Ontology and Manufacturing Ontology Pack",
+  "deterministicEvaluatorOwner": "Manufacturing OS Rule Engine code",
+  "retainedCapabilities": ["typed operators", "Decimal calculations", "units", "dependency evaluation", "cycle detection", "true/false/unknown", "schema validation", "trace generation", "Fail Closed"],
+  "currentState": "legacy-pre-Ontology-unchanged",
+  "productNameSpecificCodeAllowed": false,
+  "conflicts": 0
+}

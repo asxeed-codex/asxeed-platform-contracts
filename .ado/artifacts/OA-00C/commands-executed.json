@@ -1,0 +1,142 @@
+{
+  "taskId": "OA-00C",
+  "status": "complete-through-draft-pr",
+  "commands": [
+    {
+      "command": "read the complete OA-00C task contract and mandatory repository authorities",
+      "exitCode": 0,
+      "result": "Task, governance, Architecture, ADR, technology, plan, boundary, migration, rollback, verifier, test, and evidence requirements inspected."
+    },
+    {
+      "command": "git and GitHub preflight for Platform Contracts, ADO, and Manufacturing OS",
+      "exitCode": 0,
+      "result": "Required branch, bases, pinned commits, clean verification worktrees, repository identities, prior human merge provenance, and GitHub authentication confirmed."
+    },
+    {
+      "command": "node scripts/verify-architecture-adoption.mjs; node scripts/verify-cross-repository-architecture-adoption.mjs; node scripts/verify-platform-contracts-agents-governance.mjs; node scripts/verify-ontology-architecture.mjs",
+      "exitCode": 0,
+      "result": "All four Platform Contracts baseline verifiers passed."
+    },
+    {
+      "command": "node --check scripts/verify-cross-repository-ontology-adoption.mjs",
+      "exitCode": 0,
+      "result": "New verifier syntax passed."
+    },
+    {
+      "command": "node --test test/crossRepositoryOntologyAdoption.test.js",
+      "exitCode": 0,
+      "result": "44/44 focused lifecycle and tamper tests passed."
+    },
+    {
+      "command": "node --test",
+      "exitCode": 0,
+      "result": "107/107 Platform Contracts tests passed; the prior baseline was 63/63."
+    },
+    {
+      "command": "ADO: three required verifiers; npm test; node --test",
+      "exitCode": 0,
+      "result": "All three verifiers passed; npm test and direct node --test each passed 200/200; checkout remained clean."
+    },
+    {
+      "command": "Manufacturing OS: npm run build; three required verifiers",
+      "exitCode": 0,
+      "result": "Build passed and all three verifiers passed; checkout remained clean."
+    },
+    {
+      "command": "Manufacturing OS: node --test in the read-only sandbox",
+      "exitCode": 1,
+      "result": "The first run was blocked only by EPERM while tests attempted to create ignored test-owned output directories; no source or tracked file failed."
+    },
+    {
+      "command": "Manufacturing OS: node --test; npm test with approved test-output write access",
+      "exitCode": 0,
+      "result": "Both invocations passed 133/133."
+    },
+    {
+      "command": "parse all repository JSON; validate Markdown through the Ontology verifier; git diff --check; changed-scope inspection",
+      "exitCode": 0,
+      "result": "Phase one parsed 52 JSON files before evidence creation; final validation parsed 73 JSON files, validated all 34 Markdown files and 94 relative links, passed diff check, and remained OA-00C-only."
+    },
+    {
+      "command": "original Manufacturing OS exact status fingerprint before and after verification",
+      "exitCode": 0,
+      "result": "Fingerprint remained 975f6d14041c11725d9d4937f09b242a4c670deb40c4d909c45f48d51a1e708b; no dirty filenames were recorded in evidence."
+    },
+    {
+      "command": "git add scoped phase-one files; git diff --cached --check/name-status/stat; git commit",
+      "exitCode": 0,
+      "result": "Reviewed exactly 26 scoped files and created implementation commit c345bfb3b3d73400d8ef6599928a97346582355f."
+    },
+    {
+      "command": "git push -u origin codex/OA-00C-cross-repository-v1-2-verification",
+      "exitCode": 0,
+      "result": "Remote branch publication succeeded; linked-worktree sandbox blocked only the local upstream/ref bookkeeping, which was repaired with git fetch and git branch --set-upstream-to."
+    },
+    {
+      "command": "gh pr create --draft --base main --head codex/OA-00C-cross-repository-v1-2-verification",
+      "exitCode": 0,
+      "result": "Created the single Draft PR #5 at https://github.com/asxeed-codex/asxeed-platform-contracts/pull/5."
+    },
+    {
+      "command": "gh pr view 5 with identity, lifecycle, merge, and auto-merge fields",
+      "exitCode": 0,
+      "result": "PR #5 was OPEN, Draft, based on main at the authorized base, headed by the exact task branch at the implementation commit, unmerged, and without auto-merge."
+    },
+    {
+      "command": "node scripts/verify-cross-repository-ontology-adoption.mjs after gate metadata creation",
+      "exitCode": 1,
+      "result": "First live run failed only on semantically equivalent adopted PUE target wording; all other checks passed. The comparison was narrowed to normalize only the two adopted wording variants."
+    },
+    {
+      "command": "focused tests and node scripts/verify-cross-repository-ontology-adoption.mjs after PUE wording normalization",
+      "exitCode": 0,
+      "result": "44/44 mutation tests and the complete live pre-merge gate passed; OA-01 remained blocked and the post-merge fixture remained valid without source changes."
+    },
+    {
+      "command": "final complete Platform verifier and test suite",
+      "exitCode": 0,
+      "result": "Five Platform verifiers passed; focused tests 44/44 and full tests 107/107 passed; 73 JSON files, 34 Markdown files, and 94 relative links validated."
+    },
+    {
+      "command": "read the complete OA-00C exact-squash provenance correction request; verify branch, HEAD, remote, PR #5, GitHub authentication, consumer checkouts, and original-checkout fingerprint",
+      "exitCode": 0,
+      "result": "Clean exact branch at f5df8a483637e4964d705dacb46ac2e2c50853e2; PR #5 OPEN/Draft/CLEAN at the frozen base OID with no auto-merge; consumers clean at pinned commits; original fingerprint unchanged."
+    },
+    {
+      "command": "inspect applicable Architecture Freeze, ADR-010/013/015/016/025/027/029/030, responsibility boundaries, plans, Task Graph, Sprint Plan, verifier, tests, gate metadata, static lock, and current OA-00C evidence",
+      "exitCode": 0,
+      "result": "The correction is compatible with the adopted architecture and strengthens the existing critical human gate without changing Architecture or contract semantics."
+    },
+    {
+      "command": "apply_patch scripts/verify-cross-repository-ontology-adoption.mjs and test/crossRepositoryOntologyAdoption.test.js",
+      "exitCode": 0,
+      "result": "Added frozen-base OID evidence, exact one-parent/one-commit squash history, PR-head non-ancestry, fail-closed successor derivation, and six deterministic regression cases."
+    },
+    {
+      "command": "node --check scripts/verify-cross-repository-ontology-adoption.mjs; node --test test/crossRepositoryOntologyAdoption.test.js; node scripts/verify-cross-repository-ontology-adoption.mjs",
+      "exitCode": 0,
+      "result": "Syntax passed; focused tests passed 50/50; the live pre-merge PR #5 gate passed and kept OA-01 blocked."
+    },
+    {
+      "command": "ADO: three required verifiers; npm test; node --test",
+      "exitCode": 0,
+      "result": "All three ADO verifiers passed; npm test and direct node --test each passed 200/200; checkout remained clean."
+    },
+    {
+      "command": "Manufacturing OS: npm run build; three required verifiers; npm test; node --test",
+      "exitCode": 0,
+      "result": "Build and all three verifiers passed; npm test and direct node --test each passed 133/133 with approved ignored test-output access; checkout remained clean."
+    },
+    {
+      "command": "complete Platform verifier and test suite after exact-squash correction",
+      "exitCode": 0,
+      "result": "All five Platform verifiers passed; focused tests passed 50/50; full Platform tests passed 113/113."
+    },
+    {
+      "command": "parse every tracked JSON file; validate every Markdown relative link; git diff --check; protected-file and changed-scope inspection",
+      "exitCode": 0,
+      "result": "73 JSON files parsed; all 34 Markdown files and 94 relative links validated; diff and nine-file amendment scope passed; protected Architecture, ADR, plan, lock, metadata, historical evidence, runtime, dependency, and consumer areas remained unchanged."
+    }
+  ],
+  "publicationCommandsRecorded": true
+}

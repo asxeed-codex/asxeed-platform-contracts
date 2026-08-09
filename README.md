@@ -10,6 +10,8 @@ The proposed OA-00 architecture package is indexed by [Architecture Freeze v1.2]
 
 Execution ordering is defined by [Master Implementation Plan v1.3](docs/plans/MASTER_IMPLEMENTATION_PLAN_v1.3.md), [Task Graph v1.3](docs/plans/ADO_TASK_GRAPH_v1.3.md), and [Sprint Plan v1.1](docs/plans/SPRINT_EXECUTION_PLAN_v1.1.md). Run the [OA-00 verifier](scripts/verify-ontology-architecture.mjs) to validate the proposed package.
 
+OA-00C cross-repository Architecture v1.2 verification is defined by the [human-readable verification record](docs/architecture/CROSS_REPOSITORY_ARCHITECTURE_V1_2_VERIFICATION.md), pinned by the [v1.2 adoption lock](docs/architecture/cross-repository-v1.2-adoption-lock.json) and [stable gate metadata](docs/architecture/oa-00c-gate-metadata.json), and enforced by the [Ontology adoption verifier](scripts/verify-cross-repository-ontology-adoption.mjs).
+
 P0-T01D cross-repository evidence is recorded in the [verification report](docs/reports/P0_T01D_CROSS_REPOSITORY_VERIFICATION.md) and pinned by the [cross-repository adoption lock](docs/architecture/cross-repository-adoption-lock.json).
 
 Run the deterministic governance check with:
@@ -19,6 +21,7 @@ node scripts/verify-architecture-adoption.mjs
 node scripts/verify-cross-repository-architecture-adoption.mjs
 node scripts/verify-platform-contracts-agents-governance.mjs
 node scripts/verify-ontology-architecture.mjs
+node scripts/verify-cross-repository-ontology-adoption.mjs
 ```
 
 Human direction for Architecture Freeze v1.2 is approved in principle, but formal adoption remains pending OA-00 human checkpoint review and merge. P0-T02C remains `checkpoint-review-required`; P0-T02D, P0-T03, OA-00A, and every later OA task remain blocked or `not-started`.

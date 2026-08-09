@@ -1,0 +1,70 @@
+{
+  "taskId": "OA-00C",
+  "status": "pass",
+  "architectureVersion": "1.2",
+  "repositoriesVerified": 3,
+  "exactCommitLocks": "pass",
+  "canonicalDocuments": {
+    "count": 18,
+    "hashes": "pass"
+  },
+  "taskGraph": {
+    "tasks": 115,
+    "predecessorIds": 103,
+    "oaIds": 12,
+    "missingDependencies": 0,
+    "cycles": 0,
+    "sprintOrderViolations": 0,
+    "status": "pass"
+  },
+  "authorityHierarchy": "pass",
+  "ownershipConflicts": 0,
+  "approvalConflicts": 0,
+  "namespaceConflicts": 0,
+  "productDslConflicts": 0,
+  "ruleEngineConflicts": 0,
+  "pueStateConflicts": 0,
+  "storageConflicts": 0,
+  "integrationConflicts": 0,
+  "consumerVerifiers": "pass",
+  "deterministicTests": "pass",
+  "liveOa00cGate": {
+    "status": "pass",
+    "lifecycle": "pre-merge",
+    "pullRequestNumber": 5,
+    "pullRequestState": "OPEN",
+    "isDraft": true,
+    "autoMerge": false,
+    "oa00c": "checkpoint-review-required",
+    "oa01": "blocked",
+    "oa02AndLater": "blocked"
+  },
+  "postMergeFixture": "pass-without-source-change",
+  "exactSquashHistory": {
+    "status": "pass",
+    "frozenAuthorizedBase": "a6445ec5a7fa2e27dabcd49bc494da4b0a5c6672",
+    "preMergeBaseOid": "verified-live",
+    "validPostMergeFixture": "pass",
+    "validFixtureModelsMultiplePrCommits": true,
+    "mergeParentCount": 1,
+    "soleMergeParent": "exact-authorized-base",
+    "commitsFromAuthorizedBaseToMerge": 1,
+    "prHeadAncestorOfMerge": false,
+    "prHeadMergeTreeEquivalent": true,
+    "normalTwoParentMerge": "rejected",
+    "wrongSoleParent": "rejected",
+    "multipleCommitsFromBase": "rejected",
+    "prHeadAncestorOfMergeAttempt": "rejected",
+    "treeMismatch": "rejected",
+    "invalidMergeOa01State": "blocked"
+  },
+  "focusedTests": {
+    "passed": 50,
+    "failed": 0
+  },
+  "fullPlatformTests": {
+    "passed": 113,
+    "failed": 0
+  },
+  "humanApprovalClaimed": false
+}
